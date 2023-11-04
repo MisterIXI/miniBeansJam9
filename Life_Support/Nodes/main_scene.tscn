@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://djlvppio26xr4"]
+
+[ext_resource type="PackedScene" uid="uid://djgl2mhv4p3df" path="res://Nodes/submarine_level.tscn" id="1_jk0pa"]
+
+[node name="MainScene" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_jk0pa")]
