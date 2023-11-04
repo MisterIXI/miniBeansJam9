@@ -1,7 +1,7 @@
 extends Node3D
 
-var maxHeight = -1000
-var currentHeight = -800
+var maxHeight = -9500
+var currentHeight = -8000
 
 var motorSpeed = 15
 var sinkingSpeed = -5
@@ -27,8 +27,8 @@ func _ready():
 	heightBar = get_node("Heightbar")
 	label = get_node("HeightLabel")
 	container = get_node("Container")
-	containerPosTop = container.global_transform.origin.y + container.get_scale().y * 0.3
-	containerPosBot = container.global_transform.origin.y - container.get_scale().y * 0.3
+	containerPosTop = container.transform.origin.y + container.get_scale().y * 0.3
+	containerPosBot = container.transform.origin.y - container.get_scale().y * 0.3
 
 	motorAlarmLamps = get_node("MotorAlarmLamps")
 
@@ -49,7 +49,7 @@ func UpdateHeightSensor(delta):
 		emit_signal("game_over")
 	else:
 		var nextPos = containerPosBot + (containerPosTop - containerPosBot) * (1 - (currentHeight / maxHeight))
-		heightBar.global_transform.origin = Vector3(heightBar.global_transform.origin.x , nextPos, heightBar.global_transform.origin.z)
+		heightBar.transform.origin = Vector3(heightBar.transform.origin.x , nextPos, heightBar.transform.origin.z)
 		label.text = str(round(currentHeight)) + "m"
 
 

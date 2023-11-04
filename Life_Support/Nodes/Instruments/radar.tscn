@@ -1,6 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://ba6kwn24afgeu"]
 
 [ext_resource type="Script" path="res://Scripts/Instruments/Radar.gd" id="1_fb1il"]
+[ext_resource type="Material" uid="uid://db3jl0lmmi6fk" path="res://Assets/Materials/radar.tres" id="2_hffbc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftrl4"]
 albedo_color = Color(0, 0.141176, 0.141176, 1)
@@ -10,7 +11,9 @@ material = SubResource("StandardMaterial3D_ftrl4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_252ki"]
 albedo_color = Color(0, 0.494118, 0.482353, 1)
+emission_enabled = true
 emission = Color(0, 0.733333, 0.611765, 1)
+emission_energy_multiplier = 4.4
 
 [sub_resource type="BoxMesh" id="BoxMesh_lmeat"]
 material = SubResource("StandardMaterial3D_252ki")
@@ -18,18 +21,16 @@ material = SubResource("StandardMaterial3D_252ki")
 [sub_resource type="BoxShape3D" id="BoxShape3D_7brmj"]
 size = Vector3(1, 6.93, 0.805)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_618nm"]
-albedo_color = Color(0, 0.494118, 0.482353, 1)
-emission = Color(0, 0.733333, 0.611765, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_qeipc"]
-material = SubResource("StandardMaterial3D_618nm")
+material = ExtResource("2_hffbc")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4g8u4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1w75"]
 albedo_color = Color(0, 0.494118, 0.482353, 1)
+emission_enabled = true
 emission = Color(0, 0.733333, 0.611765, 1)
+emission_energy_multiplier = 4.4
 
 [sub_resource type="TubeTrailMesh" id="TubeTrailMesh_wv1aj"]
 material = SubResource("StandardMaterial3D_b1w75")
@@ -98,7 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
 curve = SubResource("Curve3D_0f2l3")
 
 [node name="Follow" type="PathFollow3D" parent="Path"]
-transform = Transform3D(-0.710642, 0, 0.703529, 0, 0.999987, 0, -0.703528, 0, -0.710642, 0, 0, 0)
+transform = Transform3D(-0.710642, 0, 0.703529, 0, 0.999987, 0, -0.703528, 0, -0.710642, 0.665302, 0, 0.0395253)
 progress = 0.056424
 loop = false
 tilt_enabled = false
