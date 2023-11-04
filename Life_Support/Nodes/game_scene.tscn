@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3jue7eqlf7b5"]
+
+[ext_resource type="PackedScene" uid="uid://g864a13ujg47" path="res://Nodes/player.tscn" id="1_yo14r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo2ym"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ffec8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h3s7k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04yfv"]
+albedo_color = Color(0.313726, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hp2e"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="GameScene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13619, -0.0670338, -0.0655098)
+
+[node name="Player" parent="." instance=ExtResource("1_yo14r")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_color = Color(1, 0.615686, 0.227451, 1)
+
+[node name="Cockpit" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40337, 55.3204)
+use_collision = true
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_fo2ym")
+
+[node name="CyroBox01" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5337, 1.40337, 27.8883)
+use_collision = true
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_fo2ym")
+
+[node name="CyroBox02" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5337, 1.40337, 22.7524)
+use_collision = true
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_fo2ym")
+
+[node name="CyroBox03" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5337, 1.40337, 17.8719)
+use_collision = true
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_fo2ym")
+
+[node name="CyroBox04" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5337, 1.40337, 13.5085)
+use_collision = true
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_fo2ym")
+
+[node name="Motor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.862709, 2.56602, -55.3759)
+use_collision = true
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_fo2ym")
+
+[node name="Enviroment" type="Node3D" parent="."]
+
+[node name="Obstacle" type="StaticBody3D" parent="Enviroment"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 11.7385, 0.834233, 7.32932)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/Obstacle"]
+shape = SubResource("BoxShape3D_ffec8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enviroment/Obstacle"]
+mesh = SubResource("BoxMesh_h3s7k")
+
+[node name="Obstacle2" type="StaticBody3D" parent="Enviroment"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.97565, 0.834233, 15.2064)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/Obstacle2"]
+shape = SubResource("BoxShape3D_ffec8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enviroment/Obstacle2"]
+mesh = SubResource("BoxMesh_h3s7k")
+
+[node name="Obstacle3" type="StaticBody3D" parent="Enviroment"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9.45696, 3.95344, 15.2064)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/Obstacle3"]
+shape = SubResource("BoxShape3D_ffec8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enviroment/Obstacle3"]
+mesh = SubResource("BoxMesh_h3s7k")
+
+[node name="crouchTest2" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99664, 2.36126, 27.9283)
+use_collision = true
+size = Vector3(23.4311, 1, 5)
+
+[node name="Ground" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0130191, -0.397692, -0.675105)
+use_collision = true
+size = Vector3(40, 0, 120)
+material = SubResource("StandardMaterial3D_04yfv")
+
+[node name="crouchTest" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0918, 1.17984, -17.1016)
+use_collision = true
+size = Vector3(5, 1, 15.006)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03449, -34.6528)
+use_collision = true
+size = Vector3(3, 5, 3)
+material = SubResource("StandardMaterial3D_8hp2e")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41276, -26.3871)
+use_collision = true
+size = Vector3(3, 2, 3)
+material = SubResource("StandardMaterial3D_8hp2e")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.54187, -43.1304)
+use_collision = true
+size = Vector3(3, 6, 3)
+material = SubResource("StandardMaterial3D_8hp2e")
