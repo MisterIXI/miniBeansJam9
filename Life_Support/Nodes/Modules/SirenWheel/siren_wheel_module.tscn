@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ua4sjor55qqj"]
 
 [ext_resource type="Script" path="res://Scripts/SirenWheel.gd" id="1_3u721"]
-[ext_resource type="Texture2D" uid="uid://bnts4k28lcdiy" path="res://Assets/Textures/ValveWheel.png" id="2_mthh4"]
+[ext_resource type="Texture2D" path="res://Assets/Textures/ValveWheel.png" id="2_mthh4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npjer"]
 radius = 170.144
