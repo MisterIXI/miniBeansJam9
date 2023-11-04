@@ -1,0 +1,164 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0ml1y3b8ryeg"]
+
+[ext_resource type="Theme" uid="uid://b32w5x4g7q7o0" path="res://Assets/Textures/UI/theme.tres" id="1_48ipl"]
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_s8tpv"]
+[ext_resource type="Texture2D" uid="uid://dggcepdvhhgo3" path="res://Assets/Textures/UI/Yannik.png" id="5_mlenr"]
+[ext_resource type="Texture2D" uid="uid://c8vdcdy72o3ea" path="res://Assets/Textures/UI/Phillip.png" id="6_vrlmw"]
+[ext_resource type="Texture2D" uid="uid://b0qph5xgl8tg2" path="res://Assets/Textures/UI/Oliver.png" id="7_iry1u"]
+[ext_resource type="Texture2D" uid="uid://bfpgv4ge6g7n0" path="res://Assets/Textures/UI/Robert.png" id="8_6k7ko"]
+[ext_resource type="Texture2D" uid="uid://dpyeqtt0lfawu" path="res://Assets/Textures/UI/Pattrick.png" id="9_kjfdn"]
+
+[node name="CreditMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s8tpv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(900, 920)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Header" type="RichTextLabel" parent="MarginContainer/Content"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_48ipl")
+theme_override_font_sizes/normal_font_size = 40
+text = "For the MiniBeansJam 9 -  11/03/23"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Content"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="Yannik" type="Label" parent="MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Yannik Brändle
+Programming"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Content/HBoxContainer/Yannik"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+offset_top = 150.0
+offset_right = 150.0
+offset_bottom = 300.0
+texture = ExtResource("5_mlenr")
+expand_mode = 1
+
+[node name="PlaceHolder" type="RichTextLabel" parent="MarginContainer/Content/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Phillip" type="Label" parent="MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Philipp Becker
+Artist"
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/Content/HBoxContainer/Phillip"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+offset_top = 150.0
+offset_right = 150.0
+offset_bottom = 300.0
+texture = ExtResource("6_vrlmw")
+expand_mode = 1
+
+[node name="PlaceHolder2" type="RichTextLabel" parent="MarginContainer/Content/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Oliver" type="Label" parent="MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Oliver Pohl
+Programming"
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/Content/HBoxContainer/Oliver"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+offset_top = 150.0
+offset_right = 150.0
+offset_bottom = 300.0
+texture = ExtResource("7_iry1u")
+expand_mode = 1
+
+[node name="PlaceHolder3" type="RichTextLabel" parent="MarginContainer/Content/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Robert" type="Label" parent="MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Robert Mögenburg
+Artist / UI"
+horizontal_alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/Content/HBoxContainer/Robert"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+offset_top = 150.0
+offset_right = 150.0
+offset_bottom = 300.0
+texture = ExtResource("8_6k7ko")
+expand_mode = 1
+
+[node name="PlaceHolder4" type="RichTextLabel" parent="MarginContainer/Content/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Patrick" type="Label" parent="MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Pattrick
+Sound"
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/Content/HBoxContainer/Patrick"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+offset_left = -50.0
+offset_top = 150.0
+offset_right = 100.0
+offset_bottom = 300.0
+texture = ExtResource("9_kjfdn")
+expand_mode = 1
+
+[node name="PlaceHolder5" type="RichTextLabel" parent="MarginContainer/Content/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="placeholder" type="RichTextLabel" parent="MarginContainer/Content"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_48ipl")
+theme_override_font_sizes/normal_font_size = 40
+
+[node name="Header2" type="RichTextLabel" parent="MarginContainer/Content"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_48ipl")
+theme_override_font_sizes/normal_font_size = 40
+text = "thanks for playing"

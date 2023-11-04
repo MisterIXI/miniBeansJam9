@@ -1,0 +1,134 @@
+[gd_scene load_steps=4 format=3 uid="uid://driu5hknh1ine"]
+
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_nqilw"]
+[ext_resource type="Theme" uid="uid://b32w5x4g7q7o0" path="res://Assets/Textures/UI/theme.tres" id="1_xk30x"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yj3ff"]
+
+[node name="SettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nqilw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ContentContainer" type="VBoxContainer" parent="MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(1000, 800)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="PlaceHolder" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+
+[node name="HBoxContainerLabel" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Music Volume"
+
+[node name="placeholder" type="TextureRect" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Sound Volume"
+
+[node name="placeholder2" type="TextureRect" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Mouse Sensitivity"
+
+[node name="placeholder3" type="TextureRect" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Invert Y-Axis"
+
+[node name="placeholder4" type="TextureRect" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Fullscreen"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="VSlider_Music" type="VSlider" parent="MarginContainer/ContentContainer/HBoxContainer2"]
+modulate = Color(0, 0, 0.337255, 1)
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+value = 50.0
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/ContentContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="VSlider2_Sound" type="VSlider" parent="MarginContainer/ContentContainer/HBoxContainer2"]
+modulate = Color(0, 0, 0.337255, 1)
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+value = 50.0
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/ContentContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="VSlider3_MouseS" type="VSlider" parent="MarginContainer/ContentContainer/HBoxContainer2"]
+modulate = Color(0, 0, 0.337255, 1)
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+value = 50.0
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/ContentContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="CheckBox_Invert" type="CheckBox" parent="MarginContainer/ContentContainer/HBoxContainer2"]
+material = SubResource("CanvasItemMaterial_yj3ff")
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+theme = ExtResource("1_xk30x")
+text = "Mouse Y-Axis"
+
+[node name="VSeparator4" type="VSeparator" parent="MarginContainer/ContentContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="CheckBox2_Screen" type="CheckBox" parent="MarginContainer/ContentContainer/HBoxContainer2"]
+material = SubResource("CanvasItemMaterial_yj3ff")
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+theme = ExtResource("1_xk30x")
+text = "Change to Fullscreen / Window"
