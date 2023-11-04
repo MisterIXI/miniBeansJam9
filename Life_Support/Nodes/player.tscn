@@ -1,20 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://g864a13ujg47"]
+[gd_scene load_steps=4 format=3 uid="uid://g864a13ujg47"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_movje"]
+[ext_resource type="Script" path="res://Scripts/PlayerControllerNew.gd" id="1_jrx77"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p6eg1"]
 
-[node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_movje")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j5hqe"]
+radius = 0.4
+height = 0.8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_jrx77")
+
+[node name="CollisionShape_stand" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_p6eg1")
 
+[node name="CollisionShape_crouch" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_j5hqe")
+
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976051, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976051, 0)
 
-[node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.595239, 0)
+[node name="CrouchRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976051, 0)
+enabled = false
+target_position = Vector3(0, 2, 0)
 
-[node name="CameraMain" type="Camera3D" parent="Head"]
+[node name="Nek" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Head" type="Node3D" parent="Nek"]
+
+[node name="CameraMain" type="Camera3D" parent="Nek/Head"]
+
+[node name="ObjectUI_Raycast" type="RayCast3D" parent="Nek/Head/CameraMain"]
+target_position = Vector3(0, 0, -3)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Nek/Head/CameraMain/ObjectUI_Raycast"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -85.0
+offset_right = 118.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
