@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo6spjh87ufjq"]
+[gd_scene load_steps=6 format=3 uid="uid://bo6spjh87ufjq"]
 
 [ext_resource type="Script" path="res://Scripts/Instruments/HeightSensor.gd" id="1_vfhwn"]
+[ext_resource type="FontFile" uid="uid://clvdnk4auwesp" path="res://Assets/Fonts/DS-DIGI.TTF" id="2_v2vag"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_16ira"]
 
@@ -25,6 +26,7 @@ skeleton = NodePath("../Container")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.398034, -0.0437284)
 pixel_size = 0.002
 text = "- 17m"
+font = ExtResource("2_v2vag")
 
 [node name="Container" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000616938, 0.00752735, -0.0334778)
