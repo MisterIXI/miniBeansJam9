@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxvti8tcxwp4q"]
+
+[ext_resource type="Script" path="res://Scripts/Water/ShipDamage.gd" id="1_wrf2q"]
+[ext_resource type="PackedScene" uid="uid://csaahwgp144o" path="res://Nodes/Water/water.tscn" id="2_2ff62"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0awg1"]
+
+[node name="ShipDamage" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.23024, 2.19228, 5.70756)
+script = ExtResource("1_wrf2q")
+
+[node name="Pipes" type="Node3D" parent="."]
+
+[node name="Right" type="Node3D" parent="Pipes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.76797)
+
+[node name="Pipe2" type="MeshInstance3D" parent="Pipes/Right"]
+transform = Transform3D(6.97, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.691, 0.0569999, -0.0107222)
+visible = false
+mesh = SubResource("BoxMesh_0awg1")
+
+[node name="Left" type="Node3D" parent="Pipes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.11007)
+
+[node name="Pipe1" type="MeshInstance3D" parent="Pipes/Left"]
+transform = Transform3D(7.32, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.662756, 0.0592921, -0.043386)
+visible = false
+mesh = SubResource("BoxMesh_0awg1")
+
+[node name="Water" parent="." instance=ExtResource("2_2ff62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07719, -1.95836, -0.122089)

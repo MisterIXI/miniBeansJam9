@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://0jn2jmlgt0ed" path="res://Assets/Materials/Water/WaterShaderMaterial.tres" id="1_h7clf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iyh4a"]
-size = Vector2(15, 15)
+size = Vector2(25, 15)
 subdivide_width = 200
 subdivide_depth = 200
 

@@ -1,17 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo6spjh87ufjq"]
+[gd_scene load_steps=10 format=3 uid="uid://bo6spjh87ufjq"]
 
 [ext_resource type="Script" path="res://Scripts/Instruments/HeightSensor.gd" id="1_vfhwn"]
+[ext_resource type="Material" uid="uid://db3jl0lmmi6fk" path="res://Assets/Materials/radar.tres" id="2_gpllb"]
 [ext_resource type="FontFile" uid="uid://clvdnk4auwesp" path="res://Assets/Fonts/DS-DIGI.TTF" id="2_v2vag"]
+[ext_resource type="Material" uid="uid://b432225cjxob7" path="res://Assets/Materials/radarbg.tres" id="4_dkm81"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_16ira"]
+material = ExtResource("2_gpllb")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ybskq"]
+material = ExtResource("4_dkm81")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmj1r"]
 transparency = 1
-albedo_color = Color(0.0627451, 0.258824, 0.2, 0.431373)
+albedo_color = Color(0.027451, 0.0117647, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_14cn2"]
 material = SubResource("StandardMaterial3D_vmj1r")
 size = Vector3(0.275, 0.685, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qo7u5"]
 
 [node name="HeightSensor" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0709775, 1.96515, 7.34029)
@@ -23,19 +31,31 @@ mesh = SubResource("BoxMesh_16ira")
 skeleton = NodePath("../Container")
 
 [node name="HeightLabel" type="Label3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.398034, -0.0437284)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.376341, 0.277058, -0.0676174)
 pixel_size = 0.002
+outline_modulate = Color(0, 0.431373, 0.521569, 1)
 text = "- 17m"
 font = ExtResource("2_v2vag")
+font_size = 31
+
+[node name="Sign" type="MeshInstance3D" parent="HeightLabel"]
+transform = Transform3D(-0.24, 0, 1.13247e-08, 0, 0.14, 0, -3.6239e-08, 0, -0.075, 0.00487742, 3.02792e-05, -0.0375762)
+mesh = SubResource("BoxMesh_ybskq")
+skeleton = NodePath("../..")
 
 [node name="Container" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000616938, 0.00752735, -0.0334778)
 mesh = SubResource("BoxMesh_14cn2")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Container"]
+transform = Transform3D(0.28, 0, 0, 0, 0.69, 0, 0, 0, 0.025, 0, 0, 4.91142e-05)
+material_override = ExtResource("4_dkm81")
+mesh = SubResource("BoxMesh_qo7u5")
+
 [node name="MotorAlarmLamps" type="Node3D" parent="."]
 
 [node name="MotorAlarmLamp1" type="SpotLight3D" parent="MotorAlarmLamps"]
-transform = Transform3D(1, 0, 0, 0, -0.0523359, 0.99863, 0, -0.99863, -0.0523359, 0.0498206, 1.11335, -0.554209)
+transform = Transform3D(1, 0, 0, 0, -0.0523359, 0.99863, 0, -0.99863, -0.0523359, 0.0498206, 1.11335, -3.96551)
 light_color = Color(0.733333, 0, 0.0588235, 1)
 light_energy = 16.0
 light_specular = 0.9
