@@ -91,10 +91,22 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(0.757272, -0.0145116, 0.652939, -0.0139519, 0.999166, 0.0383878, -0.652951, -0.0381797, 0.756437, 6.28913, 4.63044, 8)
+current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/Camera3D"]
 libraries = {
 "": SubResource("AnimationLibrary_udp34")
 }
 
-[node name="Control" parent="." instance=ExtResource("1_4ccrv")]
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(0.964191, 0.260951, 0.0473303, -0.262796, 0.916066, 0.302923, 0.0356902, -0.304513, 0.951839, 0, 0, 0)
+light_color = Color(0, 0, 0.337255, 1)
+light_energy = 3.999
+spot_range = 11.0497
+spot_angle = 8.83025
+
+[node name="Global_UI" parent="." instance=ExtResource("1_4ccrv")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.13805, 0.990425, 0, -0.990425, -0.13805, 0, 7.6169, -2.15314)
+light_energy = 3.857

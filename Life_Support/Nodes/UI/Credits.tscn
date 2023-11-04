@@ -1,9 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0ml1y3b8ryeg"]
+[gd_scene load_steps=8 format=3 uid="uid://b0ml1y3b8ryeg"]
 
 [ext_resource type="Theme" uid="uid://b32w5x4g7q7o0" path="res://Assets/Textures/UI/theme.tres" id="1_48ipl"]
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_s8tpv"]
-[ext_resource type="StyleBox" uid="uid://cbylmou68dbqw" path="res://Assets/Textures/UI/style_boxy.tres" id="2_qglj7"]
-[ext_resource type="StyleBox" uid="uid://bsjbr8wm3qfsk" path="res://Assets/Textures/UI/style_box_hover.tres" id="3_80rwv"]
 [ext_resource type="Texture2D" uid="uid://dggcepdvhhgo3" path="res://Assets/Textures/UI/Yannik.png" id="5_mlenr"]
 [ext_resource type="Texture2D" uid="uid://c8vdcdy72o3ea" path="res://Assets/Textures/UI/Phillip.png" id="6_vrlmw"]
 [ext_resource type="Texture2D" uid="uid://b0qph5xgl8tg2" path="res://Assets/Textures/UI/Oliver.png" id="7_iry1u"]
@@ -33,73 +31,6 @@ theme_override_constants/margin_bottom = 80
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_48ipl")
-theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 100
-text = "Life Support"
-
-[node name="LabeleDescription" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_48ipl")
-theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 25
-text = "                                                 Deep Sea Adventure"
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-
-[node name="Button_Start" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_48ipl")
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("2_qglj7")
-theme_override_styles/hover = ExtResource("3_80rwv")
-text = "Start"
-
-[node name="Button_Settings" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_48ipl")
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("2_qglj7")
-theme_override_styles/hover = ExtResource("3_80rwv")
-text = "Settings"
-
-[node name="Button_Credits" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_48ipl")
-theme_override_colors/font_color = Color(0, 0, 0.337255, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
-theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = ExtResource("2_qglj7")
-theme_override_styles/hover = ExtResource("3_80rwv")
-disabled = true
-text = "Credits"
-
-[node name="Button_Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_48ipl")
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("2_qglj7")
-theme_override_styles/hover = ExtResource("3_80rwv")
-text = "Quit"
 
 [node name="Content" type="VBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(900, 920)
@@ -231,7 +162,3 @@ size_flags_vertical = 4
 theme = ExtResource("1_48ipl")
 theme_override_font_sizes/normal_font_size = 40
 text = "thanks for playing"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]

@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://driu5hknh1ine"]
+[gd_scene load_steps=4 format=3 uid="uid://driu5hknh1ine"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_nqilw"]
 [ext_resource type="Theme" uid="uid://b32w5x4g7q7o0" path="res://Assets/Textures/UI/theme.tres" id="1_xk30x"]
-[ext_resource type="StyleBox" uid="uid://cbylmou68dbqw" path="res://Assets/Textures/UI/style_boxy.tres" id="2_ohleu"]
-[ext_resource type="StyleBox" uid="uid://bsjbr8wm3qfsk" path="res://Assets/Textures/UI/style_box_hover.tres" id="3_o86a5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yj3ff"]
 
@@ -17,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_nqilw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,74 +30,8 @@ theme_override_constants/margin_bottom = 80
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_xk30x")
-theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 100
-text = "Life Support"
-
-[node name="LabeleDescription" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_xk30x")
-theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 25
-text = "                                                 Deep Sea Adventure"
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-
-[node name="Button_Start" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_xk30x")
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("2_ohleu")
-theme_override_styles/hover = ExtResource("3_o86a5")
-text = "Start"
-
-[node name="Button_Settings" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_xk30x")
-theme_override_colors/font_color = Color(0, 0, 0.337255, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("2_ohleu")
-theme_override_styles/hover = ExtResource("3_o86a5")
-disabled = true
-text = "Settings"
-
-[node name="Button_Credits" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_xk30x")
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("2_ohleu")
-theme_override_styles/hover = ExtResource("3_o86a5")
-text = "Credits"
-
-[node name="Button_Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_xk30x")
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("2_ohleu")
-theme_override_styles/hover = ExtResource("3_o86a5")
-text = "Quit"
-
 [node name="ContentContainer" type="VBoxContainer" parent="MarginContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(1000, 800)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -199,12 +132,3 @@ custom_minimum_size = Vector2(300, 250)
 layout_mode = 2
 theme = ExtResource("1_xk30x")
 text = "Change to Fullscreen / Window"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Start" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Quit" to="." method="_on_quit_pressed"]
-[connection signal="value_changed" from="MarginContainer/ContentContainer/HBoxContainer2/VSlider_Music" to="." method="_on_v_slider_music_value_changed"]
-[connection signal="value_changed" from="MarginContainer/ContentContainer/HBoxContainer2/VSlider2_Sound" to="." method="_on_v_slider_2_sound_value_changed"]
-[connection signal="value_changed" from="MarginContainer/ContentContainer/HBoxContainer2/VSlider3_MouseS" to="." method="_on_v_slider_3_mouse_s_value_changed"]
-[connection signal="toggled" from="MarginContainer/ContentContainer/HBoxContainer2/CheckBox_Invert" to="." method="_on_check_box_invert_toggled"]
-[connection signal="toggled" from="MarginContainer/ContentContainer/HBoxContainer2/CheckBox2_Screen" to="." method="_on_check_box_2_screen_toggled"]

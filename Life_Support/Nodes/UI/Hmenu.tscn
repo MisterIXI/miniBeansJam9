@@ -93,7 +93,7 @@ theme_override_styles/normal = ExtResource("2_3kscv")
 theme_override_styles/hover = ExtResource("3_1svqq")
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Start" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Settings" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Quit" to="." method="_on_quit_pressed"]
