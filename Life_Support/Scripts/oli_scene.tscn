@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2w5iyvwwr7yp"]
+[gd_scene load_steps=7 format=3 uid="uid://d2w5iyvwwr7yp"]
 
 [ext_resource type="PackedScene" uid="uid://bo6spjh87ufjq" path="res://Nodes/Instruments/HeightSensor.tscn" id="1_qo7ug"]
+[ext_resource type="Script" path="res://Scripts/Instruments/Radar.gd" id="2_5b03c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ditwn"]
 
@@ -10,7 +11,19 @@ albedo_color = Color(0.054902, 0.054902, 0.054902, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_wnaw3"]
 material = SubResource("StandardMaterial3D_qwlb3")
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_dpwkw"]
+
 [node name="OliScene" type="Node3D"]
+
+[node name="Table" type="StaticBody3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1.47, -2.23169, 0.473072, 6.98135)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table"]
+shape = SubResource("BoxShape3D_ditwn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0366988, 0)
+mesh = SubResource("BoxMesh_wnaw3")
 
 [node name="Wall" type="StaticBody3D" parent="."]
 transform = Transform3D(7.59, 0, 0, 0, 2.538, 0, 0, 0, 1, 0, 1.44857, 7.81573)
@@ -40,5 +53,13 @@ transform = Transform3D(-0.999971, 0, -0.00766186, 0, 1, 0, 0.00766186, 0, -0.99
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.956238, 0, -0.292589, -0.227432, 0.629117, 0.743294, 0.184072, 0.777311, -0.601586, -0.0107042, 0, -0.0847955)
+
+[node name="Radar" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50587, 0.978702, 6.65555)
+script = ExtResource("2_5b03c")
+
+[node name="Plate" type="MeshInstance3D" parent="Radar"]
+transform = Transform3D(0.65, 0, 0, 0, 0.01, 0, 0, 0, 0.65, 0.239769, 0.0401433, 0.0646148)
+mesh = SubResource("CylinderMesh_dpwkw")
 
 [editable path="HeightSensor"]
