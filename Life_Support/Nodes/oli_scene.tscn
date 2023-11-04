@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfpm7c0unkyey"]
+[gd_scene load_steps=9 format=3 uid="uid://cfpm7c0unkyey"]
 
-[ext_resource type="PackedScene" uid="uid://bo6spjh87ufjq" path="res://Nodes/Instruments/HeightSensor.tscn" id="1_qo7ug"]
-[ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="2_uprb5"]
+[ext_resource type="PackedScene" uid="uid://bo6spjh87ufjq" path="res://Nodes/Instruments/HeightSensor.tscn" id="1_ujuma"]
+[ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="2_babkr"]
+[ext_resource type="PackedScene" uid="uid://cdshecfrfr2pl" path="res://Nodes/Water/water_leak.tscn" id="3_ailgf"]
+[ext_resource type="PackedScene" uid="uid://csaahwgp144o" path="res://Nodes/Water/water.tscn" id="4_4kbkn"]
+[ext_resource type="PackedScene" uid="uid://rh3daoj5a7fw" path="res://Nodes/Water/water_drops.tscn" id="5_03am5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ditwn"]
 
@@ -33,7 +36,7 @@ shape = SubResource("BoxShape3D_ditwn")
 mesh = SubResource("BoxMesh_wnaw3")
 skeleton = NodePath("../..")
 
-[node name="HeightSensor" parent="." instance=ExtResource("1_qo7ug")]
+[node name="HeightSensor" parent="." instance=ExtResource("1_ujuma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.070607, 1.99434, 7.34974)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -42,4 +45,15 @@ transform = Transform3D(-0.999971, 0, -0.00766186, 0, 1, 0, 0.00766186, 0, -0.99
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.956238, 0, -0.292589, -0.227432, 0.629117, 0.743294, 0.184072, 0.777311, -0.601586, -0.0107042, 0, -0.0847955)
 
-[node name="Radar" parent="." instance=ExtResource("2_uprb5")]
+[node name="Radar" parent="." instance=ExtResource("2_babkr")]
+
+[node name="WaterLeak" parent="." instance=ExtResource("3_ailgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39181, 1.98733, 7.30143)
+visible = false
+
+[node name="Water" parent="." instance=ExtResource("4_4kbkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.426252, 4.95948)
+visible = false
+
+[node name="WaterDrops" parent="." instance=ExtResource("5_03am5")]
+visible = false
