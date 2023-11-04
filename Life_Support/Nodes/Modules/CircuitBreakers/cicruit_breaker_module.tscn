@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd660if3bqlve"]
+
+[ext_resource type="Script" path="res://Scripts/CircuitBreakerModule.gd" id="1_137eb"]
+[ext_resource type="Texture2D" uid="uid://bo3v5s5seuyep" path="res://icon.svg" id="2_ji1cr"]
+[ext_resource type="PackedScene" uid="uid://71l2tdql2yb" path="res://Nodes/Modules/CircuitBreakers/circuit_breaker.tscn" id="3_s12mr"]
+
+[node name="CicruitBreakerModule" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_137eb")
+circuit_breaker_node = ExtResource("3_s12mr")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(579.5, 327)
+scale = Vector2(8.99219, 4.98438)
+texture = ExtResource("2_ji1cr")
