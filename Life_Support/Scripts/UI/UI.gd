@@ -21,10 +21,10 @@ var GAMEVAR_ISPAUSED = false
 
 
 func _ready():
-	button_Start.connect("pressed", self._on_play_pressed())
-	button_Settings.connect("pressed",self._on_options_pressed())
-	button_Credits.connect("pressed", self._on_credits_pressed()) 
-	button_Quit.connect("pressed", self._on_quit_pressed())
+	button_Start.connect("pressed", self._on_play_pressed)
+	button_Settings.connect("pressed",self._on_options_pressed)
+	button_Credits.connect("pressed", self._on_credits_pressed) 
+	button_Quit.connect("pressed", self._on_quit_pressed)
 
 func _on_resume_pressed():
 	ShowNode(self,false)
@@ -32,7 +32,7 @@ func _on_resume_pressed():
 	# TIMESCALE  ?!
 	
 func _on_play_pressed():
-	get_tree().get_tree().change_scene_to_file("res://Nodes/game_scene.tscn")
+	get_tree().change_scene("res://Nodes/game_scene.tscn")
 	ShowNode(self,false)
 	print("PLAY")
 
