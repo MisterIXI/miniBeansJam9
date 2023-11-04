@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqoopbin4k5jo"]
+
+[ext_resource type="Script" path="res://Scripts/DuctTape/DuctTapeCrack.gd" id="1_t1kbb"]
+[ext_resource type="Texture2D" uid="uid://bo3v5s5seuyep" path="res://icon.svg" id="2_5utd7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmi4h"]
+
+[sub_resource type="Curve" id="Curve_cu0ko"]
+_data = [Vector2(0.386546, 0.874739), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.81668, 0.0, 0, 0]
+point_count = 2
+
+[node name="Crack" type="StaticBody2D" groups=["crack"]]
+position = Vector2(318, 253)
+script = ExtResource("1_t1kbb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("2_5utd7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_tmi4h")
+
+[node name="WaterParticles" type="CPUParticles2D" parent="."]
+amount = 50
+spread = 139.19
+initial_velocity_min = 259.69
+initial_velocity_max = 259.69
+scale_amount_min = 7.75
+scale_amount_max = 12.62
+scale_amount_curve = SubResource("Curve_cu0ko")
+color = Color(0, 0, 1, 1)

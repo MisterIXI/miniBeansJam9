@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmjxfu0vcre3w"]
+
+[ext_resource type="Script" path="res://Nodes/Modules/SlidingRegulator/RegulatorBox.gd" id="1_5npxt"]
+[ext_resource type="PackedScene" uid="uid://bwaixhr6jyh4i" path="res://Nodes/Modules/SlidingRegulator/slider_box.tscn" id="1_iyyvv"]
+
+[node name="SlidingRegulatorModule" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 195.0
+offset_top = 26.0
+offset_right = -157.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_5npxt")
+
+[node name="SliderBox" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("1_iyyvv")]
+layout_mode = 2
+
+[node name="SliderBox2" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("1_iyyvv")]
+layout_mode = 2
+
+[node name="SliderBox3" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("1_iyyvv")]
+layout_mode = 2
+
+[node name="SliderBox4" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("1_iyyvv")]
+layout_mode = 2
+
+[node name="SliderBox5" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("1_iyyvv")]
+layout_mode = 2
+
+[node name="SliderBox6" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("1_iyyvv")]
+layout_mode = 2

@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://cck3iest5f6qb"]
+
+[ext_resource type="Script" path="res://CodeGrid.gd" id="1_dtpki"]
+
+[node name="CodeModule" type="Node2D"]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 431.0
+offset_top = 115.0
+offset_right = 889.0
+offset_bottom = 573.0
+columns = 3
+script = ExtResource("1_dtpki")
+
+[node name="Button1" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="Button2" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+text = "2"
+
+[node name="Button3" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+text = "3"
+
+[node name="Button4" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+text = "4"
+
+[node name="Button5" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+text = "5"
+
+[node name="Button6" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+text = "6"
+
+[node name="Button7" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+text = "7"
+
+[node name="Button8" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+text = "8"
+
+[node name="Button9" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+text = "9"

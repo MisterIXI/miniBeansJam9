@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwaixhr6jyh4i"]
+
+[ext_resource type="Texture2D" uid="uid://cuphkin0ena1w" path="res://Assets/Textures/Arrow.png" id="1_8fdau"]
+
+[node name="SliderBox" type="HBoxContainer"]
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_stretch_ratio = 3.52
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 3.01
+texture = ExtResource("1_8fdau")
+expand_mode = 2
+
+[node name="SliderMarginCont" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VSlider" type="VSlider" parent="SliderMarginCont"]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_stretch_ratio = 1.38
+focus_mode = 0

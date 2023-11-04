@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ua4sjor55qqj"]
+
+[ext_resource type="Script" path="res://Scripts/SirenWheel.gd" id="1_3u721"]
+[ext_resource type="Texture2D" path="res://Assets/Textures/ValveWheel.png" id="2_mthh4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npjer"]
+radius = 170.144
+
+[node name="SirenWheelModule" type="Node2D"]
+
+[node name="SirenWheel" type="StaticBody2D" parent="." node_paths=PackedStringArray("progress_bar")]
+position = Vector2(707, 334)
+scale = Vector2(1.76, 1.76)
+input_pickable = true
+script = ExtResource("1_3u721")
+progress_gain = 0.3
+progress_bar = NodePath("../ProgressBar")
+
+[node name="Sprite2D" type="Sprite2D" parent="SirenWheel"]
+scale = Vector2(0.437, 0.437)
+texture = ExtResource("2_mthh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SirenWheel"]
+shape = SubResource("CircleShape2D_npjer")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 201.0
+offset_top = 137.0
+offset_right = 241.0
+offset_bottom = 437.0
+value = 32.07
+fill_mode = 3
+
+[connection signal="mouse_entered" from="SirenWheel" to="SirenWheel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SirenWheel" to="SirenWheel" method="_on_mouse_exited"]
