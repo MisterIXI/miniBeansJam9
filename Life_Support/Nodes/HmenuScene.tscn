@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://buxg7rx5p8gx8"]
 
-[ext_resource type="PackedScene" uid="uid://cwwc33y6i53hi" path="res://Nodes/UI/Hmenu.tscn" id="1_4ccrv"]
+[ext_resource type="PackedScene" uid="uid://cpooobyvf5fxs" path="res://Nodes/UI/Global_UI.tscn" id="1_hwlr6"]
 
 [sub_resource type="Animation" id="Animation_8yv0x"]
 resource_name = "Camera_HMenu"
@@ -105,8 +105,8 @@ light_energy = 3.999
 spot_range = 11.0497
 spot_angle = 8.83025
 
-[node name="Global_UI" parent="." instance=ExtResource("1_4ccrv")]
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.13805, 0.990425, 0, -0.990425, -0.13805, 0, 7.6169, -2.15314)
 light_energy = 3.857
+
+[node name="Global_UI" parent="." instance=ExtResource("1_hwlr6")]

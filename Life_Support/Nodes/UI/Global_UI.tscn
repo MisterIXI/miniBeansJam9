@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpooobyvf5fxs"]
+[gd_scene load_steps=9 format=3 uid="uid://cpooobyvf5fxs"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_llrig"]
 [ext_resource type="PackedScene" uid="uid://cwwc33y6i53hi" path="res://Nodes/UI/Hmenu.tscn" id="2_oyakn"]
+[ext_resource type="Script" path="res://Nodes/UI/Button_Start.gd" id="3_frgej"]
+[ext_resource type="Script" path="res://Nodes/UI/Button_Settings.gd" id="4_skem1"]
 [ext_resource type="PackedScene" uid="uid://driu5hknh1ine" path="res://Nodes/UI/Settings.tscn" id="5_e1p8v"]
+[ext_resource type="Script" path="res://Nodes/UI/Button_Credits.gd" id="5_s7gb6"]
 [ext_resource type="PackedScene" uid="uid://b0ml1y3b8ryeg" path="res://Nodes/UI/Credits.tscn" id="6_f17na"]
+[ext_resource type="Script" path="res://Nodes/UI/Button_Quit.gd" id="6_trkcb"]
 
 [node name="Global_UI" type="Control"]
 layout_mode = 3
@@ -18,7 +22,20 @@ script = ExtResource("1_llrig")
 layout_mode = 1
 script = null
 
+[node name="Button_Start" parent="HMenu/MarginContainer/VBoxContainer" index="3"]
+script = ExtResource("3_frgej")
+
+[node name="Button_Settings" parent="HMenu/MarginContainer/VBoxContainer" index="4"]
+script = ExtResource("4_skem1")
+
+[node name="Button_Credits" parent="HMenu/MarginContainer/VBoxContainer" index="5"]
+script = ExtResource("5_s7gb6")
+
+[node name="Button_Quit" parent="HMenu/MarginContainer/VBoxContainer" index="6"]
+script = ExtResource("6_trkcb")
+
 [node name="SettingMenu" parent="." instance=ExtResource("5_e1p8v")]
+visible = false
 layout_mode = 1
 script = null
 
@@ -27,6 +44,10 @@ visible = false
 layout_mode = 1
 script = null
 
+[connection signal="pressed" from="HMenu/MarginContainer/VBoxContainer/Button_Start" to="HMenu/MarginContainer/VBoxContainer/Button_Start" method="_on_pressed"]
+[connection signal="pressed" from="HMenu/MarginContainer/VBoxContainer/Button_Settings" to="HMenu/MarginContainer/VBoxContainer/Button_Settings" method="_on_pressed"]
+[connection signal="pressed" from="HMenu/MarginContainer/VBoxContainer/Button_Credits" to="HMenu/MarginContainer/VBoxContainer/Button_Credits" method="_on_pressed"]
+[connection signal="pressed" from="HMenu/MarginContainer/VBoxContainer/Button_Quit" to="HMenu/MarginContainer/VBoxContainer/Button_Quit" method="_on_pressed"]
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider_Music" to="." method="_on_v_slider_music_value_changed"]
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider2_Sound" to="." method="_on_v_slider_2_sound_value_changed"]
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider3_MouseS" to="." method="_on_v_slider_3_mouse_s_value_changed"]
