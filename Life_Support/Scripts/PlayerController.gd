@@ -53,11 +53,14 @@ func CrouchCollisionShape(crouching_state : bool):
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
 # Camera Movement based on Head Object with Mousecontrol
 func _input(event):
 	#Pause On Play
 	if Input.is_key_pressed(KEY_ESCAPE):
-		get_node("/root/GameScene/Global_UI").visible = true
+		get_node("../Global_UI").visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
 	#Mouse Looking Logic
 	if event is InputEventMouseMotion:
 		if pstate_free_looking:
