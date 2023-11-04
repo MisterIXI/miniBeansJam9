@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqby5o1uw5qyh"]
+[gd_scene load_steps=3 format=3 uid="uid://dqby5o1uw5qyh"]
 
 [ext_resource type="PackedScene" uid="uid://dd660if3bqlve" path="res://Nodes/Modules/CircuitBreakers/cicruit_breaker_module.tscn" id="1_etc81"]
+[ext_resource type="PackedScene" uid="uid://qcodiwvjaerc" path="res://Nodes/Modules/DuctTape/duct_tape_module.tscn" id="2_5muuf"]
 
 [node name="YannikScene" type="Node3D"]
 
 [node name="CicruitBreakerModule" parent="." instance=ExtResource("1_etc81")]
+
+[node name="DuctTapeModule" parent="." instance=ExtResource("2_5muuf")]

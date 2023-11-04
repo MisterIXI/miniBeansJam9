@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://qcodiwvjaerc"]
+
+[ext_resource type="Texture2D" uid="uid://bo3v5s5seuyep" path="res://icon.svg" id="1_mp3a4"]
+[ext_resource type="Script" path="res://Scripts/DuctTape/duct_tape_module.gd" id="1_xu4oj"]
+[ext_resource type="PackedScene" uid="uid://deopld48r28k7" path="res://Nodes/Modules/DuctTape/duct_tape.tscn" id="2_yjxsb"]
+[ext_resource type="PackedScene" uid="uid://bqoopbin4k5jo" path="res://Nodes/Modules/DuctTape/crack.tscn" id="4_w8a0q"]
+
+[node name="DuctTapeModule" type="Node2D"]
+script = ExtResource("1_xu4oj")
+duct_tape_node = ExtResource("2_yjxsb")
+tape_width = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.25098, 1, 1)
+position = Vector2(576.5, 324.5)
+scale = Vector2(8.94531, 5.05469)
+texture = ExtResource("1_mp3a4")
+
+[node name="Crack" parent="." instance=ExtResource("4_w8a0q")]
