@@ -7,20 +7,14 @@
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_movje")
 
-[node name="AudioListener3D" type="AudioListener3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_p6eg1")
 
-[node name="CameraMain" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.619393, 0)
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 
-[node name="HUD" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.595239, 0)
 
-[node name="RotationHelper" type="Node3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_p6eg1")
+[node name="CameraMain" type="Camera3D" parent="Head"]
