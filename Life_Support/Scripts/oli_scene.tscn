@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2w5iyvwwr7yp"]
+[gd_scene load_steps=16 format=3 uid="uid://cfpm7c0unkyey"]
 
 [ext_resource type="PackedScene" uid="uid://bo6spjh87ufjq" path="res://Nodes/Instruments/HeightSensor.tscn" id="1_qo7ug"]
 [ext_resource type="Script" path="res://Scripts/Instruments/Radar.gd" id="2_5b03c"]
@@ -11,19 +11,38 @@ albedo_color = Color(0.054902, 0.054902, 0.054902, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_wnaw3"]
 material = SubResource("StandardMaterial3D_qwlb3")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftrl4"]
+albedo_color = Color(0, 0.141176, 0.141176, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_dpwkw"]
+material = SubResource("StandardMaterial3D_ftrl4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1w75"]
+albedo_color = Color(0, 0.494118, 0.482353, 1)
+emission = Color(0, 0.733333, 0.611765, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_wv1aj"]
+material = SubResource("StandardMaterial3D_b1w75")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ir8c1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_252ki"]
+albedo_color = Color(0, 0.494118, 0.482353, 1)
+emission = Color(0, 0.733333, 0.611765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lmeat"]
+material = SubResource("StandardMaterial3D_252ki")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7brmj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_618nm"]
+albedo_color = Color(0, 0.494118, 0.482353, 1)
+emission = Color(0, 0.733333, 0.611765, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qeipc"]
+material = SubResource("StandardMaterial3D_618nm")
 
 [node name="OliScene" type="Node3D"]
-
-[node name="Table" type="StaticBody3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1.47, -2.23169, 0.473072, 6.98135)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table"]
-shape = SubResource("BoxShape3D_ditwn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0366988, 0)
-mesh = SubResource("BoxMesh_wnaw3")
 
 [node name="Wall" type="StaticBody3D" parent="."]
 transform = Transform3D(7.59, 0, 0, 0, 2.538, 0, 0, 0, 1, 0, 1.44857, 7.81573)
@@ -55,11 +74,43 @@ transform = Transform3D(-0.999971, 0, -0.00766186, 0, 1, 0, 0.00766186, 0, -0.99
 transform = Transform3D(-0.956238, 0, -0.292589, -0.227432, 0.629117, 0.743294, 0.184072, 0.777311, -0.601586, -0.0107042, 0, -0.0847955)
 
 [node name="Radar" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50587, 0.978702, 6.65555)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.50587, 1.69075, 7.27147)
 script = ExtResource("2_5b03c")
 
 [node name="Plate" type="MeshInstance3D" parent="Radar"]
-transform = Transform3D(0.65, 0, 0, 0, 0.01, 0, 0, 0, 0.65, 0.239769, 0.0401433, 0.0646148)
+transform = Transform3D(1.3, 0, 0, 0, 0.02, 0, 0, 0, 1.3, 0, 0, 0)
 mesh = SubResource("CylinderMesh_dpwkw")
+
+[node name="Monster" type="MeshInstance3D" parent="Radar"]
+transform = Transform3D(0.097, 0, 0, 0, 0.017, -4.44089e-16, 0, 5.55112e-17, 0.097, 0.3, -0.0231113, 0.186388)
+mesh = SubResource("TubeTrailMesh_wv1aj")
+skeleton = NodePath("../Spinner/NeedleHolder")
+
+[node name="MonsterArea" type="Area3D" parent="Radar/Monster"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radar/Monster/MonsterArea"]
+shape = SubResource("BoxShape3D_ir8c1")
+
+[node name="Spinner" type="Node3D" parent="Radar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.19209e-07)
+
+[node name="Needle" type="MeshInstance3D" parent="Radar/Spinner"]
+transform = Transform3D(0.03, 0, 0, 0, 0.01, 1.77636e-15, 0, -2.77556e-17, 0.6, 0, -0.02, 0.313993)
+mesh = SubResource("BoxMesh_lmeat")
+skeleton = NodePath("../..")
+
+[node name="NeedleArea" type="Area3D" parent="Radar/Spinner/Needle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20026, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radar/Spinner/Needle/NeedleArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81158, -0.0650024, 0)
+shape = SubResource("BoxShape3D_7brmj")
+
+[node name="NeedleHolder" type="MeshInstance3D" parent="Radar/Spinner"]
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, 0, 0)
+mesh = SubResource("SphereMesh_qeipc")
+skeleton = NodePath("../..")
+
+[connection signal="area_entered" from="Radar/Monster/MonsterArea" to="Radar" method="_on_monster_area_area_entered"]
 
 [editable path="HeightSensor"]

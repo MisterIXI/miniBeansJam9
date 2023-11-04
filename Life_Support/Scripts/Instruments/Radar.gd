@@ -1,11 +1,30 @@
 extends Node3D
 
 
-# Called when the node enters the scene tree for the first time.
+var speed = 1
+var highlightTime = 3
+
+var timer = 0
+
+var spinner
+var monster
+
 func _ready():
-	pass # Replace with function body.
+	spinner = get_node("Spinner")
+	monster = get_node("Monster")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
-	pass
+	spinner.rotate_y(delta * speed)
+
+	if (timer > 0):
+		timer -= delta
+		monster.visible = true
+	else:
+		monster.visible = false;
+
+
+func _on_monster_area_area_entered(area:Area3D):
+	if (area.name == "NeedleArea"):
+		timer = highlightTime
