@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kipxfimwfkmt"
+path="res://.godot/imported/Knarren mit Hall.mp3-6918b0d98c1025082f9dd61bcaac20a2.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Background/Knarren mit Hall.mp3"
+dest_files=["res://.godot/imported/Knarren mit Hall.mp3-6918b0d98c1025082f9dd61bcaac20a2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

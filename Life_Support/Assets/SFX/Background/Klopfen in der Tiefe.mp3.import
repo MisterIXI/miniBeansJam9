@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bywwd4fxuf82f"
+path="res://.godot/imported/Klopfen in der Tiefe.mp3-97f45943aa3b1dd730040e40ab0348ae.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Background/Klopfen in der Tiefe.mp3"
+dest_files=["res://.godot/imported/Klopfen in der Tiefe.mp3-97f45943aa3b1dd730040e40ab0348ae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
