@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwwc33y6i53hi"]
+
+[ext_resource type="Theme" uid="uid://b32w5x4g7q7o0" path="res://Assets/Textures/UI/theme.tres" id="1_1ru1g"]
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_i1v15"]
+[ext_resource type="StyleBox" uid="uid://cbylmou68dbqw" path="res://Assets/Textures/UI/style_boxy.tres" id="2_3kscv"]
+[ext_resource type="StyleBox" uid="uid://bsjbr8wm3qfsk" path="res://Assets/Textures/UI/style_box_hover.tres" id="3_1svqq"]
+
+[node name="HMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1v15")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1ru1g")
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 100
+text = "Life Support"
+
+[node name="LabeleDescription" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1ru1g")
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 25
+text = "                                                 Deep Sea Adventure"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Button_Start" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1ru1g")
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_3kscv")
+theme_override_styles/hover = ExtResource("3_1svqq")
+text = "Start"
+
+[node name="Button_Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1ru1g")
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_3kscv")
+theme_override_styles/hover = ExtResource("3_1svqq")
+text = "Settings"
+
+[node name="Button_Credits" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1ru1g")
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_3kscv")
+theme_override_styles/hover = ExtResource("3_1svqq")
+text = "Credits"
+
+[node name="Button_Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1ru1g")
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_3kscv")
+theme_override_styles/hover = ExtResource("3_1svqq")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]

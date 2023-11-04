@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://d3jue7eqlf7b5"]
 
 [ext_resource type="PackedScene" uid="uid://g864a13ujg47" path="res://Nodes/player.tscn" id="1_yo14r"]
-[ext_resource type="PackedScene" uid="uid://dm2rmhhnaech6" path="res://Nodes/UI/ui.tscn" id="2_8bkt6"]
+[ext_resource type="PackedScene" uid="uid://cwwc33y6i53hi" path="res://Nodes/UI/Hmenu.tscn" id="2_6ynld"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo2ym"]
 albedo_color = Color(0, 1, 0, 1)
@@ -123,4 +123,4 @@ use_collision = true
 size = Vector3(3, 6, 3)
 material = SubResource("StandardMaterial3D_8hp2e")
 
-[node name="Control" parent="." instance=ExtResource("2_8bkt6")]
+[node name="Control2" parent="." instance=ExtResource("2_6ynld")]
