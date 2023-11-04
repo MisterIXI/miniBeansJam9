@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfpm7c0unkyey"]
+
+[ext_resource type="PackedScene" uid="uid://bo6spjh87ufjq" path="res://Nodes/Instruments/HeightSensor.tscn" id="1_ujuma"]
+[ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="2_babkr"]
+[ext_resource type="PackedScene" uid="uid://csaahwgp144o" path="res://Nodes/Water/water.tscn" id="4_4kbkn"]
+[ext_resource type="PackedScene" uid="uid://rh3daoj5a7fw" path="res://Nodes/Water/water_drops.tscn" id="5_03am5"]
+[ext_resource type="Script" path="res://Scripts/Water/ShipDamage.gd" id="6_jmcfj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ditwn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46juq"]
+albedo_color = Color(0.054902, 0.054902, 0.054902, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnaw3"]
+material = SubResource("StandardMaterial3D_46juq")
+
+[sub_resource type="BoxMesh" id="BoxMesh_0awg1"]
+
+[node name="OliScene" type="Node3D"]
+
+[node name="Pipe" type="StaticBody3D" parent="."]
+transform = Transform3D(7.578, 0, 0, 0, 0.076, 0, 0, 0, 0.065, 7.55344, 2.25037, 7.81123)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe"]
+shape = SubResource("BoxShape3D_ditwn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pipe"]
+mesh = SubResource("BoxMesh_wnaw3")
+
+[node name="Pipe" type="StaticBody3D" parent="Pipe"]
+transform = Transform3D(0.988, 0, 0, 0, -1.289, 0, 0, 0, -0.935, 0, 0, -60.2397)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe/Pipe"]
+shape = SubResource("BoxShape3D_ditwn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pipe/Pipe"]
+mesh = SubResource("BoxMesh_wnaw3")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(7.59, 0, 0, 0, 2.538, 0, 0, 0, 1, 0, 1.44857, 7.81573)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("BoxShape3D_ditwn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0366988, 0)
+mesh = SubResource("BoxMesh_wnaw3")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(32.79, 0, 0, 0, 0.615, 0, 0, 0, 30.885, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_ditwn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_wnaw3")
+skeleton = NodePath("../..")
+
+[node name="HeightSensor" parent="." instance=ExtResource("1_ujuma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.070607, 1.99434, 7.34974)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.425748, 0, -0.904842, 0, 1, 0, 0.904842, 0, -0.425748, -2.37039, 2.19293, 5.32947)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.956238, 0, -0.292589, -0.227432, 0.629117, 0.743294, 0.184072, 0.777311, -0.601586, -0.0107042, 0, -0.0847955)
+
+[node name="Radar" parent="." instance=ExtResource("2_babkr")]
+
+[node name="Water" parent="." instance=ExtResource("4_4kbkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.426252, 4.95948)
+visible = false
+
+[node name="WaterDrops" parent="." instance=ExtResource("5_03am5")]
+visible = false
+
+[node name="ShipDamage" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.23024, 2.19228, 5.70756)
+script = ExtResource("6_jmcfj")
+
+[node name="Pipes" type="Node3D" parent="ShipDamage"]
+
+[node name="Right" type="Node3D" parent="ShipDamage/Pipes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.76797)
+
+[node name="Pipe2" type="MeshInstance3D" parent="ShipDamage/Pipes/Right"]
+transform = Transform3D(6.97, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.691, 0.0569999, -0.0107222)
+visible = false
+mesh = SubResource("BoxMesh_0awg1")
+
+[node name="Left" type="Node3D" parent="ShipDamage/Pipes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.11007)
+
+[node name="Pipe1" type="MeshInstance3D" parent="ShipDamage/Pipes/Left"]
+transform = Transform3D(7.32, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.662756, 0.0592921, -0.043386)
+visible = false
+mesh = SubResource("BoxMesh_0awg1")
+
+[node name="Water" parent="ShipDamage" instance=ExtResource("4_4kbkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07719, -1.95836, -0.122089)
+
+[connection signal="ship_damage" from="Radar" to="ShipDamage" method="_on_radar_ship_damage"]
