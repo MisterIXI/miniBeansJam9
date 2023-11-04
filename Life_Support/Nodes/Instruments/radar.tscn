@@ -1,13 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://ba6kwn24afgeu"]
 
 [ext_resource type="Script" path="res://Scripts/Instruments/Radar.gd" id="1_fb1il"]
+[ext_resource type="Material" uid="uid://b432225cjxob7" path="res://Assets/Materials/radarbg.tres" id="2_g5ilt"]
 [ext_resource type="Material" uid="uid://db3jl0lmmi6fk" path="res://Assets/Materials/radar.tres" id="2_hffbc"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftrl4"]
-albedo_color = Color(0, 0.141176, 0.141176, 1)
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_dpwkw"]
-material = SubResource("StandardMaterial3D_ftrl4")
+material = ExtResource("2_g5ilt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_252ki"]
 albedo_color = Color(0, 0.494118, 0.482353, 1)
