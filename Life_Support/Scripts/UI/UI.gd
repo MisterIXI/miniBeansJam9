@@ -32,7 +32,7 @@ func _on_resume_pressed():
 	# TIMESCALE  ?!
 	
 func _on_play_pressed():
-	get_tree().change_scene("res://Nodes/game_scene.tscn")
+	get_tree().change_scene_to_file("res://Nodes/game_scene.tscn")
 	ShowNode(self,false)
 	print("PLAY")
 
@@ -70,7 +70,7 @@ func _on_v_slider_music_value_changed(value:float):
 
 
 func _on_check_box_2_screen_toggled(button_pressed:bool):
-	print("WINDOW-MODE is", button_pressed)
+	
 	current_window = DisplayServer.window_get_mode()
 	if current_window != 4 && button_pressed:
 		previous_window = current_window
@@ -85,10 +85,5 @@ func _on_check_box_invert_toggled(button_pressed:bool):
 	print(GAMEVAR_INVERT)
 
 func ShowNode(node:Node, value: bool) -> void:
-	if !value:
-		node.process_mode = 4 # = Mode: Disabled
-		node.hide()
-	else:
-		node.process_mode = 0 # = Mode: Inherit
-		node.show()
-
+	node.visible = !value
+	

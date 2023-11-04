@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var nek = $Nek
 @onready var head = $Nek/Head
 @onready var camera = $Nek/Head/CameraMain
+
 # Variables  #
 var current_speed  = 8.0
 # States
@@ -20,6 +21,9 @@ func _ready():
 
 # Camera Movement based on Head Object with Mousecontrol
 func _input(event):
+	#Pause On Play
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_node("/root/GameScene/Global_UI").visible = true
 	#Mouse Looking Logic
 	if event is InputEventMouseMotion:
 		if pstate_free_looking:
