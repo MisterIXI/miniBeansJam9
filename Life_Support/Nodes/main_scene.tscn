@@ -1,13 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://djlvppio26xr4"]
+[gd_scene load_steps=23 format=3 uid="uid://djlvppio26xr4"]
 
 [ext_resource type="PackedScene" uid="uid://djgl2mhv4p3df" path="res://Nodes/submarine_level.tscn" id="1_jk0pa"]
-[ext_resource type="PackedScene" uid="uid://bykcmfou7jtur" path="res://Nodes/player.tscn" id="2_wlyvn"]
+[ext_resource type="PackedScene" uid="uid://28q284e6ypcg" path="res://Nodes/player.tscn" id="2_wlyvn"]
 [ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="3_75xgu"]
-[ext_resource type="PackedScene" uid="uid://c1pfqka4j4scf" path="res://Nodes/Instruments/height_sensor.tscn" id="3_f80ie"]
+[ext_resource type="PackedScene" path="res://Nodes/Instruments/height_sensor.tscn" id="3_f80ie"]
 [ext_resource type="PackedScene" uid="uid://ckxeb7o3rq2yr" path="res://Nodes/Water/ship_damage.tscn" id="4_r1xnm"]
-[ext_resource type="PackedScene" uid="uid://cg2rx786h5vuk" path="res://Nodes/Instruments/generator.tscn" id="6_5b8rk"]
+[ext_resource type="PackedScene" path="res://Nodes/Instruments/generator.tscn" id="6_5b8rk"]
 [ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="6_55j1d"]
+[ext_resource type="Script" path="res://Scripts/EventManager.gd" id="6_bsthc"]
+[ext_resource type="Script" path="res://Scripts/ModuleTrigger.gd" id="7_h1hup"]
+[ext_resource type="PackedScene" uid="uid://fanxw5sieu2c" path="res://Nodes/warn_light.tscn" id="7_tybko"]
 [ext_resource type="AudioStream" uid="uid://r5r0r22hyouw" path="res://Assets/SFX/Radar Beep/Sonar_Sound1.mp3" id="8_3g7qo"]
+[ext_resource type="PackedScene" uid="uid://dd660if3bqlve" path="res://Nodes/Modules/CircuitBreakers/cicruit_breaker_module.tscn" id="8_7q24u"]
+[ext_resource type="PackedScene" uid="uid://cpooobyvf5fxs" path="res://Nodes/UI/Global_UI.tscn" id="8_c5uor"]
 [ext_resource type="AudioStream" uid="uid://b0ot2i7yrmdan" path="res://Assets/SFX/Radar Beep/Sonar_Sound2.mp3" id="8_ecjgg"]
 [ext_resource type="AudioStream" uid="uid://5j3lf0rwydge" path="res://Assets/SFX/Monster Schaden/Damage.mp3" id="10_2arnw"]
 
@@ -75,6 +80,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w5nkg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vse8y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s3vwg"]
+size = Vector3(0.611735, 0.724176, 0.231661)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ygsng"]
+height = 0.380861
+radius = 0.429146
 
 [node name="MainScene" type="Node3D"]
 
@@ -196,12 +208,10 @@ surface_material_override/1 = SubResource("StandardMaterial3D_vse8y")
 [node name="SFXSonar" type="AudioStreamPlayer3D" parent="AudioPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50601, 1.48507, 2.07875)
 stream = ExtResource("8_3g7qo")
-bus = &"SFX"
 
 [node name="SFXAlarm" type="AudioStreamPlayer3D" parent="AudioPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29184, 1.48507, 2.07875)
 stream = ExtResource("8_ecjgg")
-bus = &"SFX"
 
 [node name="SFXShipDamage" type="AudioStreamPlayer3D" parent="AudioPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29184, 1.48507, 2.07875)
@@ -209,6 +219,32 @@ stream = ExtResource("10_2arnw")
 volume_db = 80.0
 unit_size = 100.0
 max_db = 6.0
-bus = &"SFX"
+
+[node name="Global_UI" parent="." instance=ExtResource("8_c5uor")]
+
+[node name="EventManager" type="Node3D" parent="."]
+script = ExtResource("6_bsthc")
+
+[node name="CircuitBreaker" type="StaticBody3D" parent="EventManager" groups=["Interactable"]]
+script = ExtResource("7_h1hup")
+module_node = ExtResource("8_7q24u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventManager/CircuitBreaker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.480989, 1.29736, 3.40532)
+shape = SubResource("BoxShape3D_s3vwg")
+disabled = true
+
+[node name="WarnLight" parent="EventManager/CircuitBreaker" instance=ExtResource("7_tybko")]
+
+[node name="SirenModule" type="StaticBody3D" parent="EventManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventManager/SirenModule"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.0002, 1.49336, 4.43369)
+shape = SubResource("CylinderShape3D_ygsng")
+
+[node name="WarningLight" parent="EventManager/SirenModule" instance=ExtResource("6_55j1d")]
+transform = Transform3D(-7.43094e-09, -0.17, 7.43094e-09, 0, -7.43094e-09, -0.17, 0.17, -7.43094e-09, 3.24817e-16, -3.74277, 1.87514, 4.26511)
 
 [connection signal="ship_damage" from="Instruments/Radar" to="Instruments/ShipDamage" method="_on_radar_ship_damage"]
+
+[editable path="EventManager/SirenModule/WarningLight"]
