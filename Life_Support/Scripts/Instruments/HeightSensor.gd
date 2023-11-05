@@ -3,7 +3,7 @@ extends Node3D
 var maxHeight = -9500
 var currentHeight = -8000
 
-var motorSpeed = 15
+var motorSpeed = -15
 var sinkingSpeed = -5
 var currentMotorSpeed = motorSpeed
 
@@ -62,6 +62,9 @@ func MotorAlarm(delta):
 		if timer >= alarmTime:
 			timer = 0
 			alarm = !alarm
+
+			if alarm:
+				$"../../AudioPlayer/SFXAlarm".play()
 	
 	motorAlarmLamps.visible = alarm
 

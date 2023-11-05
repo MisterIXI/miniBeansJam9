@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djlvppio26xr4"]
+[gd_scene load_steps=15 format=3 uid="uid://djlvppio26xr4"]
 
 [ext_resource type="PackedScene" uid="uid://djgl2mhv4p3df" path="res://Nodes/submarine_level.tscn" id="1_jk0pa"]
 [ext_resource type="PackedScene" uid="uid://bykcmfou7jtur" path="res://Nodes/player.tscn" id="2_wlyvn"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ckxeb7o3rq2yr" path="res://Nodes/Water/ship_damage.tscn" id="4_r1xnm"]
 [ext_resource type="PackedScene" uid="uid://cg2rx786h5vuk" path="res://Nodes/Instruments/generator.tscn" id="6_5b8rk"]
 [ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="6_55j1d"]
+[ext_resource type="AudioStream" uid="uid://r5r0r22hyouw" path="res://Assets/SFX/Radar Beep/Sonar_Sound1.mp3" id="8_3g7qo"]
+[ext_resource type="AudioStream" uid="uid://b0ot2i7yrmdan" path="res://Assets/SFX/Radar Beep/Sonar_Sound2.mp3" id="8_ecjgg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5p3ox"]
 albedo_color = Color(0.160784, 0.0666667, 0.0470588, 1)
@@ -187,5 +189,17 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("ArrayMesh_r8cua")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_vse8y")
+
+[node name="AudioPlayer" type="Node3D" parent="."]
+
+[node name="SFXSonar" type="AudioStreamPlayer3D" parent="AudioPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50601, 1.48507, 2.07875)
+stream = ExtResource("8_3g7qo")
+bus = &"SFX"
+
+[node name="SFXAlarm" type="AudioStreamPlayer3D" parent="AudioPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29184, 1.48507, 2.07875)
+stream = ExtResource("8_ecjgg")
+bus = &"SFX"
 
 [connection signal="ship_damage" from="Instruments/Radar" to="Instruments/ShipDamage" method="_on_radar_ship_damage"]

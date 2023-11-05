@@ -82,6 +82,8 @@ func _on_monster_area_area_entered(area:Area3D):
 		monsterClone.global_transform.origin = monster.global_transform.origin
 		timer = highlightTime
 
+		$"../../AudioPlayer/SFXSonar".play()
+		
 	if (area.name == "NeedleHolderArea"):
 		emit_signal("ship_damage")
 		monsterCurrSpeed = -monsterSpeed
