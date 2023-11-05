@@ -3,11 +3,11 @@ extends CharacterBody3D
 # Reference  #
 @onready var nek = $Nek
 @onready var head = $Nek/Head
-@onready var camera = $Nek/Head/CameraMain
+@onready var camera = $Nek/Head/Eyes/CameraMain
 
-@onready var ray = $Nek/Head/CameraMain/ObjectUI_Raycast
-@onready var info_text = $Nek/Head/CameraMain/ObjectUI_Raycast/InfoText
-
+@onready var ray = $Nek/Head/Eyes/CameraMain/ObjectUI_Raycast
+@onready var info_text = $Nek/Head/Eyes/CameraMain/ObjectUI_Raycast/InfoText
+@onready var eyes = $Nek/Head/Eyes
 # Variables  #
 var current_speed = 8.0
 # States
@@ -21,7 +21,12 @@ const mouse_sens = 0.4
 
 var interaction_target = null
 var is_reacting_to_input = true
-
+#Head bobbing
+const head_bobbing_speed = 14.0
+const head_bobbing_intensity = 0.1
+var head_bobbing_vector = Vector2.ZERO
+var head_bobbing_index = 0.0
+var head_bobbing_current_intensity =0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -77,7 +82,17 @@ func _physics_process(delta):
 		return
 	#Input from InputMap
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Backward")
-
+	#Handle Headbob
+	head_bobbing_current_intensity = head_bobbing_intensity
+	head_bobbing_index += head_bobbing_speed * delta
+	if is_on_floor() && input_dir != Vector2.ZERO:
+		head_bobbing_vector.y = sin(head_bobbing_index)
+		head_bobbing_vector.x = sin(head_bobbing_index/2)+0.5	
+		eyes.position.y = lerp(eyes.position.y, head_bobbing_vector.y*(head_bobbing_current_intensity/2.0),delta * lerp_speed)
+		eyes.position.x = lerp(eyes.position.x, head_bobbing_vector.x*head_bobbing_current_intensity,delta * lerp_speed)
+	else:
+		eyes.position.y = lerp(eyes.position.y, 0.0, delta * lerp_speed)
+		eyes.position.x = lerp(eyes.position.x, 0.0, delta * lerp_speed)
 	#Handle free looking
 	if Input.is_action_pressed("free_look"):
 		pstate_free_looking = true
