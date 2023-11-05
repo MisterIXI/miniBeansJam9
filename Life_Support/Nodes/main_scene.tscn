@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://djlvppio26xr4"]
+[gd_scene load_steps=16 format=3 uid="uid://djlvppio26xr4"]
 
 [ext_resource type="PackedScene" uid="uid://djgl2mhv4p3df" path="res://Nodes/submarine_level.tscn" id="1_jk0pa"]
 [ext_resource type="PackedScene" uid="uid://bykcmfou7jtur" path="res://Nodes/player.tscn" id="2_wlyvn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="6_55j1d"]
 [ext_resource type="AudioStream" uid="uid://r5r0r22hyouw" path="res://Assets/SFX/Radar Beep/Sonar_Sound1.mp3" id="8_3g7qo"]
 [ext_resource type="AudioStream" uid="uid://b0ot2i7yrmdan" path="res://Assets/SFX/Radar Beep/Sonar_Sound2.mp3" id="8_ecjgg"]
+[ext_resource type="AudioStream" uid="uid://5j3lf0rwydge" path="res://Assets/SFX/Monster Schaden/Damage.mp3" id="10_2arnw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5p3ox"]
 albedo_color = Color(0.160784, 0.0666667, 0.0470588, 1)
@@ -200,6 +201,14 @@ bus = &"SFX"
 [node name="SFXAlarm" type="AudioStreamPlayer3D" parent="AudioPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29184, 1.48507, 2.07875)
 stream = ExtResource("8_ecjgg")
+bus = &"SFX"
+
+[node name="SFXShipDamage" type="AudioStreamPlayer3D" parent="AudioPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29184, 1.48507, 2.07875)
+stream = ExtResource("10_2arnw")
+volume_db = 80.0
+unit_size = 100.0
+max_db = 6.0
 bus = &"SFX"
 
 [connection signal="ship_damage" from="Instruments/Radar" to="Instruments/ShipDamage" method="_on_radar_ship_damage"]

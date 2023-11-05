@@ -87,6 +87,8 @@ func _on_monster_area_area_entered(area:Area3D):
 	if (area.name == "NeedleHolderArea"):
 		emit_signal("ship_damage")
 		monsterCurrSpeed = -monsterSpeed
+		
+		$"../../AudioPlayer/SFXShipDamage".play()
 
 
 func ScareMonster():
