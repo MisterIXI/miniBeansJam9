@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqoopbin4k5jo"]
+[gd_scene load_steps=6 format=3 uid="uid://bqoopbin4k5jo"]
 
 [ext_resource type="Script" path="res://Scripts/DuctTape/DuctTapeCrack.gd" id="1_t1kbb"]
-[ext_resource type="Texture2D" uid="uid://bo3v5s5seuyep" path="res://icon.svg" id="2_5utd7"]
+[ext_resource type="Texture2D" uid="uid://bqden6csv3mmu" path="res://Assets/Textures/UI/crack.png" id="2_eoko8"]
+[ext_resource type="Texture2D" uid="uid://br3w3pwoqj3rn" path="res://Assets/Textures/UI/water.png" id="3_bflfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmi4h"]
 
@@ -14,8 +15,9 @@ position = Vector2(318, 253)
 script = ExtResource("1_t1kbb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.47, 0.47)
-texture = ExtResource("2_5utd7")
+position = Vector2(9.53674e-07, 0.500002)
+scale = Vector2(0.0585937, 0.0595703)
+texture = ExtResource("2_eoko8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3, 3)
@@ -23,10 +25,11 @@ shape = SubResource("RectangleShape2D_tmi4h")
 
 [node name="WaterParticles" type="CPUParticles2D" parent="."]
 amount = 50
+texture = ExtResource("3_bflfm")
+particle_flag_align_y = true
 spread = 139.19
 initial_velocity_min = 259.69
 initial_velocity_max = 259.69
-scale_amount_min = 7.75
-scale_amount_max = 12.62
+scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_cu0ko")
 color = Color(0, 0, 1, 1)
