@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ua4sjor55qqj"]
+[gd_scene load_steps=4 format=3 uid="uid://ua4sjor55qqj"]
 
 [ext_resource type="Script" path="res://Scripts/Modules/SirenWheel.gd" id="1_30mur"]
 [ext_resource type="Texture2D" uid="uid://bnts4k28lcdiy" path="res://Assets/Textures/ValveWheel.png" id="2_mthh4"]
@@ -16,9 +16,8 @@ scale = Vector2(1.76, 1.76)
 input_pickable = true
 
 [node name="Sprite2D" type="Sprite2D" parent="SirenWheel"]
-position = Vector2(0, 1.13635)
-scale = Vector2(0.527909, 0.527909)
-texture = ExtResource("1_gxi7m")
+scale = Vector2(0.437, 0.437)
+texture = ExtResource("2_mthh4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SirenWheel"]
 shape = SubResource("CircleShape2D_npjer")
@@ -28,8 +27,6 @@ offset_left = 201.0
 offset_top = 137.0
 offset_right = 241.0
 offset_bottom = 437.0
-theme_override_styles/background = SubResource("StyleBoxTexture_lslif")
-theme_override_styles/fill = SubResource("StyleBoxTexture_0w4xr")
 value = 32.07
 fill_mode = 3
 
