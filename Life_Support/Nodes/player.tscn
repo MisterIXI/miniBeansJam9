@@ -37,9 +37,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="Head" type="Node3D" parent="Nek"]
 
-[node name="CameraMain" type="Camera3D" parent="Nek/Head"]
+[node name="Eyes" type="Node3D" parent="Nek/Head"]
 
-[node name="ObjectUI_Raycast" type="RayCast3D" parent="Nek/Head/CameraMain"]
+[node name="CameraMain" type="Camera3D" parent="Nek/Head/Eyes"]
+
+[node name="ObjectUI_Raycast" type="RayCast3D" parent="Nek/Head/Eyes/CameraMain"]
 target_position = Vector3(0, 0, -3)
 
 [node name="InfoText" type="Label" parent="Nek/Head/CameraMain/ObjectUI_Raycast"]
