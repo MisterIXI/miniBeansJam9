@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bykcmfou7jtur"]
+[gd_scene load_steps=4 format=3 uid="uid://28q284e6ypcg"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_ak7mc"]
 
@@ -42,15 +42,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="ObjectUI_Raycast" type="RayCast3D" parent="Nek/Head/CameraMain"]
 target_position = Vector3(0, 0, -3)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Nek/Head/CameraMain/ObjectUI_Raycast"]
+[node name="InfoText" type="Label" parent="Nek/Head/CameraMain/ObjectUI_Raycast"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -44.0
-offset_top = -85.0
-offset_right = 118.0
-offset_bottom = 42.0
+offset_left = 81.0
+offset_top = -25.0
+offset_right = 483.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "teastateataetaetaetaet"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgqqgsxh2tfj1"]
+
+[ext_resource type="Script" path="res://Scripts/EventManager.gd" id="1_mtai1"]
+
+[node name="EventManager" type="Node3D"]
+script = ExtResource("1_mtai1")
+
+[node name="Node3D" type="Node3D" parent="."]

@@ -30,7 +30,7 @@ func _process(delta):
 		drainspeed = 0
 	elif waterlevel >= -1.6:
 		waterlevel += drainspeed * delta
-	print_debug("Water level: " + str(waterlevel))
+	# print_debug("Water level: " + str(waterlevel))
 	water.transform.origin = Vector3(0, waterlevel, 0)
 	
 
