@@ -41,7 +41,6 @@ func _on_radar_ship_damage():
 		add_child(leak)
 		
 		var pipeIndex = randi_range(0, pipes.size() - 1)
-		print_debug(pipes[pipeIndex].name)
 
 		var selector = Vector3(1,0,0)
 		
