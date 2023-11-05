@@ -44,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="ObjectUI_Raycast" type="RayCast3D" parent="Nek/Head/Eyes/CameraMain"]
 target_position = Vector3(0, 0, -3)
 
-[node name="InfoText" type="Label" parent="Nek/Head/CameraMain/ObjectUI_Raycast"]
+[node name="InfoText" type="Label" parent="Nek/Head/Eyes/CameraMain/ObjectUI_Raycast"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
