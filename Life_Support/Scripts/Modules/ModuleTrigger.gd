@@ -1,5 +1,5 @@
 extends StaticBody3D
-
+@export var is_waterleak: bool = false
 @export var respawn_module: bool = false
 @export var interaction_text: String = "Press LMB to interact"
 
@@ -20,18 +20,22 @@ func _ready():
 		active_module = module_node.instantiate()
 		add_child(active_module)
 		active_module.visible = false
+	if is_waterleak:
+		break_module()
 
 
 func break_module():
 	_module_broken.emit()
-	warn_light.activate()
+	if !is_waterleak:
+		warn_light.activate()
 	if respawn_module:
 		collider.disabled = false
 
 
 func fix_module():
 	_module_fixed.emit()
-	warn_light.deactivate()
+	if !is_waterleak:
+		warn_light.deactivate()
 	if respawn_module:
 		collider.disabled = true
 
@@ -45,6 +49,8 @@ func _finish():
 		active_module = null
 	else:
 		active_module.visible = false
+	if is_waterleak:
+		get_parent().queue_free()
 
 
 func _cancel():

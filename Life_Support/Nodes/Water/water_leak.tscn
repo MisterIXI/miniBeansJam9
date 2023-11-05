@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdshecfrfr2pl"]
+[gd_scene load_steps=12 format=3 uid="uid://cdshecfrfr2pl"]
 
 [ext_resource type="Script" path="res://Scripts/Water/water_leak.gd" id="1_eirpp"]
 [ext_resource type="AudioStream" uid="uid://cayjxoah36axe" path="res://Assets/SFX/Wasserleck/piss.mp3" id="2_xi15q"]
+[ext_resource type="Script" path="res://Scripts/Modules/ModuleTrigger.gd" id="3_vcnyb"]
+[ext_resource type="PackedScene" uid="uid://qcodiwvjaerc" path="res://Nodes/Modules/DuctTape/duct_tape_module.tscn" id="4_okccp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ied1j"]
 albedo_color = Color(0, 0.34902, 0.537255, 1)
@@ -22,6 +24,9 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TubeTrailMesh" id="TubeTrailMesh_djdpw"]
 material = SubResource("StandardMaterial3D_lackd")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tlb2e"]
+radius = 0.158802
 
 [node name="WaterLeak" type="Node3D"]
 script = ExtResource("1_eirpp")
@@ -52,3 +57,13 @@ mesh = SubResource("TubeTrailMesh_djdpw")
 stream = ExtResource("2_xi15q")
 volume_db = -19.556
 bus = &"SFX"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Interactable"]]
+script = ExtResource("3_vcnyb")
+is_waterleak = true
+respawn_module = true
+interaction_text = "LMB to fix leak"
+module_node = ExtResource("4_okccp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_tlb2e")
