@@ -1,23 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://71l2tdql2yb"]
+[gd_scene load_steps=5 format=3 uid="uid://71l2tdql2yb"]
 
 [ext_resource type="Script" path="res://Scripts/Modules/CircuitBreaker.gd" id="1_xxm6a"]
-[ext_resource type="Texture2D" uid="uid://m2250jqlwft5" path="res://Assets/Textures/PH_switch_on.png" id="2_vwfv2"]
-[ext_resource type="Texture2D" uid="uid://dl0akwav7rug1" path="res://Assets/Textures/PH_switch_off.png" id="3_ebyk6"]
+[ext_resource type="Texture2D" uid="uid://dd70l472sr7p5" path="res://Assets/Textures/UI/pedal.png" id="3_sq36t"]
 [ext_resource type="Texture2D" uid="uid://c0lpt8x1l2df1" path="res://Assets/Textures/UI/pedal_on.png" id="4_3yo62"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5oprc"]
-size = Vector2(66, 104)
+size = Vector2(511, 810.5)
 
 [node name="CircuitBreaker" type="Area2D"]
 script = ExtResource("1_xxm6a")
-sprite_active = ExtResource("2_vwfv2")
-sprite_inactive = ExtResource("3_ebyk6")
+sprite_active = ExtResource("4_3yo62")
+sprite_inactive = ExtResource("3_sq36t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 0)
-scale = Vector2(0.12793, 0.12793)
 texture = ExtResource("4_3yo62")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(12.5, -2.25)
 shape = SubResource("RectangleShape2D_5oprc")

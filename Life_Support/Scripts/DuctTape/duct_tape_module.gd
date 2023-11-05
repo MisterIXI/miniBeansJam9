@@ -1,4 +1,4 @@
-extends "res://Scripts/ModuleBase.gd"
+extends Node2D
 
 @export var duct_tape_node: PackedScene = null
 @export var crack_node: PackedScene = null

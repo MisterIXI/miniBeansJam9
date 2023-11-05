@@ -1,5 +1,5 @@
 extends Node2D
-
+@export var breaker_scale: float = 0.3
 @export var start_offset: Vector2 = Vector2(150, 150)
 @export var step_offset: Vector2 = Vector2(110, 110)
 @export var rows: int = 2
@@ -22,6 +22,7 @@ func _ready():
 			breaker.position = pos
 			pos.x += step_offset.x
 			add_child(breaker)
+			breaker.scale = Vector2(breaker_scale, breaker_scale)
 			_breakerlist.append(breaker)
 			breaker.index = Vector2(j, i)
 			breaker.toggled.connect(react_to_breaker)

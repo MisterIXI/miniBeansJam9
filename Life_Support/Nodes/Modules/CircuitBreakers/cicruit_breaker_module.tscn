@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" path="res://Scripts/Modules/CircuitBreakerModule.gd" id="1_137eb"]
 [ext_resource type="Texture2D" uid="uid://bxefywbx0mipw" path="res://Assets/Textures/UI/pipe_03.png" id="3_gu85o"]
-
 [ext_resource type="PackedScene" uid="uid://71l2tdql2yb" path="res://Nodes/Modules/CircuitBreakers/circuit_breaker.tscn" id="3_s12mr"]
 
 [node name="CicruitBreakerModule" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_137eb")
+start_offset = Vector2(130, 260)
+step_offset = Vector2(200, 250)
+columns = 6
 circuit_breaker_node = ExtResource("3_s12mr")
 
 [node name="Background" type="Sprite2D" parent="."]
