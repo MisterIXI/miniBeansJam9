@@ -10,3 +10,8 @@ func _ready():
 
 func ToggleLight(on: bool):
 	lamps.visible = on
+
+	if on:
+		$"../../AudioPlayer/SFXElectroOn".play()
+	else:
+		$"../../AudioPlayer/SFXElectroOff".play()
