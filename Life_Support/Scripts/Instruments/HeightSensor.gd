@@ -31,6 +31,7 @@ func _ready():
 	containerPosBot = container.transform.origin.y - container.get_scale().y * 0.3
 
 	motorAlarmLamps = get_node("MotorAlarmLamps")
+	ToggleMotor(true)
 
 
 
@@ -73,5 +74,7 @@ func MotorAlarm(delta):
 func ToggleMotor(on: bool):
 	if on:
 		currentMotorSpeed = motorSpeed
+		$"../../AudioPlayer/SFXMotor".play()
 	else:
 		currentMotorSpeed = sinkingSpeed
+		$"../../AudioPlayer/SFXMotor".stop()

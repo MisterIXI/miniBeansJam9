@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://culo5cadcxgpl"
+path="res://.godot/imported/cryoSuccess.wav-d45503c7c4e6e0513329093e4549ba0e.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Cryo hiss/cryoSuccess.wav"
+dest_files=["res://.godot/imported/cryoSuccess.wav-d45503c7c4e6e0513329093e4549ba0e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
