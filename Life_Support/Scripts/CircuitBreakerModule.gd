@@ -1,10 +1,13 @@
-extends "res://Scripts/ModuleBase.gd"
+extends Node2D
 
 @export var start_offset: Vector2 = Vector2(150, 150)
 @export var step_offset: Vector2 = Vector2(110, 110)
 @export var rows: int = 2
 @export var columns: int = 5
 
+signal finish
+signal cancel
+signal failed
 
 @export var circuit_breaker_node: PackedScene
 
@@ -24,6 +27,8 @@ func _ready():
 			breaker.toggled.connect(react_to_breaker)
 		pos.x = start_offset.x
 		pos.y += step_offset.y
+	break_random_breakers(3)
+
 
 func break_random_breakers(count: int):
 	var active_breakers = []
@@ -39,6 +44,7 @@ func react_to_breaker(active: bool, index: Vector2i):
 	print("reacting to breaker", index, active)
 	# if wrongly activated, punish player
 	if not active:
+		failed.emit()
 		# randomly select 2 active other breakers to toggle
 		var active_breakers = []
 		for breaker in _breakerlist:
@@ -57,5 +63,5 @@ func react_to_breaker(active: bool, index: Vector2i):
 				all_active = false
 				break
 		if all_active:
-			fix_module()
-
+			finish.emit()
+			print("all breakers active")
