@@ -221,6 +221,7 @@ unit_size = 100.0
 max_db = 6.0
 
 [node name="Global_UI" parent="." instance=ExtResource("8_c5uor")]
+visible = false
 
 [node name="EventManager" type="Node3D" parent="."]
 script = ExtResource("6_bsthc")
