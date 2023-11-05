@@ -97,6 +97,7 @@ offset_bottom = 720.0
 script = ExtResource("11_08hbo")
 
 [node name="Win" type="Control" parent="GameOver"]
+visible = false
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 0
@@ -182,6 +183,7 @@ scale = Vector2(0.07, 0.07)
 icon = ExtResource("12_0kca3")
 
 [node name="LoseText" type="Label" parent="GameOver/Lose"]
+layout_mode = 0
 offset_left = 438.0
 offset_top = 417.0
 offset_right = 838.0

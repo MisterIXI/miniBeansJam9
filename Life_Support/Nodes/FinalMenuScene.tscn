@@ -1,12 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://cbmjhb6xdtcd4"]
+[gd_scene load_steps=18 format=3 uid="uid://b1a64qxrfn6fm"]
 
 [ext_resource type="PackedScene" uid="uid://cpooobyvf5fxs" path="res://Nodes/UI/Global_UI.tscn" id="1_k5b8h"]
 [ext_resource type="PackedScene" uid="uid://kba4atrqix4v" path="res://Nodes/submarine_level.tscn" id="2_6yn0f"]
-[ext_resource type="PackedScene" path="res://Nodes/Instruments/height_sensor.tscn" id="3_rvy5o"]
+[ext_resource type="PackedScene" uid="uid://c1pfqka4j4scf" path="res://Nodes/Instruments/height_sensor.tscn" id="3_rvy5o"]
 [ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="4_j3gao"]
 [ext_resource type="Script" path="res://Scripts/Instruments/radar_MENU.gd" id="4_ynsdi"]
 [ext_resource type="PackedScene" uid="uid://ckxeb7o3rq2yr" path="res://Nodes/Water/ship_damage.tscn" id="5_7iy3e"]
-[ext_resource type="PackedScene" path="res://Nodes/Instruments/generator.tscn" id="6_7l6gc"]
+[ext_resource type="PackedScene" uid="uid://cg2rx786h5vuk" path="res://Nodes/Instruments/generator.tscn" id="6_7l6gc"]
 [ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="7_j0nm8"]
 [ext_resource type="PackedScene" uid="uid://bnerrxg3teept" path="res://Nodes/Audio/audio_player.tscn" id="14_wm8n0"]
 
@@ -194,8 +194,10 @@ transform = Transform3D(0.43871, -0.459084, -9.58823e-08, -0.459084, -0.43871, 5
 script = ExtResource("4_ynsdi")
 
 [node name="ShipDamage" parent="Instruments" instance=ExtResource("5_7iy3e")]
+script = null
 
 [node name="Generator" parent="Instruments" instance=ExtResource("6_7l6gc")]
+script = null
 
 [node name="Props" type="Node3D" parent="."]
 
