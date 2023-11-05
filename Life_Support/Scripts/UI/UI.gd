@@ -24,6 +24,7 @@ var _music
 var _sfx
 
 func _ready():
+	button_Resume.connect("pressed", self._on_resume_pressed)
 	if get_parent().name == "MainScene":
 		button_Start.connect("pressed", self._on_resume_pressed)
 		button_Resume.show()

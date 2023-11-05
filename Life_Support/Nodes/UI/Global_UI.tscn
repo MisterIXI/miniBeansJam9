@@ -26,7 +26,6 @@ grow_vertical = 2
 script = ExtResource("1_llrig")
 
 [node name="HMenu" parent="." instance=ExtResource("2_oyakn")]
-visible = false
 layout_mode = 1
 script = null
 
@@ -90,6 +89,7 @@ offset_bottom = 251.0
 script = null
 
 [node name="GameOver" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -167,7 +167,6 @@ icon = ExtResource("12_0kca3")
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider_Music" to="." method="_on_v_slider_music_value_changed"]
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider2_Sound" to="." method="_on_v_slider_2_sound_value_changed"]
 [connection signal="toggled" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/CheckBox_Invert" to="." method="_on_check_box_invert_toggled"]
-[connection signal="toggled" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/CheckBox2_Screen" to="." method="_on_check_box_2_screen_toggled"]
 [connection signal="pressed" from="GameOver/Win/ColorRect/Button" to="GameOver" method="_onButtonClick"]
 [connection signal="pressed" from="GameOver/Lose/ColorRect/Button" to="GameOver" method="_onButtonClick"]
 

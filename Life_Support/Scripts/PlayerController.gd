@@ -73,7 +73,7 @@ func _input(event):
 		return
 	#Pause On Play
 	if Input.is_key_pressed(KEY_ESCAPE):
-		get_node("../Global_UI").visible = true
+		get_node("../Global_UI").set_deferred("visible", true)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
 	#Mouse Looking Logic
