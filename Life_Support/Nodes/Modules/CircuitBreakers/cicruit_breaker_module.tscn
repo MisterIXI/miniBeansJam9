@@ -17,10 +17,10 @@ position = Vector2(642.5, 363.5)
 scale = Vector2(1.25293, 0.704102)
 texture = ExtResource("3_gu85o")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Background"]
-offset_left = -252.608
-offset_top = -452.349
-offset_right = 271.392
-offset_bottom = -299.349
-theme_override_font_sizes/normal_font_size = 55
+[node name="Label" type="Label" parent="Background"]
+offset_left = -215.894
+offset_top = -458.03
+offset_right = 308.106
+offset_bottom = -305.03
+theme_override_font_sizes/font_size = 50
 text = "Turn all Cicruits on"
