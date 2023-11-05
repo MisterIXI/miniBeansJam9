@@ -19,6 +19,7 @@ var active_module = null
 var life_pod_val = 100
 var life_pod_mats = []
 var test: MeshInstance3D = null
+var lifepod_dead = false
 
 
 func _ready():
@@ -46,6 +47,12 @@ func _process(delta):
 			var val = clamp(life_pod_val, offset, offset + 20) - offset
 			val = 0.3 - val / 20 * 0.3
 			life_pod_mats[i].set("uv1_offset", Vector3(0, -val, 0))
+		if life_pod_val <= 0:
+			life_pod_val = 0
+			life_pod = 0
+			interaction_text = "Life support offline - Inhabitant dead"
+			lifepod_dead = true
+			
 
 
 func break_module():
@@ -104,6 +111,8 @@ func _failed():
 
 
 func interact():
+	if lifepod_dead:
+		return
 	if respawn_module:
 		if active_module == null:
 			game_manager.disable_player()

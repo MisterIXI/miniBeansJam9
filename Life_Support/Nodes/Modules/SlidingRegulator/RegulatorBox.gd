@@ -46,6 +46,8 @@ func process_slider(id: int, value: float):
 
 
 func is_all_correct():
+	if len(_correctness) < len(_children):
+		return false
 	for x in range(len(_children)):
 		if not _correctness[x]:
 			return false
