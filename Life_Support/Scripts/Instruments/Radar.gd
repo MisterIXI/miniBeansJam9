@@ -19,10 +19,13 @@ var monsterClone
 var path
 var follow
 
+@onready var siren_module = $"/root/MainScene/EventManager/SirenModule"
+
 signal ship_damage
 
 
 func _ready():
+	siren_module._module_fixed.connect(OnSiren)
 	spinner = get_node("Spinner")
 	monsterClone = get_node("MonsterClone")
 
@@ -81,15 +84,17 @@ func _on_monster_area_area_entered(area:Area3D):
 	if (area.name == "NeedleArea"):
 		monsterClone.global_transform.origin = monster.global_transform.origin
 		timer = highlightTime
-
+		if monsterCurrSpeed >= 0 && !siren_module.is_broken():
+			siren_module.break_module()
 		$"../../AudioPlayer/SFXSonar".play()
 		
 	if (area.name == "NeedleHolderArea"):
 		emit_signal("ship_damage")
 		monsterCurrSpeed = -monsterSpeed
-		
+		siren_module.fix_module(true)
 		$"../../AudioPlayer/SFXShipDamage".play()
 
-
-func ScareMonster():
+func OnSiren():
 	monsterCurrSpeed = -monsterSpeed
+	$"../../AudioPlayer/SFXScareMonster".play()
+
