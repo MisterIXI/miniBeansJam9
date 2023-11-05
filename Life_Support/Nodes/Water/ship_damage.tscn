@@ -1,31 +1,105 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxvti8tcxwp4q"]
+[gd_scene load_steps=5 format=3 uid="uid://ckxeb7o3rq2yr"]
 
 [ext_resource type="Script" path="res://Scripts/Water/ShipDamage.gd" id="1_wrf2q"]
 [ext_resource type="PackedScene" uid="uid://csaahwgp144o" path="res://Nodes/Water/water.tscn" id="2_2ff62"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_0awg1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyi6x"]
+albedo_color = Color(1, 0.34902, 0.956863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rinqy"]
+material = SubResource("StandardMaterial3D_oyi6x")
 
 [node name="ShipDamage" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.23024, 2.19228, 5.70756)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57, 2.26068)
 script = ExtResource("1_wrf2q")
 
 [node name="Pipes" type="Node3D" parent="."]
-
-[node name="Right" type="Node3D" parent="Pipes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.76797)
-
-[node name="Pipe2" type="MeshInstance3D" parent="Pipes/Right"]
-transform = Transform3D(6.97, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.691, 0.0569999, -0.0107222)
 visible = false
-mesh = SubResource("BoxMesh_0awg1")
 
-[node name="Left" type="Node3D" parent="Pipes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.11007)
+[node name="Left1" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(0.45, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 6.64926, 0.952534, -1.80072)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
 
-[node name="Pipe1" type="MeshInstance3D" parent="Pipes/Left"]
-transform = Transform3D(7.32, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.662756, 0.0592921, -0.043386)
-visible = false
-mesh = SubResource("BoxMesh_0awg1")
+[node name="Left2" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(0.479, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 8.85051, -0.324097, 0.193696)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="LeftUp3" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-4.56784e-08, 0.01, 0, -1.045, -4.37114e-10, 0, 0, 0, 0.01, 6.81412, 0.265781, -2.14578)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="LeftUp4" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-2.68825e-08, 0.01, 0, -0.615, -4.37114e-10, 0, 0, 0, 0.01, 7.0701, 0.457842, -2.14629)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="LeftUp5" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-3.16908e-08, 0.01, 0, -0.725, -4.37114e-10, 0, 0, 0, 0.01, 7.31299, 0.449069, -2.14411)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="LeftUp6" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-2.73196e-08, 0.01, 0, -0.625, -4.37114e-10, 0, 0, 0, 0.01, 7.56943, 0.00620675, -2.14442)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="LeftUp7" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-2.36041e-08, 0.01, 0, -0.54, -4.37114e-10, 0, 0, 0, 0.01, 6.5587, -0.00724387, -2.14578)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="Right1" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(0.547, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 4.86349, 0.633, 1.08099)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="Right2" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(0.934, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 7.4639, 0.0324074, 1.8715)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="Right3" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(0.479, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 8.62411, 0.0324074, 1.43655)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="Right4" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(0.479, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 8.85319, -0.324097, -0.147079)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="RightUp5" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-3.64553e-08, 0.01, 0, -0.834, -4.37114e-10, 0, 0, 0, 0.01, -0.939609, -0.0607616, 0.937208)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="Back1" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-4.43234e-08, 0, -0.01, 0, 0.01, 0, 1.014, 0, -4.37114e-10, 8.97361, 0.127046, 0.0225506)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="Back2" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-2.09378e-08, 0, -0.01, 0, 0.01, 0, 0.479, 0, -4.37114e-10, 8.97361, 0.127046, -1.01879)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="Back3" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-2.29048e-08, 0, -0.01, 0, 0.01, 0, 0.524, 0, -4.37114e-10, 8.19622, 0.127046, -1.97754)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="Back4" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-3.31769e-08, 0, -0.01, 0, 0.01, 0, 0.759, 0, -4.37114e-10, 8.97283, 0.57685, -0.0234635)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
+
+[node name="Back5" type="MeshInstance3D" parent="Pipes"]
+transform = Transform3D(-3.31769e-08, 0, -0.01, 0, 0.01, 0, 0.759, 0, -4.37114e-10, 8.97283, 0.57685, 1.20771)
+mesh = SubResource("BoxMesh_rinqy")
+skeleton = NodePath("")
 
 [node name="Water" parent="." instance=ExtResource("2_2ff62")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07719, -1.95836, -0.122089)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.077, -1.58, -0.122)

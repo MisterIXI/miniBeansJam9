@@ -4,7 +4,7 @@ extends Node3D
 var speed = 1.5
 var highlightTime = 2
 
-var monsterSpeedRange = [0.015, 0.04]
+var monsterSpeedRange = [0.115, 0.14]
 var monsterSpeed
 var monsterCurrSpeed = monsterSpeed
 

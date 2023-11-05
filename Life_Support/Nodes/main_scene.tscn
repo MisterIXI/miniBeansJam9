@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bykcmfou7jtur" path="res://Nodes/player.tscn" id="2_wlyvn"]
 [ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="3_75xgu"]
 [ext_resource type="PackedScene" uid="uid://bo6spjh87ufjq" path="res://Nodes/Instruments/HeightSensor.tscn" id="3_bomng"]
-[ext_resource type="PackedScene" uid="uid://cxvti8tcxwp4q" path="res://Nodes/Water/ship_damage.tscn" id="4_r1xnm"]
+[ext_resource type="PackedScene" uid="uid://ckxeb7o3rq2yr" path="res://Nodes/Water/ship_damage.tscn" id="4_r1xnm"]
 
 [node name="MainScene" type="Node3D"]
 
@@ -23,6 +23,5 @@ transform = Transform3D(-5.98846e-08, -0.86756, -0.727773, 0, 0.920632, -0.68581
 transform = Transform3D(0.43871, -0.459084, -9.58823e-08, -0.459084, -0.43871, 5.55135e-08, -1.06378e-07, 3.09665e-08, -0.635, -6.59288, 1.43032, 2.07418)
 
 [node name="ShipDamage" parent="Instruments" instance=ExtResource("4_r1xnm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57, 2.26068)
 
-[editable path="Instruments/ShipDamage"]
+[connection signal="ship_damage" from="Instruments/Radar" to="Instruments/ShipDamage" method="_on_radar_ship_damage"]

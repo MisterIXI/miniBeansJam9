@@ -1,8 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://csaahwgp144o"]
+[gd_scene load_steps=9 format=3 uid="uid://csaahwgp144o"]
 
 [ext_resource type="Material" uid="uid://0jn2jmlgt0ed" path="res://Assets/Materials/Water/WaterShaderMaterial.tres" id="1_h7clf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iyh4a"]
+size = Vector2(25, 15)
+subdivide_width = 200
+subdivide_depth = 200
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vmmvc"]
+noise_type = 3
+seed = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q36rx"]
+seamless = true
+seamless_blend_skirt = 0.594
+as_normal_map = true
+bump_strength = 4.5
+noise = SubResource("FastNoiseLite_vmmvc")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_keiu5"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ac0wu"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_keiu5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cgu5"]
+albedo_color = Color(0, 0.392157, 0.317647, 1)
+albedo_texture = SubResource("NoiseTexture2D_q36rx")
+heightmap_enabled = true
+heightmap_texture = SubResource("NoiseTexture2D_ac0wu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_72i5y"]
+material = SubResource("StandardMaterial3D_2cgu5")
 size = Vector2(25, 15)
 subdivide_width = 200
 subdivide_depth = 200
@@ -13,3 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03077, 0)
 [node name="Plane" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_iyh4a")
 surface_material_override/0 = ExtResource("1_h7clf")
+
+[node name="Backup" type="MeshInstance3D" parent="Plane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.017, 0)
+mesh = SubResource("PlaneMesh_72i5y")
