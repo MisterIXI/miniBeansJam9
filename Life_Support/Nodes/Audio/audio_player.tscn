@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3 uid="uid://bnerrxg3teept"]
+
+[ext_resource type="AudioStream" uid="uid://r5r0r22hyouw" path="res://Assets/SFX/Radar Beep/Sonar_Sound1.mp3" id="1_l28af"]
+[ext_resource type="AudioStream" uid="uid://b0ot2i7yrmdan" path="res://Assets/SFX/Radar Beep/Sonar_Sound2.mp3" id="2_tok1e"]
+[ext_resource type="AudioStream" uid="uid://bda7a4xt8wwh6" path="res://Assets/SFX/Monster Schaden/UBoot_Damage.mp3" id="3_db1qp"]
+[ext_resource type="AudioStream" uid="uid://ytybya2n86dd" path="res://Assets/SFX/Sicherung/Sicherung_Fällt.mp3" id="4_lw04i"]
+[ext_resource type="AudioStream" uid="uid://bl6af0680s014" path="res://Assets/SFX/Sicherung/Sicherung_Einschalten.mp3" id="5_3cmpt"]
+[ext_resource type="AudioStream" uid="uid://b32gp61gquak1" path="res://Assets/SFX/Maschinengeräuche/Maschine_die_Anläuft_und_ausgeht.mp3" id="6_bnq6b"]
+[ext_resource type="AudioStream" uid="uid://dbswl155uo7gk" path="res://Assets/SFX/Alarm_Klick_Sounds/Sirene.wav" id="7_v1p0n"]
+[ext_resource type="AudioStream" uid="uid://2knhsm8q2bkd" path="res://Assets/SFX/Background/Summen_aus_der_Tiefe_Background.mp3" id="8_2nq5x"]
+[ext_resource type="AudioStream" uid="uid://culo5cadcxgpl" path="res://Assets/SFX/Cryo hiss/cryoSuccess.wav" id="9_nyydc"]
+[ext_resource type="AudioStream" uid="uid://mjlfqjpiaku3" path="res://Assets/SFX/Cryo hiss/Cryo.mp3" id="10_5rhyo"]
+[ext_resource type="AudioStream" uid="uid://dg30e4yqtq0co" path="res://Assets/SFX/Ducttape/ducttape.mp3" id="11_s7k4i"]
+[ext_resource type="AudioStream" uid="uid://b8ostb2sqd8yf" path="res://Assets/SFX/Alarm_Klick_Sounds/click.wav" id="12_nhpdt"]
+[ext_resource type="AudioStream" uid="uid://b2u5e3r2yg33r" path="res://Assets/SFX/Alarm_Klick_Sounds/correctly.wav" id="13_hl8br"]
+[ext_resource type="AudioStream" uid="uid://bumn52x105i65" path="res://Assets/SFX/Alarm_Klick_Sounds/Hold.mp3" id="14_ltf7c"]
+
+[node name="AudioPlayer" type="Node3D"]
+
+[node name="SFXSonar" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50601, 1.48507, 2.07875)
+stream = ExtResource("1_l28af")
+bus = &"SFX"
+
+[node name="SFXAlarm" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29184, 1.48507, 2.07875)
+stream = ExtResource("2_tok1e")
+bus = &"SFX"
+
+[node name="SFXShipDamage" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29184, 1.48507, 2.07875)
+stream = ExtResource("3_db1qp")
+volume_db = 80.0
+bus = &"SFX"
+
+[node name="SFXElectroOff" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546715, 1.48507, 3.38716)
+stream = ExtResource("4_lw04i")
+bus = &"SFX"
+
+[node name="SFXElectroOn" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546715, 1.48507, 3.38716)
+stream = ExtResource("5_3cmpt")
+bus = &"SFX"
+
+[node name="SFXMotor" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29184, 1.48507, 2.27344)
+stream = ExtResource("6_bnq6b")
+volume_db = 80.0
+bus = &"LightBosstSFX"
+
+[node name="SFXScareMonster" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12855, 1.48507, 4.70206)
+stream = ExtResource("7_v1p0n")
+bus = &"SFX"
+
+[node name="Music" type="Node3D" parent="."]
+
+[node name="Autoplay" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("8_2nq5x")
+volume_db = 12.302
+autoplay = true
+bus = &"Music"
+
+[node name="SFXCryoSuccess" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26255, 1.48507, -0.545253)
+stream = ExtResource("9_nyydc")
+bus = &"SFX"
+
+[node name="SFXCryoError" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26255, 1.48507, -0.545253)
+stream = ExtResource("10_5rhyo")
+bus = &"SFX"
+
+[node name="SFXDuctTape" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21011, 3.61568, 2.22624)
+stream = ExtResource("11_s7k4i")
+bus = &"SFX"
+
+[node name="SFXClick" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25658, 3.64712, 2.19746)
+stream = ExtResource("12_nhpdt")
+bus = &"SFX"
+
+[node name="SFXSuccess" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34321, 3.76671, 2.19152)
+stream = ExtResource("13_hl8br")
+bus = &"SFX"
+
+[node name="SFXHold" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34321, 3.76671, 2.19152)
+stream = ExtResource("14_ltf7c")
+bus = &"SFX"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdshecfrfr2pl"]
+[gd_scene load_steps=9 format=3 uid="uid://cdshecfrfr2pl"]
 
 [ext_resource type="Script" path="res://Scripts/Water/water_leak.gd" id="1_eirpp"]
+[ext_resource type="AudioStream" uid="uid://cayjxoah36axe" path="res://Assets/SFX/Wasserleck/piss.mp3" id="2_xi15q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ied1j"]
 albedo_color = Color(0, 0.34902, 0.537255, 1)
@@ -46,3 +47,8 @@ mesh = SubResource("TubeTrailMesh_trym6")
 [node name="Spot" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.07, 0, 0, 0, -4.37114e-11, -0.07, 0, 0.001, -3.0598e-09, 0, 0, 0)
 mesh = SubResource("TubeTrailMesh_djdpw")
+
+[node name="SFXWaterLeak" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_xi15q")
+volume_db = -19.556
+bus = &"SFX"
