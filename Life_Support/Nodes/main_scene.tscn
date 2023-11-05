@@ -248,6 +248,7 @@ transform = Transform3D(-1.57361e-08, -0.36, 0, 0.36, -1.57361e-08, 0, 0, 0, 0.3
 
 [node name="RegulatorModule" type="StaticBody3D" parent="EventManager" groups=["Interactable"]]
 script = ExtResource("13_75s2a")
+life_pod_decay = 1.0
 life_pod = 1
 respawn_module = true
 interaction_text = "LMB to charge lifepod"
@@ -259,6 +260,7 @@ shape = SubResource("BoxShape3D_goim5")
 
 [node name="CodeModule" type="StaticBody3D" parent="EventManager" groups=["Interactable"]]
 script = ExtResource("13_75s2a")
+life_pod_decay = 1.0
 life_pod = 2
 respawn_module = true
 interaction_text = "LMB to charge lifepod"
@@ -270,6 +272,7 @@ shape = SubResource("BoxShape3D_bq87n")
 
 [node name="HoldButtonModule" type="StaticBody3D" parent="EventManager" groups=["Interactable"]]
 script = ExtResource("13_75s2a")
+life_pod_decay = 1.0
 life_pod = 3
 respawn_module = true
 interaction_text = "LMB to charge lifepod"
