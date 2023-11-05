@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://crb8flct33wtg"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://crb8flct33wtg"]
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_7eqx3"]
 resource_name = "Amplify"
@@ -15,6 +15,14 @@ volume_db = 24.0
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_xnc1f"]
 resource_name = "Amplify"
 volume_db = 5.51
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_mj54x"]
+resource_name = "Amplify"
+volume_db = 15.4
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_6souj"]
+resource_name = "Amplify"
+volume_db = 24.0
 
 [resource]
 bus/0/volume_db = -8.39524
@@ -50,3 +58,13 @@ bus/4/volume_db = 6.02
 bus/4/send = &"SFX"
 bus/4/effect/0/effect = SubResource("AudioEffectAmplify_xnc1f")
 bus/4/effect/0/enabled = true
+bus/5/name = &"Footsteps"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 6.02
+bus/5/send = &"SFX"
+bus/5/effect/0/effect = SubResource("AudioEffectAmplify_mj54x")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectAmplify_6souj")
+bus/5/effect/1/enabled = false

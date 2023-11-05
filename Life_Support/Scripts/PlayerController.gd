@@ -28,10 +28,24 @@ var head_bobbing_vector = Vector2.ZERO
 var head_bobbing_index = 0.0
 var head_bobbing_current_intensity =0.0
 
+var stepLeft = true
+var leftFoot
+var rightFoot
+var stepsounds = [preload("res://Assets/SFX/Steps/Schritt_1_Hall.mp3"),  
+				preload("res://Assets/SFX/Steps/Schritt_2_Hall.mp3"), 
+				preload("res://Assets/SFX/Steps/Schritt_3_Hall.mp3"),
+				preload("res://Assets/SFX/Steps/Schritt_4_Hall.mp3"),
+				preload("res://Assets/SFX/Steps/Schritt_5_Hall.mp3"),
+				preload("res://Assets/SFX/Steps/Schritt_6_Hall.mp3")]
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_node("/root/GameManager").player = self
+	
+	leftFoot = $Nek/Head/Eyes/CameraMain/SFXFootstepLeft
+	rightFoot = $Nek/Head/Eyes/CameraMain/SFXFootstepRight
 
 
 func _exit_tree():
@@ -87,7 +101,7 @@ func _physics_process(delta):
 	head_bobbing_index += head_bobbing_speed * delta
 	if is_on_floor() && input_dir != Vector2.ZERO:
 		head_bobbing_vector.y = sin(head_bobbing_index)
-		head_bobbing_vector.x = sin(head_bobbing_index/2)+0.5	
+		head_bobbing_vector.x = sin(head_bobbing_index/2)+0.5
 		eyes.position.y = lerp(eyes.position.y, head_bobbing_vector.y*(head_bobbing_current_intensity/2.0),delta * lerp_speed)
 		eyes.position.x = lerp(eyes.position.x, head_bobbing_vector.x*head_bobbing_current_intensity,delta * lerp_speed)
 	else:
@@ -130,3 +144,19 @@ func _physics_process(delta):
 		info_text.text = ""
 		interaction_target = null
 	move_and_slide()
+
+
+
+	
+	var stepsound = stepsounds[randi_range(0, stepsounds.size() - 1)]
+
+	if stepLeft:
+		if eyes.position.x >= 0.01:
+			rightFoot.stream = stepsound
+			rightFoot.play()
+			stepLeft = false
+	else:
+		if eyes.position.x <= -0.01:
+			rightFoot.stream = stepsound
+			leftFoot.play()
+			stepLeft = true
