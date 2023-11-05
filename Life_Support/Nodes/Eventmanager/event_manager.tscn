@@ -1,8 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgqqgsxh2tfj1"]
+[gd_scene load_steps=8 format=3 uid="uid://bgqqgsxh2tfj1"]
 
 [ext_resource type="Script" path="res://Scripts/EventManager.gd" id="1_mtai1"]
+[ext_resource type="Script" path="res://Scripts/ModuleTrigger.gd" id="2_yl21r"]
+[ext_resource type="PackedScene" uid="uid://dd660if3bqlve" path="res://Nodes/Modules/CircuitBreakers/cicruit_breaker_module.tscn" id="3_7cguf"]
+[ext_resource type="PackedScene" uid="uid://fanxw5sieu2c" path="res://Nodes/warn_light.tscn" id="4_fp1jo"]
+[ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="5_0st8h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s3vwg"]
+size = Vector3(0.611735, 0.724176, 0.231661)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ygsng"]
+height = 0.380861
+radius = 0.429146
 
 [node name="EventManager" type="Node3D"]
 script = ExtResource("1_mtai1")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="CircuitBreaker" type="StaticBody3D" parent="." groups=["Interactable"]]
+script = ExtResource("2_yl21r")
+module_node = ExtResource("3_7cguf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CircuitBreaker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.480989, 1.29736, 3.40532)
+shape = SubResource("BoxShape3D_s3vwg")
+disabled = true
+
+[node name="WarnLight" parent="CircuitBreaker" instance=ExtResource("4_fp1jo")]
+
+[node name="SirenModule" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SirenModule"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.0002, 1.49336, 4.43369)
+shape = SubResource("CylinderShape3D_ygsng")
+
+[node name="WarningLight" parent="SirenModule" instance=ExtResource("5_0st8h")]
+transform = Transform3D(-7.43094e-09, -0.17, 7.43094e-09, 0, -7.43094e-09, -0.17, 0.17, -7.43094e-09, 3.24817e-16, -3.74277, 1.87514, 4.26511)
+
+[editable path="SirenModule/WarningLight"]
