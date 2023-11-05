@@ -21,8 +21,16 @@ texture = ExtResource("4_oiung")
 script = ExtResource("1_30mur")
 progress_bar = NodePath("ProgressBar")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 486.0
+offset_top = 18.0
+offset_right = 1010.0
+offset_bottom = 88.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Press, hold and rotate"
+
 [node name="SirenWheel" type="StaticBody2D" parent="."]
-position = Vector2(707, 334)
+position = Vector2(707, 397)
 scale = Vector2(1.76, 1.76)
 input_pickable = true
 
@@ -35,9 +43,9 @@ shape = SubResource("CircleShape2D_npjer")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = 201.0
-offset_top = 137.0
+offset_top = 212.0
 offset_right = 241.0
-offset_bottom = 437.0
+offset_bottom = 512.0
 value = 32.07
 fill_mode = 3
 

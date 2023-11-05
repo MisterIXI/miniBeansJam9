@@ -45,10 +45,6 @@ theme_type_variation = &"HeaderLarge"
 theme_override_font_sizes/font_size = 25
 text = "                                                 Deep Sea Adventure"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-
 [node name="Button_Start" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0

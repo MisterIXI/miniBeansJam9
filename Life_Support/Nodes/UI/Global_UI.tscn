@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpooobyvf5fxs"]
+[gd_scene load_steps=10 format=3 uid="uid://cpooobyvf5fxs"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_llrig"]
+[ext_resource type="Texture2D" uid="uid://dtd3m2fw1becc" path="res://Assets/Textures/UI/LogoMinibeansjam9_2.png" id="2_n3yfb"]
 [ext_resource type="PackedScene" uid="uid://cwwc33y6i53hi" path="res://Nodes/UI/Hmenu.tscn" id="2_oyakn"]
+[ext_resource type="Texture2D" uid="uid://cdfema2sq6t32" path="res://Assets/Textures/UI/start.png" id="4_7qr4d"]
 [ext_resource type="PackedScene" uid="uid://driu5hknh1ine" path="res://Nodes/UI/Settings.tscn" id="5_e1p8v"]
+[ext_resource type="Texture2D" uid="uid://bwgx044q2sf7n" path="res://Assets/Textures/UI/settings.png" id="5_genh7"]
 [ext_resource type="PackedScene" uid="uid://b0ml1y3b8ryeg" path="res://Nodes/UI/Credits.tscn" id="6_f17na"]
+[ext_resource type="Texture2D" uid="uid://b8kkn5gc5gyo5" path="res://Assets/Textures/UI/credits.png" id="6_x2r7u"]
+[ext_resource type="Texture2D" uid="uid://kitng7f552r4" path="res://Assets/Textures/UI/quit.png" id="7_yebjc"]
 
 [node name="Global_UI" type="Control"]
 process_mode = 3
@@ -15,9 +20,47 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_llrig")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 302.0
+offset_bottom = 301.0
+scale = Vector2(1.17954, 1.0267)
+texture = ExtResource("2_n3yfb")
+expand_mode = 1
+
 [node name="HMenu" parent="." instance=ExtResource("2_oyakn")]
 layout_mode = 1
 script = null
+
+[node name="Label" parent="HMenu/MarginContainer/VBoxContainer" index="0"]
+text = ""
+
+[node name="LabeleDescription" parent="HMenu/MarginContainer/VBoxContainer" index="1"]
+text = "                                                A Panic Deep Sea Adventure
+
+
+
+
+"
+
+[node name="Button_Start" parent="HMenu/MarginContainer/VBoxContainer" index="2"]
+text = ""
+icon = ExtResource("4_7qr4d")
+
+[node name="Button_Settings" parent="HMenu/MarginContainer/VBoxContainer" index="3"]
+text = ""
+icon = ExtResource("5_genh7")
+
+[node name="Button_Credits" parent="HMenu/MarginContainer/VBoxContainer" index="4"]
+text = ""
+icon = ExtResource("6_x2r7u")
+
+[node name="Button_Quit" parent="HMenu/MarginContainer/VBoxContainer" index="5"]
+text = ""
+icon = ExtResource("7_yebjc")
 
 [node name="SettingMenu" parent="." instance=ExtResource("5_e1p8v")]
 visible = false
