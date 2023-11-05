@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg2rx786h5vuk"]
+
+[ext_resource type="Script" path="res://Scripts/Instruments/Generator.gd" id="1_bw305"]
+
+[node name="Generator" type="Node3D"]
+script = ExtResource("1_bw305")
+
+[node name="Light" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128502, 2.51503, 0.331115)
+light_color = Color(0.933333, 0.909804, 0.631373, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62305, 2.51503, 0.331115)
+light_color = Color(0.933333, 0.909804, 0.631373, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84029, 2.51503, -0.155406)
+light_color = Color(0.933333, 0.909804, 0.631373, 1)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84029, 2.51503, 3.86336)
+light_color = Color(0.933333, 0.909804, 0.631373, 1)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.69091, 2.50919, 2.01202)
+light_color = Color(0.933333, 0.909804, 0.631373, 1)
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128502, 2.51503, 3.63869)
+light_color = Color(0.933333, 0.909804, 0.631373, 1)
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60639, 2.51503, 3.63869)
+light_color = Color(0.933333, 0.909804, 0.631373, 1)
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.15488, 2.51503, 3.12014)
+light_color = Color(0.933333, 0.909804, 0.631373, 1)
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.15488, 2.51503, 0.870773)
+light_color = Color(0.933333, 0.909804, 0.631373, 1)

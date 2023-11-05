@@ -1,15 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo6spjh87ufjq"]
+[gd_scene load_steps=10 format=3 uid="uid://c1pfqka4j4scf"]
 
-[ext_resource type="Script" path="res://Scripts/Instruments/HeightSensor.gd" id="1_vfhwn"]
-[ext_resource type="Material" uid="uid://db3jl0lmmi6fk" path="res://Assets/Materials/radar.tres" id="2_gpllb"]
-[ext_resource type="FontFile" uid="uid://clvdnk4auwesp" path="res://Assets/Fonts/DS-DIGI.TTF" id="2_v2vag"]
-[ext_resource type="Material" uid="uid://b432225cjxob7" path="res://Assets/Materials/radarbg.tres" id="4_dkm81"]
+[ext_resource type="Script" path="res://Scripts/Instruments/HeightSensor.gd" id="1_qcd1x"]
+[ext_resource type="Material" uid="uid://db3jl0lmmi6fk" path="res://Assets/Materials/radar.tres" id="2_dofwd"]
+[ext_resource type="FontFile" uid="uid://clvdnk4auwesp" path="res://Assets/Fonts/DS-DIGI.TTF" id="3_cqmoj"]
+[ext_resource type="Material" uid="uid://b432225cjxob7" path="res://Assets/Materials/radarbg.tres" id="4_1cirk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_16ira"]
-material = ExtResource("2_gpllb")
+material = ExtResource("2_dofwd")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ybskq"]
-material = ExtResource("4_dkm81")
+material = ExtResource("4_1cirk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmj1r"]
 transparency = 1
@@ -22,8 +22,8 @@ size = Vector3(0.275, 0.685, 0.1)
 [sub_resource type="BoxMesh" id="BoxMesh_qo7u5"]
 
 [node name="HeightSensor" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0709775, 1.96515, 7.34029)
-script = ExtResource("1_vfhwn")
+transform = Transform3D(-5.98846e-08, -0.86756, -0.727773, 0, 0.920632, -0.685818, 1.37, -3.79223e-08, -3.1812e-08, -6.63597, 1.40272, 0.834358)
+script = ExtResource("1_qcd1x")
 
 [node name="Heightbar" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.025, 0, 0, 0, 0.03, 0.000616938, -0.306784, -0.0537624)
@@ -35,7 +35,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3763
 pixel_size = 0.002
 outline_modulate = Color(0, 0.431373, 0.521569, 1)
 text = "- 17m"
-font = ExtResource("2_v2vag")
+font = ExtResource("3_cqmoj")
 font_size = 31
 
 [node name="Sign" type="MeshInstance3D" parent="HeightLabel"]
@@ -49,13 +49,19 @@ mesh = SubResource("BoxMesh_14cn2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Container"]
 transform = Transform3D(0.28, 0, 0, 0, 0.69, 0, 0, 0, 0.025, 0, 0, 4.91142e-05)
-material_override = ExtResource("4_dkm81")
+material_override = ExtResource("4_1cirk")
 mesh = SubResource("BoxMesh_qo7u5")
 
 [node name="MotorAlarmLamps" type="Node3D" parent="."]
 
-[node name="MotorAlarmLamp1" type="SpotLight3D" parent="MotorAlarmLamps"]
-transform = Transform3D(1, 0, 0, 0, -0.0523359, 0.99863, 0, -0.99863, -0.0523359, 0.0498206, 1.11335, -3.96551)
-light_color = Color(0.733333, 0, 0.0588235, 1)
-light_energy = 16.0
-light_specular = 0.9
+[node name="OmniLight3D" type="OmniLight3D" parent="MotorAlarmLamps"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.131e-07, 0, 1.131e-07, 1, 0.871873, -1.17399, -3.21226)
+light_color = Color(1, 0.278431, 0.227451, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="MotorAlarmLamps"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.131e-07, 0, 1.131e-07, 1, 0.871873, -4.17129, -7.2358)
+light_color = Color(1, 0.278431, 0.227451, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="MotorAlarmLamps"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.131e-07, 0, 1.131e-07, 1, 0.871873, -6.37144, -10.1893)
+light_color = Color(1, 0.278431, 0.227451, 1)

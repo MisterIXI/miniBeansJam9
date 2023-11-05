@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfpm7c0unkyey"]
 
-[ext_resource type="PackedScene" uid="uid://bo6spjh87ufjq" path="res://Nodes/Instruments/HeightSensor.tscn" id="1_ujuma"]
+[ext_resource type="PackedScene" uid="uid://bo6spjh87ufjq" path="res://Nodes/HeightSensor.tscn" id="1_ujuma"]
 [ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="2_babkr"]
-[ext_resource type="PackedScene" uid="uid://cxvti8tcxwp4q" path="res://Nodes/Water/ship_damage.tscn" id="3_gg4hn"]
+[ext_resource type="PackedScene" uid="uid://ckxeb7o3rq2yr" path="res://Nodes/Water/ship_damage.tscn" id="3_gg4hn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ditwn"]
 
