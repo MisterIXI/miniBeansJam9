@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c344xpuwa5d58" path="res://Assets/Textures/UI/BG_SlidingRegulator.png" id="1_judd3"]
 
 [node name="SlidingRegulatorModule" type="Node2D"]
+script = ExtResource("1_5npxt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -48,7 +49,6 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_5npxt")
 
 [node name="SliderBox" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("1_iyyvv")]
 layout_mode = 2
