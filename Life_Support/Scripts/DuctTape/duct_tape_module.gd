@@ -16,6 +16,8 @@ signal finish
 signal failed
 signal cancel
 
+@onready var sound_manager = $"/root/MainScene/AudioPlayer/SFXDuctTape"
+
 var skipped_first_frame = false
 
 # Called when the node enters the scene tree for the first time.
@@ -77,6 +79,7 @@ func __stop_dragging_tape(event):
 	collider.shape = rect_shape
 	_tape = null
 	_dragging_tape = false
+	sound_manager.play()
 	# check if all cracks are covered
 	__check_for_fixed()
 
