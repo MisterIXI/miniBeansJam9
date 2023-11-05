@@ -45,6 +45,8 @@ func _drag_body(drag_from: Vector2, drag_to: Vector2):
 		progress = max(0.0, min(1.0, progress + progress_gain * rad_to_deg(delta_angle) / 360.0))
 		# print("delta_angle: " + str(rad_to_deg(delta_angle) / 360.0))
 		print("angle: " + str(rad_to_deg(delta_angle)))
+		if progress >= 1.0:
+			finish.emit()
 
 
 func _on_mouse_entered():

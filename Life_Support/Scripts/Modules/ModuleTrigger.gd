@@ -16,28 +16,38 @@ var active_module = null
 
 func _ready():
 	if !respawn_module:
-		collider.disabled = false
+		collider.set_deferred("disabled", false)
+		# collider.disabled = false
 		active_module = module_node.instantiate()
 		add_child(active_module)
 		active_module.visible = false
 	if is_waterleak:
 		break_module()
+	collider.name = "cooler_collider"
 
 
 func break_module():
+	print("Breaking module")
 	_module_broken.emit()
 	if !is_waterleak:
 		warn_light.activate()
 	if respawn_module:
-		collider.disabled = false
+		collider.set_deferred("disabled", false)
+		print("Enabling collider")
 
 
-func fix_module():
-	_module_fixed.emit()
+func fix_module(suppress_signal = false):
+
+	if !suppress_signal:
+		_module_fixed.emit()
 	if !is_waterleak:
 		warn_light.deactivate()
 	if respawn_module:
-		collider.disabled = true
+		collider.set_deferred("disabled", true)
+
+
+func is_broken():
+	return !collider.disabled
 
 
 func _finish():

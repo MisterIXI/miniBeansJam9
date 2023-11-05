@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://djlvppio26xr4"]
 
-[ext_resource type="PackedScene" uid="uid://djgl2mhv4p3df" path="res://Nodes/submarine_level.tscn" id="1_jk0pa"]
+[ext_resource type="PackedScene" uid="uid://kba4atrqix4v" path="res://Nodes/submarine_level.tscn" id="1_jk0pa"]
 [ext_resource type="PackedScene" uid="uid://28q284e6ypcg" path="res://Nodes/player.tscn" id="2_wlyvn"]
 [ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="3_75xgu"]
 [ext_resource type="PackedScene" path="res://Nodes/Instruments/height_sensor.tscn" id="3_f80ie"]
@@ -83,9 +83,8 @@ shadow_mesh = SubResource("ArrayMesh_w5nkg")
 [sub_resource type="BoxShape3D" id="BoxShape3D_s3vwg"]
 size = Vector3(0.611735, 0.724176, 0.231661)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ygsng"]
-height = 0.380861
-radius = 0.429146
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d3r1h"]
+height = 0.438029
 
 [node name="MainScene" type="Node3D"]
 
@@ -223,12 +222,14 @@ transform = Transform3D(-0.415, 6.26633e-08, 0, -6.26633e-08, -0.415, 0, 0, 0, 0
 
 [node name="SirenModule" type="StaticBody3D" parent="EventManager" groups=["Interactable"]]
 script = ExtResource("13_75s2a")
+respawn_module = true
 interaction_text = "LMB to scare monster away"
 module_node = ExtResource("16_jw08t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EventManager/SirenModule"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.0002, 1.49336, 4.43369)
-shape = SubResource("CylinderShape3D_ygsng")
+shape = SubResource("CylinderShape3D_d3r1h")
+disabled = true
 
 [node name="EventLight" parent="EventManager/SirenModule" instance=ExtResource("16_t2tk7")]
 transform = Transform3D(-1.57361e-08, -0.36, 0, 0.36, -1.57361e-08, 0, 0, 0, 0.36, -3.71374, 1.83132, 4.27442)
