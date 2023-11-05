@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://28q284e6ypcg"]
+[gd_scene load_steps=6 format=3 uid="uid://bykcmfou7jtur"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_ak7mc"]
+[ext_resource type="AudioStream" uid="uid://ctmdi2e3e02ye" path="res://Assets/SFX/Steps/Schritt_1_Hall.mp3" id="2_j2spa"]
+[ext_resource type="AudioStream" uid="uid://dpvgtb6fciynh" path="res://Assets/SFX/Steps/Schritt_6_Hall.mp3" id="3_nnmnt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p6eg1"]
 radius = 0.3
@@ -58,3 +60,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "teastateataetaetaetaet"
+
+[node name="SFXFootstepLeft" type="AudioStreamPlayer3D" parent="Nek/Head/Eyes/CameraMain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11136, -1.5932, 0)
+stream = ExtResource("2_j2spa")
+volume_db = 80.0
+bus = &"Footsteps"
+doppler_tracking = 1
+
+[node name="SFXFootstepRight" type="AudioStreamPlayer3D" parent="Nek/Head/Eyes/CameraMain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906851, -1.60014, 0)
+stream = ExtResource("3_nnmnt")
+volume_db = 80.0
+bus = &"Footsteps"
+doppler_tracking = 1
