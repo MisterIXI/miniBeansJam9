@@ -25,6 +25,7 @@ func _ready():
 func _process(delta):
 	if waterlevel >= maxWaterlevel:
 		# print_debug("Game Over")
+		get_node("/root/MainScene/Global_UI/GameOver").OnGameover(false)
 		emit_signal("game_over")
 		fillSpeed = 0
 		drainspeed = 0

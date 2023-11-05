@@ -90,7 +90,7 @@ func _finish():
 	if is_waterleak:
 		get_parent().queue_free()
 	if life_pod:
-		life_pod_val = min(100, life_pod_val + 50)
+		life_pod_val = min(100, life_pod_val + 100)
 		break_module()
 
 

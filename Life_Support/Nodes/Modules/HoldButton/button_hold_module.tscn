@@ -26,7 +26,7 @@ texture = ExtResource("5_cup8d")
 
 [node name="ButtonHoldModule" type="Node2D"]
 script = ExtResource("1_pkhj3")
-charge_speed = 5
+charge_speed = 10
 
 [node name="Label" type="Label" parent="."]
 offset_left = 426.0

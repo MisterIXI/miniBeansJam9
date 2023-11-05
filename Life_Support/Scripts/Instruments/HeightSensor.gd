@@ -1,7 +1,7 @@
 extends Node3D
 
-var maxHeight = -9500
-var currentHeight = -8000
+var maxHeight = -4500
+var currentHeight = -3000
 
 var motorSpeed = 15
 var sinkingSpeed = -5
@@ -25,7 +25,7 @@ signal game_over
 
 @onready var circuit_breaker = get_node("/root/MainScene/EventManager/CircuitBreaker")
 var next_break_time
-const BREAK_RANGE = Vector2i(10, 20)
+const BREAK_RANGE = Vector2i(30, 50)
 
 func _ready():
 	heightBar = get_node("Heightbar")
