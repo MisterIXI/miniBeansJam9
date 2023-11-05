@@ -50,20 +50,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Sound Volume"
 
-[node name="Label3" type="Label" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Mouse Sensitivity"
-
 [node name="Label4" type="Label" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Invert Y-Axis"
-
-[node name="Label5" type="Label" parent="MarginContainer/ContentContainer/HBoxContainerLabel"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Fullscreen"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ContentContainer"]
 custom_minimum_size = Vector2(0, 200)
@@ -87,28 +77,9 @@ value = 50.0
 [node name="VSeparator2" type="VSeparator" parent="MarginContainer/ContentContainer/HBoxContainer2"]
 layout_mode = 2
 
-[node name="VSlider3_MouseS" type="VSlider" parent="MarginContainer/ContentContainer/HBoxContainer2"]
-modulate = Color(0, 0, 0.337255, 1)
-custom_minimum_size = Vector2(156.29, 0)
-layout_mode = 2
-value = 50.0
-
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/ContentContainer/HBoxContainer2"]
-layout_mode = 2
-
 [node name="CheckBox_Invert" type="CheckBox" parent="MarginContainer/ContentContainer/HBoxContainer2"]
 material = SubResource("CanvasItemMaterial_yj3ff")
 custom_minimum_size = Vector2(183.705, 0)
 layout_mode = 2
 theme = ExtResource("1_xk30x")
 text = "Mouse Y-Axis"
-
-[node name="VSeparator4" type="VSeparator" parent="MarginContainer/ContentContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="CheckBox2_Screen" type="CheckBox" parent="MarginContainer/ContentContainer/HBoxContainer2"]
-material = SubResource("CanvasItemMaterial_yj3ff")
-layout_mode = 2
-theme = ExtResource("1_xk30x")
-text = "Change to 
-Fullscreen / Window"

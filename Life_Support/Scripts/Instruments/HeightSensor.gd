@@ -3,7 +3,7 @@ extends Node3D
 var maxHeight = -9500
 var currentHeight = -8000
 
-var motorSpeed = -15
+var motorSpeed = 15
 var sinkingSpeed = -5
 var currentMotorSpeed = motorSpeed
 
@@ -23,6 +23,10 @@ var alarm = false
 signal game_won
 signal game_over
 
+@onready var circuit_breaker = get_node("/root/MainScene/EventManager/CircuitBreaker")
+var next_break_time
+const BREAK_RANGE = Vector2i(10, 20)
+
 func _ready():
 	heightBar = get_node("Heightbar")
 	label = get_node("HeightLabel")
@@ -32,13 +36,24 @@ func _ready():
 
 	motorAlarmLamps = get_node("MotorAlarmLamps")
 	ToggleMotor(true)
+	next_break_time = randi() % (BREAK_RANGE.y - BREAK_RANGE.x) + BREAK_RANGE.x
+	circuit_breaker._module_fixed.connect(on_fix_module)
 
 
 
 func _process(delta):
 	UpdateHeightSensor(delta)
 	MotorAlarm(delta)
+	if next_break_time > -1 && Time.get_ticks_msec() / 1000.0 > next_break_time:
+		circuit_breaker.break_module()
+		ToggleMotor(false)
+		next_break_time = -1
+		print("Motor broke down!")
 
+func on_fix_module():
+	ToggleMotor(true)
+	next_break_time = Time.get_ticks_msec() / 1000.0 + randi() % (BREAK_RANGE.y - BREAK_RANGE.x) + BREAK_RANGE.x
+	print("Motor fixed!")
 		
 
 func UpdateHeightSensor(delta):

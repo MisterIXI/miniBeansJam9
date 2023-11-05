@@ -1,12 +1,15 @@
 extends Node2D
-## decay per second of 100
-@export var decay_speed = 1
 ## charge per second of 100
 @export var charge_speed = 2
 var progress: float = 0.
 var button: Button = null
 var progress_bar: ProgressBar = null
 var button_is_down = false
+@onready var parent = get_parent()
+
+signal finish
+signal failed
+signal cancel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,10 +30,10 @@ func Button_up():
 
 func _process(delta):
 	if button_is_down:
-		progress += delta * charge_speed
-	else:
-		progress -= delta * decay_speed
-	progress = clamp(progress, 0, 100)
-	progress_bar.value = progress
-	if progress == 100:
-		print("Button is fully charged!")
+		parent.life_pod_val += delta * charge_speed
+	parent.life_pod_val = clamp(parent.life_pod_val, 0, 100)
+	progress_bar.value = parent.life_pod_val
+
+
+func _on_x_button_pressed():
+	emit_signal("cancel")

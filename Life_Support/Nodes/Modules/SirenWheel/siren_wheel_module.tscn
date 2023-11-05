@@ -1,21 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ua4sjor55qqj"]
+[gd_scene load_steps=4 format=3 uid="uid://ua4sjor55qqj"]
 
 [ext_resource type="Script" path="res://Scripts/Modules/SirenWheel.gd" id="1_30mur"]
 [ext_resource type="Texture2D" uid="uid://cokbsyim10tfh" path="res://Assets/Textures/UI/sirem_Wheel02.png" id="2_ff72s"]
-[ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="3_ldygb"]
-[ext_resource type="Texture2D" uid="uid://cpfafexsldib8" path="res://Assets/Textures/UI/CloseButton_02.png" id="4_oiung"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npjer"]
 radius = 170.144
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y7cyw"]
-texture = ExtResource("3_ldygb")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12usv"]
-texture = ExtResource("3_ldygb")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5l562"]
-texture = ExtResource("4_oiung")
 
 [node name="SirenWheelModule" type="Node2D" node_paths=PackedStringArray("progress_bar")]
 script = ExtResource("1_30mur")
@@ -49,16 +38,5 @@ offset_bottom = 512.0
 value = 32.07
 fill_mode = 3
 
-[node name="Button" type="Button" parent="."]
-offset_left = 1078.0
-offset_top = 33.0
-offset_right = 1158.0
-offset_bottom = 113.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_y7cyw")
-theme_override_styles/hover = SubResource("StyleBoxTexture_12usv")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_5l562")
-
 [connection signal="mouse_entered" from="SirenWheel" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SirenWheel" to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

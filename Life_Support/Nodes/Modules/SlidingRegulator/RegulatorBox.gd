@@ -1,8 +1,11 @@
-extends HBoxContainer
-@onready var _children = get_children()
+extends Node2D
+@onready var _children = get_node("CanvasLayer/MarginContainer/HBoxContainer").get_children()
 var _value_targets = []
 var _correctness = []
 
+signal finish
+signal failed
+signal cancel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,9 +42,12 @@ func process_slider(id: int, value: float):
 		texture_rect.modulate = Color(1, 0, 0)
 	if is_all_correct():
 		print("all correct")
+		finish.emit()
 
 
 func is_all_correct():
+	if len(_correctness) < len(_children):
+		return false
 	for x in range(len(_children)):
 		if not _correctness[x]:
 			return false
