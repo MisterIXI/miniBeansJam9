@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ba25di1sksm40" path="res://Assets/Textures/UI/pipe_02.png" id="1_mjgk7"]
 
 [node name="CodeModule" type="Node2D"]
+script = ExtResource("1_dtpki")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 2.0
@@ -19,7 +20,6 @@ offset_top = 115.0
 offset_right = 889.0
 offset_bottom = 573.0
 columns = 3
-script = ExtResource("1_dtpki")
 
 [node name="Button1" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(150, 150)

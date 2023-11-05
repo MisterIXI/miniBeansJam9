@@ -1,12 +1,16 @@
-extends GridContainer
+extends Node2D
 
+@onready var _container = get_node("GridContainer")
 var _children = []
 var _current = 0
 
+signal finish
+signal cancel
+signal failed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_children = get_children()
+	_children = _container.get_children()
 	for x in range(len(_children)):
 		_children[x].pressed.connect(func(): on_click(x + 1))
 	reshuffle()
@@ -15,12 +19,12 @@ func _ready():
 func reshuffle():
 	# clear children
 	for child in _children:
-		remove_child(child)
+		_container.remove_child(child)
 	# shuffle children
 	_children.shuffle()
 	# re add children
 	for child in _children:
-		add_child(child)
+		_container.add_child(child)
 		child.disabled = false
 	_current = 0
 
@@ -37,6 +41,11 @@ func on_click(id: int):
 		# on correct press
 		hide_button(id)
 		_current += 1
+		if _current == len(_children):
+			finish.emit()
+			reshuffle()
 	else:
 		# on wrong press
 		reshuffle()
+		failed.emit()
+

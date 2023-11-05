@@ -1,10 +1,39 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3tijeruurjuy"]
+[gd_scene load_steps=25 format=3 uid="uid://c3tijeruurjuy"]
 
 [ext_resource type="Material" uid="uid://b44o8llaupquu" path="res://Assets/Materials/env/rustymetalgreengrey.tres" id="1_lur81"]
-[ext_resource type="Material" uid="uid://c0476h0bqevua" path="res://Assets/Materials/lifelight.tres" id="2_4e3st"]
+[ext_resource type="Texture2D" uid="uid://d38fxmdm3ngpt" path="res://Assets/Models/Submarine_Props_LifeLights.png" id="2_stjrr"]
 [ext_resource type="Material" uid="uid://bgyenxdq15e08" path="res://Assets/Materials/env/rustymetalyellow.tres" id="3_hftid"]
 [ext_resource type="Material" uid="uid://bcf0l45viut3y" path="res://Assets/Materials/env/rustymetalred.tres" id="4_cl3tn"]
 [ext_resource type="Material" uid="uid://ymyp8kyvs6it" path="res://Assets/Materials/env/rustymetalblack.tres" id="5_xla5g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyyuc"]
+albedo_texture = ExtResource("2_stjrr")
+emission_enabled = true
+emission_texture = ExtResource("2_stjrr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygk1s"]
+albedo_texture = ExtResource("2_stjrr")
+emission_enabled = true
+emission_texture = ExtResource("2_stjrr")
+uv1_offset = Vector3(0, -0.3, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j17ka"]
+albedo_texture = ExtResource("2_stjrr")
+emission_enabled = true
+emission_texture = ExtResource("2_stjrr")
+uv1_offset = Vector3(0, -0.3, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrbc8"]
+albedo_texture = ExtResource("2_stjrr")
+emission_enabled = true
+emission_texture = ExtResource("2_stjrr")
+uv1_offset = Vector3(0, -0.3, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u722i"]
+albedo_texture = ExtResource("2_stjrr")
+emission_enabled = true
+emission_texture = ExtResource("2_stjrr")
+uv1_offset = Vector3(0, -0.3, 0)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7uukx"]
 _surfaces = [{
@@ -104,7 +133,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
-"material": ExtResource("2_4e3st"),
+"material": SubResource("StandardMaterial3D_eyyuc"),
 "name": "Life1",
 "primitive": 3,
 "vertex_count": 4,
@@ -115,7 +144,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
-"material": ExtResource("2_4e3st"),
+"material": SubResource("StandardMaterial3D_ygk1s"),
 "name": "Life2",
 "primitive": 3,
 "vertex_count": 4,
@@ -126,7 +155,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
-"material": ExtResource("2_4e3st"),
+"material": SubResource("StandardMaterial3D_j17ka"),
 "name": "Life3",
 "primitive": 3,
 "vertex_count": 4,
@@ -137,7 +166,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
-"material": ExtResource("2_4e3st"),
+"material": SubResource("StandardMaterial3D_rrbc8"),
 "name": "Life4",
 "primitive": 3,
 "vertex_count": 4,
@@ -148,7 +177,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
-"material": ExtResource("2_4e3st"),
+"material": SubResource("StandardMaterial3D_u722i"),
 "name": "Life5",
 "primitive": 3,
 "vertex_count": 4,

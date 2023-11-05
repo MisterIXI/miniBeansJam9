@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://djlvppio26xr4"]
+[gd_scene load_steps=28 format=3 uid="uid://djlvppio26xr4"]
 
 [ext_resource type="PackedScene" uid="uid://kba4atrqix4v" path="res://Nodes/submarine_level.tscn" id="1_jk0pa"]
 [ext_resource type="PackedScene" uid="uid://bykcmfou7jtur" path="res://Nodes/player.tscn" id="2_wlyvn"]
@@ -11,9 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cpooobyvf5fxs" path="res://Nodes/UI/Global_UI.tscn" id="8_c5uor"]
 [ext_resource type="Script" path="res://Scripts/Modules/EventManager.gd" id="12_426uq"]
 [ext_resource type="Script" path="res://Scripts/Modules/ModuleTrigger.gd" id="13_75s2a"]
+[ext_resource type="PackedScene" uid="uid://cmjxfu0vcre3w" path="res://Nodes/Modules/SlidingRegulator/sliding_regulator_module.tscn" id="14_8ain0"]
 [ext_resource type="PackedScene" uid="uid://bnerrxg3teept" path="res://Nodes/Audio/audio_player.tscn" id="14_w5fvr"]
+[ext_resource type="PackedScene" uid="uid://cck3iest5f6qb" path="res://Nodes/Modules/CodeModule/code_module.tscn" id="15_o20di"]
 [ext_resource type="PackedScene" uid="uid://ua4sjor55qqj" path="res://Nodes/Modules/SirenWheel/siren_wheel_module.tscn" id="16_jw08t"]
-[ext_resource type="PackedScene" path="res://Nodes/Eventmanager/event_light.tscn" id="16_t2tk7"]
+[ext_resource type="PackedScene" uid="uid://cn485umitfn3d" path="res://Nodes/Eventmanager/event_light.tscn" id="16_t2tk7"]
+[ext_resource type="PackedScene" uid="uid://cegt8uqv7no21" path="res://Nodes/Modules/HoldButton/button_hold_module.tscn" id="16_xsftq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5p3ox"]
 albedo_color = Color(0.160784, 0.0666667, 0.0470588, 1)
@@ -85,6 +88,15 @@ size = Vector3(0.611735, 0.724176, 0.231661)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d3r1h"]
 height = 0.438029
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_goim5"]
+size = Vector3(0.434549, 0.246139, 0.225564)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bq87n"]
+size = Vector3(0.351019, 0.275544, 0.165507)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxqlm"]
+size = Vector3(0.394016, 0.275756, 0.138648)
 
 [node name="MainScene" type="Node3D"]
 
@@ -233,6 +245,39 @@ disabled = true
 
 [node name="EventLight" parent="EventManager/SirenModule" instance=ExtResource("16_t2tk7")]
 transform = Transform3D(-1.57361e-08, -0.36, 0, 0.36, -1.57361e-08, 0, 0, 0, 0.36, -3.71374, 1.83132, 4.27442)
+
+[node name="RegulatorModule" type="StaticBody3D" parent="EventManager" groups=["Interactable"]]
+script = ExtResource("13_75s2a")
+life_pod = 1
+respawn_module = true
+interaction_text = "LMB to charge lifepod"
+module_node = ExtResource("14_8ain0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventManager/RegulatorModule"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14888, 1.1102, 0.495066)
+shape = SubResource("BoxShape3D_goim5")
+
+[node name="CodeModule" type="StaticBody3D" parent="EventManager" groups=["Interactable"]]
+script = ExtResource("13_75s2a")
+life_pod = 2
+respawn_module = true
+interaction_text = "LMB to charge lifepod"
+module_node = ExtResource("15_o20di")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventManager/CodeModule"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29621, 1.12231, 0.504678)
+shape = SubResource("BoxShape3D_bq87n")
+
+[node name="HoldButtonModule" type="StaticBody3D" parent="EventManager" groups=["Interactable"]]
+script = ExtResource("13_75s2a")
+life_pod = 3
+respawn_module = true
+interaction_text = "LMB to charge lifepod"
+module_node = ExtResource("16_xsftq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventManager/HoldButtonModule"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44781, 1.13359, 0.529081)
+shape = SubResource("BoxShape3D_kxqlm")
 
 [node name="AudioPlayer" parent="." instance=ExtResource("14_w5fvr")]
 
