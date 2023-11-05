@@ -120,6 +120,8 @@ func _physics_process(delta):
 
 	# input raycast
 	var raycast = ray.get_collider()
+	if raycast:
+		print("raycast: ", raycast)
 	if raycast && raycast.is_in_group("Interactable"):
 		# info_text.text = raycast.name
 		info_text.text = raycast.interaction_text
