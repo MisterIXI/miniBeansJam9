@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b8kkn5gc5gyo5" path="res://Assets/Textures/UI/credits.png" id="6_x2r7u"]
 [ext_resource type="Texture2D" uid="uid://kitng7f552r4" path="res://Assets/Textures/UI/quit.png" id="7_yebjc"]
 [ext_resource type="Texture2D" uid="uid://cwejivlwpm7xc" path="res://Assets/Textures/UI/YouWin.png" id="10_6srek"]
-[ext_resource type="Script" path="res://Scripts/UI/Win&Loose.gd" id="10_nup58"]
+[ext_resource type="Script" path="res://Scripts/UI/GameOver.gd" id="11_08hbo"]
 [ext_resource type="Texture2D" uid="uid://5m8odygbdxaq" path="res://Assets/Textures/UI/YouLose.png" id="11_sui6e"]
 [ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="12_0kca3"]
 
@@ -89,13 +89,13 @@ offset_right = 265.0
 offset_bottom = 251.0
 script = null
 
-[node name="Win&Loose" type="Control" parent="."]
+[node name="GameOver" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-script = ExtResource("10_nup58")
+script = ExtResource("11_08hbo")
 
-[node name="Win" type="Control" parent="Win&Loose"]
+[node name="Win" type="Control" parent="GameOver"]
 visible = false
 layout_direction = 1
 layout_mode = 1
@@ -103,7 +103,7 @@ anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="ColorRect" type="ColorRect" parent="Win&Loose/Win"]
+[node name="ColorRect" type="ColorRect" parent="GameOver/Win"]
 layout_mode = 0
 offset_left = 423.0
 offset_top = 171.0
@@ -112,7 +112,7 @@ offset_bottom = 205.0
 scale = Vector2(14.8779, 10.4641)
 color = Color(0.211765, 0.211765, 0.211765, 1)
 
-[node name="TextureRect" type="TextureRect" parent="Win&Loose/Win/ColorRect"]
+[node name="TextureRect" type="TextureRect" parent="GameOver/Win/ColorRect"]
 layout_mode = 0
 offset_left = 1.14263
 offset_top = 11.0855
@@ -121,7 +121,7 @@ offset_bottom = 19.0855
 texture = ExtResource("10_6srek")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="Win&Loose/Win/ColorRect"]
+[node name="Button" type="Button" parent="GameOver/Win/ColorRect"]
 layout_mode = 0
 offset_left = 21.5084
 offset_top = -0.477814
@@ -130,7 +130,7 @@ offset_bottom = 135.522
 scale = Vector2(0.07, 0.07)
 icon = ExtResource("12_0kca3")
 
-[node name="Lose" type="Control" parent="Win&Loose"]
+[node name="Lose" type="Control" parent="GameOver"]
 visible = false
 layout_direction = 1
 layout_mode = 1
@@ -138,7 +138,7 @@ anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="ColorRect" type="ColorRect" parent="Win&Loose/Lose"]
+[node name="ColorRect" type="ColorRect" parent="GameOver/Lose"]
 layout_mode = 0
 offset_left = 423.0
 offset_top = 171.0
@@ -147,7 +147,7 @@ offset_bottom = 205.0
 scale = Vector2(14.8779, 10.4641)
 color = Color(0.211765, 0.211765, 0.211765, 1)
 
-[node name="TextureRect" type="TextureRect" parent="Win&Loose/Lose/ColorRect"]
+[node name="TextureRect" type="TextureRect" parent="GameOver/Lose/ColorRect"]
 layout_mode = 0
 offset_left = 1.14263
 offset_top = 11.0855
@@ -156,7 +156,7 @@ offset_bottom = 19.0855
 texture = ExtResource("11_sui6e")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="Win&Loose/Lose/ColorRect"]
+[node name="Button" type="Button" parent="GameOver/Lose/ColorRect"]
 layout_mode = 0
 offset_left = 21.4412
 offset_right = 157.441
@@ -169,8 +169,8 @@ icon = ExtResource("12_0kca3")
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider3_MouseS" to="." method="_on_v_slider_3_mouse_s_value_changed"]
 [connection signal="toggled" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/CheckBox_Invert" to="." method="_on_check_box_invert_toggled"]
 [connection signal="toggled" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/CheckBox2_Screen" to="." method="_on_check_box_2_screen_toggled"]
-[connection signal="pressed" from="Win&Loose/Win/ColorRect/Button" to="Win&Loose" method="_onButtonClick"]
-[connection signal="pressed" from="Win&Loose/Lose/ColorRect/Button" to="Win&Loose" method="_onButtonClick"]
+[connection signal="pressed" from="GameOver/Win/ColorRect/Button" to="GameOver" method="_onButtonClick"]
+[connection signal="pressed" from="GameOver/Lose/ColorRect/Button" to="GameOver" method="_onButtonClick"]
 
 [editable path="HMenu"]
 [editable path="SettingMenu"]
