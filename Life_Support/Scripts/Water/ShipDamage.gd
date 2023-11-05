@@ -24,13 +24,12 @@ func _ready():
 
 func _process(delta):
 	if waterlevel >= maxWaterlevel:
-		print_debug("Game Over")
+		# print_debug("Game Over")
 		emit_signal("game_over")
 		fillSpeed = 0
 		drainspeed = 0
 	elif waterlevel >= -1.6:
 		waterlevel += drainspeed * delta
-	print_debug("Water level: " + str(waterlevel))
 	water.transform.origin = Vector3(0, waterlevel, 0)
 	
 
