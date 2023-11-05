@@ -23,7 +23,7 @@ var GAMEVAR_ISPAUSED = false
 func _ready():
 	if get_parent().name == "MainScene":
 		button_Start.connect("pressed", self._on_resume_pressed)
-		button_Start.text = "RESUME"
+		
 	else:
 		button_Start.connect("pressed", self._on_play_pressed)
 	button_Settings.connect("pressed", self._on_options_pressed)
