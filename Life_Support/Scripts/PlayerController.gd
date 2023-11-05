@@ -23,7 +23,7 @@ var interaction_target = null
 var is_reacting_to_input = true
 #Head bobbing
 const head_bobbing_speed = 14.0
-const head_bobbing_intensity = 0.1
+const head_bobbing_intensity = 0.05
 var head_bobbing_vector = Vector2.ZERO
 var head_bobbing_index = 0.0
 var head_bobbing_current_intensity =0.0
@@ -151,12 +151,12 @@ func _physics_process(delta):
 	var stepsound = stepsounds[randi_range(0, stepsounds.size() - 1)]
 
 	if stepLeft:
-		if eyes.position.x >= 0.01:
+		if eyes.position.x >= 0.0005:
 			rightFoot.stream = stepsound
 			rightFoot.play()
 			stepLeft = false
 	else:
-		if eyes.position.x <= -0.01:
+		if eyes.position.x <= -0.005:
 			rightFoot.stream = stepsound
 			leftFoot.play()
 			stepLeft = true
