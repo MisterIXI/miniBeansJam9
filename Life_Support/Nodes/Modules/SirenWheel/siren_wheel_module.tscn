@@ -1,12 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://ua4sjor55qqj"]
+[gd_scene load_steps=9 format=3 uid="uid://ua4sjor55qqj"]
 
 [ext_resource type="Script" path="res://Scripts/SirenWheel.gd" id="1_3u721"]
-[ext_resource type="Texture2D" path="res://Assets/Textures/ValveWheel.png" id="2_mthh4"]
+[ext_resource type="Texture2D" uid="uid://cokbsyim10tfh" path="res://Assets/Textures/UI/sirem_Wheel02.png" id="1_gxi7m"]
+[ext_resource type="Texture2D" uid="uid://bwx0m622l7qb" path="res://Assets/Textures/UI/ProgressBar.png" id="3_o27vf"]
+[ext_resource type="Texture2D" uid="uid://bgf3ntrj6fhjc" path="res://Assets/Textures/UI/ProgressBar_filled.png" id="4_l1yd6"]
+[ext_resource type="Texture2D" uid="uid://cuphkin0ena1w" path="res://Assets/Textures/Arrow.png" id="5_xnhvr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npjer"]
 radius = 170.144
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lslif"]
+texture = ExtResource("3_o27vf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0w4xr"]
+texture = ExtResource("4_l1yd6")
+
 [node name="SirenWheelModule" type="Node2D"]
+
+[node name="SpriteBG" type="Sprite2D" parent="."]
+position = Vector2(707, 334)
+scale = Vector2(0.176, 0.176)
+texture = ExtResource("1_gxi7m")
 
 [node name="SirenWheel" type="StaticBody2D" parent="." node_paths=PackedStringArray("progress_bar")]
 position = Vector2(707, 334)
@@ -17,8 +31,9 @@ progress_gain = 0.3
 progress_bar = NodePath("../ProgressBar")
 
 [node name="Sprite2D" type="Sprite2D" parent="SirenWheel"]
-scale = Vector2(0.437, 0.437)
-texture = ExtResource("2_mthh4")
+position = Vector2(0, 1.13635)
+scale = Vector2(0.527909, 0.527909)
+texture = ExtResource("1_gxi7m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SirenWheel"]
 shape = SubResource("CircleShape2D_npjer")
@@ -28,8 +43,20 @@ offset_left = 201.0
 offset_top = 137.0
 offset_right = 241.0
 offset_bottom = 437.0
+theme_override_styles/background = SubResource("StyleBoxTexture_lslif")
+theme_override_styles/fill = SubResource("StyleBoxTexture_0w4xr")
 value = 32.07
 fill_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0, 1, 0, 1)
+offset_left = 200.0
+offset_top = 437.0
+offset_right = 242.0
+offset_bottom = 479.0
+rotation = -1.5708
+texture = ExtResource("5_xnhvr")
+expand_mode = 1
 
 [connection signal="mouse_entered" from="SirenWheel" to="SirenWheel" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SirenWheel" to="SirenWheel" method="_on_mouse_exited"]

@@ -1,22 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://cegt8uqv7no21"]
+[gd_scene load_steps=13 format=3 uid="uid://cegt8uqv7no21"]
 
 [ext_resource type="Script" path="res://Scripts/button_hold_module.gd" id="1_pkhj3"]
+[ext_resource type="Texture2D" uid="uid://cp1wu15qaau68" path="res://Assets/Textures/UI/pipe.png" id="2_nhl62"]
+[ext_resource type="Texture2D" uid="uid://coif7dpyh0k6v" path="res://Assets/Textures/UI/Button_Minigame.png" id="2_w4n55"]
+[ext_resource type="Texture2D" uid="uid://cs7s5k8sug0tj" path="res://Assets/Textures/UI/Button_pressed_Minigame.png" id="3_lvqm7"]
+[ext_resource type="Texture2D" uid="uid://bwx0m622l7qb" path="res://Assets/Textures/UI/ProgressBar.png" id="3_njbtb"]
+[ext_resource type="Texture2D" uid="uid://bgf3ntrj6fhjc" path="res://Assets/Textures/UI/ProgressBar_filled.png" id="4_23wus"]
+[ext_resource type="Texture2D" uid="uid://cuphkin0ena1w" path="res://Assets/Textures/Arrow.png" id="5_h7hjd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7jxx"]
+texture = ExtResource("3_njbtb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_booo0"]
+texture = ExtResource("4_23wus")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_08ovk"]
+texture = ExtResource("2_w4n55")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16twj"]
+texture = ExtResource("2_w4n55")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grako"]
+texture = ExtResource("3_lvqm7")
 
 [node name="ButtonHoldModule" type="Node2D"]
 script = ExtResource("1_pkhj3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1286.0
+offset_bottom = 722.0
+texture = ExtResource("2_nhl62")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 195.0
+offset_top = 137.0
+offset_right = 248.0
+offset_bottom = 437.0
+color = Color(0, 0, 0, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = 201.0
 offset_top = 137.0
 offset_right = 241.0
 offset_bottom = 437.0
+theme_override_styles/background = SubResource("StyleBoxTexture_f7jxx")
+theme_override_styles/fill = SubResource("StyleBoxTexture_booo0")
 value = 32.07
 fill_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0, 1, 0, 1)
+offset_left = 200.0
+offset_top = 437.0
+offset_right = 242.0
+offset_bottom = 479.0
+rotation = -1.5708
+texture = ExtResource("5_h7hjd")
+expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
 offset_left = 394.0
 offset_top = 105.0
-offset_right = 994.0
+offset_right = 794.0
 offset_bottom = 505.0
 theme_override_font_sizes/font_size = 145
-text = "Charge"
+theme_override_styles/normal = SubResource("StyleBoxTexture_08ovk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_16twj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_grako")

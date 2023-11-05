@@ -1,11 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmjxfu0vcre3w"]
+[gd_scene load_steps=4 format=3 uid="uid://cmjxfu0vcre3w"]
 
 [ext_resource type="Script" path="res://Nodes/Modules/SlidingRegulator/RegulatorBox.gd" id="1_5npxt"]
 [ext_resource type="PackedScene" uid="uid://bwaixhr6jyh4i" path="res://Nodes/Modules/SlidingRegulator/slider_box.tscn" id="1_iyyvv"]
+[ext_resource type="Texture2D" uid="uid://c344xpuwa5d58" path="res://Assets/Textures/UI/BG_SlidingRegulator.png" id="1_judd3"]
 
 [node name="SlidingRegulatorModule" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -38.0
+offset_right = -123.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.30336, 1.30336)
+texture = ExtResource("1_judd3")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
