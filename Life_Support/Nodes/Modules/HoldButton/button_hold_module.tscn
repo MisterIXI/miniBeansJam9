@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cegt8uqv7no21"]
 
-[ext_resource type="Script" path="res://Scripts/button_hold_module.gd" id="1_pkhj3"]
+[ext_resource type="Script" path="res://Scripts/Modules/button_hold_module.gd" id="1_pkhj3"]
 
 [node name="ButtonHoldModule" type="Node2D"]
 script = ExtResource("1_pkhj3")

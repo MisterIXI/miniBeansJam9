@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgqqgsxh2tfj1"]
 
-[ext_resource type="Script" path="res://Scripts/EventManager.gd" id="1_mtai1"]
-[ext_resource type="Script" path="res://Scripts/ModuleTrigger.gd" id="2_yl21r"]
+[ext_resource type="Script" path="res://Scripts/Modules/EventManager.gd" id="1_mtai1"]
+[ext_resource type="Script" path="res://Scripts/Modules/ModuleTrigger.gd" id="2_yl21r"]
 [ext_resource type="PackedScene" uid="uid://dd660if3bqlve" path="res://Nodes/Modules/CircuitBreakers/cicruit_breaker_module.tscn" id="3_7cguf"]
 [ext_resource type="PackedScene" uid="uid://fanxw5sieu2c" path="res://Nodes/warn_light.tscn" id="4_fp1jo"]
 [ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="5_0st8h"]

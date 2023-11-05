@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fanxw5sieu2c"]
 
-[ext_resource type="Script" path="res://Scripts/ModuleLight.gd" id="1_ui7of"]
+[ext_resource type="Script" path="res://Scripts/Modules/ModuleLight.gd" id="1_ui7of"]
 
 [node name="WarnLight" type="OmniLight3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636547, 1.63451, 3.44058)

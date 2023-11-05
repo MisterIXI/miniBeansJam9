@@ -1,20 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://ua4sjor55qqj"]
 
-[ext_resource type="Script" path="res://Scripts/SirenWheel.gd" id="1_3u721"]
-[ext_resource type="Texture2D" path="res://Assets/Textures/ValveWheel.png" id="2_mthh4"]
+[ext_resource type="Script" path="res://Scripts/Modules/SirenWheel.gd" id="1_30mur"]
+[ext_resource type="Texture2D" uid="uid://bnts4k28lcdiy" path="res://Assets/Textures/ValveWheel.png" id="2_mthh4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npjer"]
 radius = 170.144
 
-[node name="SirenWheelModule" type="Node2D"]
+[node name="SirenWheelModule" type="Node2D" node_paths=PackedStringArray("progress_bar")]
+script = ExtResource("1_30mur")
+progress_bar = NodePath("ProgressBar")
 
-[node name="SirenWheel" type="StaticBody2D" parent="." node_paths=PackedStringArray("progress_bar")]
+[node name="SirenWheel" type="StaticBody2D" parent="."]
 position = Vector2(707, 334)
 scale = Vector2(1.76, 1.76)
 input_pickable = true
-script = ExtResource("1_3u721")
-progress_gain = 0.3
-progress_bar = NodePath("../ProgressBar")
 
 [node name="Sprite2D" type="Sprite2D" parent="SirenWheel"]
 scale = Vector2(0.437, 0.437)
@@ -31,5 +30,14 @@ offset_bottom = 437.0
 value = 32.07
 fill_mode = 3
 
-[connection signal="mouse_entered" from="SirenWheel" to="SirenWheel" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="SirenWheel" to="SirenWheel" method="_on_mouse_exited"]
+[node name="Button" type="Button" parent="."]
+offset_left = 1078.0
+offset_top = 33.0
+offset_right = 1214.0
+offset_bottom = 169.0
+focus_mode = 0
+text = "X"
+
+[connection signal="mouse_entered" from="SirenWheel" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SirenWheel" to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
