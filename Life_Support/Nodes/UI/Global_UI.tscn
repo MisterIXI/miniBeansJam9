@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpooobyvf5fxs"]
+[gd_scene load_steps=16 format=3 uid="uid://cpooobyvf5fxs"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_llrig"]
 [ext_resource type="Texture2D" uid="uid://dtd3m2fw1becc" path="res://Assets/Textures/UI/LogoMinibeansjam9_2.png" id="2_n3yfb"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/GameOver.gd" id="11_08hbo"]
 [ext_resource type="Texture2D" uid="uid://5m8odygbdxaq" path="res://Assets/Textures/UI/YouLose.png" id="11_sui6e"]
 [ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="12_0kca3"]
+[ext_resource type="Texture2D" uid="uid://b5f7w2paye6k8" path="res://Assets/Textures/UI/Win_Star_03.png" id="14_shp1c"]
 
 [node name="Global_UI" type="Control"]
 process_mode = 3
@@ -96,7 +97,6 @@ offset_bottom = 720.0
 script = ExtResource("11_08hbo")
 
 [node name="Win" type="Control" parent="GameOver"]
-visible = false
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 0
@@ -129,6 +129,23 @@ offset_right = 157.508
 offset_bottom = 135.522
 scale = Vector2(0.07, 0.07)
 icon = ExtResource("12_0kca3")
+
+[node name="WinText" type="Label" parent="GameOver/Win"]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 471.0
+offset_right = 841.0
+offset_bottom = 521.0
+text = "you saved a crew member very good."
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="GameOver/Win"]
+layout_mode = 0
+offset_left = 564.0
+offset_top = 388.0
+offset_right = 739.0
+offset_bottom = 456.0
+texture = ExtResource("14_shp1c")
 
 [node name="Lose" type="Control" parent="GameOver"]
 visible = false
@@ -163,6 +180,14 @@ offset_right = 157.441
 offset_bottom = 136.0
 scale = Vector2(0.07, 0.07)
 icon = ExtResource("12_0kca3")
+
+[node name="LoseText" type="Label" parent="GameOver/Lose"]
+offset_left = 438.0
+offset_top = 417.0
+offset_right = 838.0
+offset_bottom = 467.0
+text = "you saved a crew member very good."
+horizontal_alignment = 1
 
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider_Music" to="." method="_on_v_slider_music_value_changed"]
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider2_Sound" to="." method="_on_v_slider_2_sound_value_changed"]
