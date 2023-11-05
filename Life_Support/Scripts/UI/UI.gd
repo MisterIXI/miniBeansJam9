@@ -12,6 +12,7 @@ extends Control
 @onready var button_Credits: Button = $HMenu/MarginContainer/VBoxContainer/Button_Credits
 @onready var button_Quit: Button = $HMenu/MarginContainer/VBoxContainer/Button_Quit
 
+@onready var button_Resume: Button = $HMenu/MarginContainer/VBoxContainer/Button_Resume
 #Vars
 var GAMEVAR_MUSIC_VOLUME = 0.5
 var GAMEVAR_SOUND_VOLUME = 0.5
@@ -23,9 +24,13 @@ var GAMEVAR_ISPAUSED = false
 func _ready():
 	if get_parent().name == "MainScene":
 		button_Start.connect("pressed", self._on_resume_pressed)
+		button_Resume.show()
+		button_Start.hide()
 		
 	else:
 		button_Start.connect("pressed", self._on_play_pressed)
+		button_Resume.hide()
+		button_Start.show()
 	button_Settings.connect("pressed", self._on_options_pressed)
 	button_Credits.connect("pressed", self._on_credits_pressed)
 	button_Quit.connect("pressed", self._on_quit_pressed)

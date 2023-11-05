@@ -1,14 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpooobyvf5fxs"]
+[gd_scene load_steps=15 format=3 uid="uid://cpooobyvf5fxs"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_llrig"]
 [ext_resource type="Texture2D" uid="uid://dtd3m2fw1becc" path="res://Assets/Textures/UI/LogoMinibeansjam9_2.png" id="2_n3yfb"]
 [ext_resource type="PackedScene" uid="uid://cwwc33y6i53hi" path="res://Nodes/UI/Hmenu.tscn" id="2_oyakn"]
 [ext_resource type="Texture2D" uid="uid://cdfema2sq6t32" path="res://Assets/Textures/UI/start.png" id="4_7qr4d"]
+[ext_resource type="Texture2D" uid="uid://c3tvx6i75xlhh" path="res://Assets/Textures/UI/Resume.png" id="4_ivqc5"]
 [ext_resource type="PackedScene" uid="uid://driu5hknh1ine" path="res://Nodes/UI/Settings.tscn" id="5_e1p8v"]
 [ext_resource type="Texture2D" uid="uid://bwgx044q2sf7n" path="res://Assets/Textures/UI/settings.png" id="5_genh7"]
 [ext_resource type="PackedScene" uid="uid://b0ml1y3b8ryeg" path="res://Nodes/UI/Credits.tscn" id="6_f17na"]
 [ext_resource type="Texture2D" uid="uid://b8kkn5gc5gyo5" path="res://Assets/Textures/UI/credits.png" id="6_x2r7u"]
 [ext_resource type="Texture2D" uid="uid://kitng7f552r4" path="res://Assets/Textures/UI/quit.png" id="7_yebjc"]
+[ext_resource type="Texture2D" uid="uid://cwejivlwpm7xc" path="res://Assets/Textures/UI/YouWin.png" id="10_6srek"]
+[ext_resource type="Script" path="res://Scripts/UI/Win&Loose.gd" id="10_nup58"]
+[ext_resource type="Texture2D" uid="uid://5m8odygbdxaq" path="res://Assets/Textures/UI/YouLose.png" id="11_sui6e"]
+[ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="12_0kca3"]
 
 [node name="Global_UI" type="Control"]
 process_mode = 3
@@ -20,18 +25,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_llrig")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 302.0
-offset_bottom = 301.0
-scale = Vector2(1.17954, 1.0267)
-texture = ExtResource("2_n3yfb")
-expand_mode = 1
-
 [node name="HMenu" parent="." instance=ExtResource("2_oyakn")]
+visible = false
 layout_mode = 1
 script = null
 
@@ -50,17 +45,33 @@ text = "                                                A Panic Deep Sea Adventu
 text = ""
 icon = ExtResource("4_7qr4d")
 
-[node name="Button_Settings" parent="HMenu/MarginContainer/VBoxContainer" index="3"]
+[node name="Button_Resume" parent="HMenu/MarginContainer/VBoxContainer" index="3"]
+visible = false
+text = ""
+icon = ExtResource("4_ivqc5")
+
+[node name="Button_Settings" parent="HMenu/MarginContainer/VBoxContainer" index="4"]
 text = ""
 icon = ExtResource("5_genh7")
 
-[node name="Button_Credits" parent="HMenu/MarginContainer/VBoxContainer" index="4"]
+[node name="Button_Credits" parent="HMenu/MarginContainer/VBoxContainer" index="5"]
 text = ""
 icon = ExtResource("6_x2r7u")
 
-[node name="Button_Quit" parent="HMenu/MarginContainer/VBoxContainer" index="5"]
+[node name="Button_Quit" parent="HMenu/MarginContainer/VBoxContainer" index="6"]
 text = ""
 icon = ExtResource("7_yebjc")
+
+[node name="TextureRect" type="TextureRect" parent="HMenu"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 302.0
+offset_bottom = 301.0
+scale = Vector2(1.17954, 1.0267)
+texture = ExtResource("2_n3yfb")
+expand_mode = 1
 
 [node name="SettingMenu" parent="." instance=ExtResource("5_e1p8v")]
 visible = false
@@ -78,11 +89,88 @@ offset_right = 265.0
 offset_bottom = 251.0
 script = null
 
+[node name="Win&Loose" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("10_nup58")
+
+[node name="Win" type="Control" parent="Win&Loose"]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="ColorRect" type="ColorRect" parent="Win&Loose/Win"]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 171.0
+offset_right = 454.0
+offset_bottom = 205.0
+scale = Vector2(14.8779, 10.4641)
+color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Win&Loose/Win/ColorRect"]
+layout_mode = 0
+offset_left = 1.14263
+offset_top = 11.0855
+offset_right = 31.1426
+offset_bottom = 19.0855
+texture = ExtResource("10_6srek")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Win&Loose/Win/ColorRect"]
+layout_mode = 0
+offset_left = 21.5084
+offset_top = -0.477814
+offset_right = 157.508
+offset_bottom = 135.522
+scale = Vector2(0.07, 0.07)
+icon = ExtResource("12_0kca3")
+
+[node name="Lose" type="Control" parent="Win&Loose"]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="ColorRect" type="ColorRect" parent="Win&Loose/Lose"]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 171.0
+offset_right = 454.0
+offset_bottom = 205.0
+scale = Vector2(14.8779, 10.4641)
+color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Win&Loose/Lose/ColorRect"]
+layout_mode = 0
+offset_left = 1.14263
+offset_top = 11.0855
+offset_right = 31.1426
+offset_bottom = 19.0855
+texture = ExtResource("11_sui6e")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Win&Loose/Lose/ColorRect"]
+layout_mode = 0
+offset_left = 21.4412
+offset_right = 157.441
+offset_bottom = 136.0
+scale = Vector2(0.07, 0.07)
+icon = ExtResource("12_0kca3")
+
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider_Music" to="." method="_on_v_slider_music_value_changed"]
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider2_Sound" to="." method="_on_v_slider_2_sound_value_changed"]
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider3_MouseS" to="." method="_on_v_slider_3_mouse_s_value_changed"]
 [connection signal="toggled" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/CheckBox_Invert" to="." method="_on_check_box_invert_toggled"]
 [connection signal="toggled" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/CheckBox2_Screen" to="." method="_on_check_box_2_screen_toggled"]
+[connection signal="pressed" from="Win&Loose/Win/ColorRect/Button" to="Win&Loose" method="_onButtonClick"]
+[connection signal="pressed" from="Win&Loose/Lose/ColorRect/Button" to="Win&Loose" method="_onButtonClick"]
 
 [editable path="HMenu"]
 [editable path="SettingMenu"]
