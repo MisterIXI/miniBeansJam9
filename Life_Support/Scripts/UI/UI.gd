@@ -20,6 +20,8 @@ var GAMEVAR_MOUSE_SENSIVITY = 0.5
 var GAMEVAR_INVERT = false
 var GAMEVAR_ISPAUSED = false
 
+var _music
+var _sfx
 
 func _ready():
 	if get_parent().name == "MainScene":
@@ -34,6 +36,8 @@ func _ready():
 	button_Settings.connect("pressed", self._on_options_pressed)
 	button_Credits.connect("pressed", self._on_credits_pressed)
 	button_Quit.connect("pressed", self._on_quit_pressed)
+	_music = AudioServer.get_bus_index("Music")
+	_sfx = AudioServer.get_bus_index("SFX")
 
 
 func _on_resume_pressed():
@@ -75,11 +79,14 @@ func _on_v_slider_3_mouse_s_value_changed(value: float):
 func _on_v_slider_2_sound_value_changed(value: float):
 	GAMEVAR_SOUND_VOLUME = value / 100
 	print(GAMEVAR_SOUND_VOLUME)
+	AudioServer.set_bus_volume_db(_sfx, linear_to_db(GAMEVAR_SOUND_VOLUME))
 
 
 func _on_v_slider_music_value_changed(value: float):
 	GAMEVAR_MUSIC_VOLUME = value / 100
 	print(GAMEVAR_MUSIC_VOLUME)
+	AudioServer.set_bus_volume_db(_music, linear_to_db(GAMEVAR_MUSIC_VOLUME))
+
 
 
 func _on_check_box_2_screen_toggled(button_pressed: bool):

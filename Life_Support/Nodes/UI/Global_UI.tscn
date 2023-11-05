@@ -166,7 +166,6 @@ icon = ExtResource("12_0kca3")
 
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider_Music" to="." method="_on_v_slider_music_value_changed"]
 [connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider2_Sound" to="." method="_on_v_slider_2_sound_value_changed"]
-[connection signal="value_changed" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/VSlider3_MouseS" to="." method="_on_v_slider_3_mouse_s_value_changed"]
 [connection signal="toggled" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/CheckBox_Invert" to="." method="_on_check_box_invert_toggled"]
 [connection signal="toggled" from="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2/CheckBox2_Screen" to="." method="_on_check_box_2_screen_toggled"]
 [connection signal="pressed" from="GameOver/Win/ColorRect/Button" to="GameOver" method="_onButtonClick"]
