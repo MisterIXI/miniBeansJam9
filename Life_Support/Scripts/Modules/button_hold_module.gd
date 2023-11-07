@@ -6,11 +6,11 @@ var button: Button = null
 var progress_bar: ProgressBar = null
 var button_is_down = false
 @onready var parent = get_parent()
-
+@onready var tutorial_note = $Tutorial_note
 signal finish
 signal failed
 signal cancel
-
+var isTutorial:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +33,18 @@ func _process(delta):
 		parent.life_pod_val += delta * charge_speed
 	parent.life_pod_val = clamp(parent.life_pod_val, 0, 100)
 	progress_bar.value = parent.life_pod_val
+	
+
+func _on_button_tutorial_pressed():
+	isTutorial = !isTutorial
+	if isTutorial:
+		
+		tutorial_note.show()
+	else:
+		
+		tutorial_note.hide()
 
 
-func _on_x_button_pressed():
+func _on_button_quit_pressed():
 	emit_signal("cancel")
+	print("cancel")

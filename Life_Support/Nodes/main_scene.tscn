@@ -1,22 +1,26 @@
-[gd_scene load_steps=28 format=3 uid="uid://djlvppio26xr4"]
+[gd_scene load_steps=33 format=3 uid="uid://djlvppio26xr4"]
 
 [ext_resource type="PackedScene" uid="uid://kba4atrqix4v" path="res://Nodes/submarine_level.tscn" id="1_jk0pa"]
-[ext_resource type="PackedScene" uid="uid://28q284e6ypcg" path="res://Nodes/player.tscn" id="2_wlyvn"]
+[ext_resource type="PackedScene" uid="uid://bykcmfou7jtur" path="res://Nodes/player.tscn" id="2_wlyvn"]
 [ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="3_75xgu"]
-[ext_resource type="PackedScene" path="res://Nodes/Instruments/height_sensor.tscn" id="3_f80ie"]
+[ext_resource type="PackedScene" uid="uid://c1pfqka4j4scf" path="res://Nodes/Instruments/height_sensor.tscn" id="3_f80ie"]
 [ext_resource type="PackedScene" uid="uid://ckxeb7o3rq2yr" path="res://Nodes/Water/ship_damage.tscn" id="4_r1xnm"]
-[ext_resource type="PackedScene" path="res://Nodes/Instruments/generator.tscn" id="6_5b8rk"]
+[ext_resource type="PackedScene" uid="uid://cg2rx786h5vuk" path="res://Nodes/Instruments/generator.tscn" id="6_5b8rk"]
 [ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="6_55j1d"]
+[ext_resource type="Texture2D" uid="uid://so6qh4f8lg0c" path="res://Assets/Textures/MinigameSprites/sliding_regulator.png" id="8_0gh7k"]
 [ext_resource type="PackedScene" uid="uid://dd660if3bqlve" path="res://Nodes/Modules/CircuitBreakers/cicruit_breaker_module.tscn" id="8_7q24u"]
 [ext_resource type="PackedScene" uid="uid://cpooobyvf5fxs" path="res://Nodes/UI/Global_UI.tscn" id="8_c5uor"]
+[ext_resource type="Texture2D" uid="uid://dddsfneplnxy3" path="res://Assets/Textures/MinigameSprites/code_module.png" id="9_3oaxi"]
+[ext_resource type="Texture2D" uid="uid://coif7dpyh0k6v" path="res://Assets/Textures/UI/Button_Minigame.png" id="10_kr5y3"]
 [ext_resource type="Script" path="res://Scripts/Modules/EventManager.gd" id="12_426uq"]
 [ext_resource type="Script" path="res://Scripts/Modules/ModuleTrigger.gd" id="13_75s2a"]
 [ext_resource type="PackedScene" uid="uid://cmjxfu0vcre3w" path="res://Nodes/Modules/SlidingRegulator/sliding_regulator_module.tscn" id="14_8ain0"]
 [ext_resource type="PackedScene" uid="uid://bnerrxg3teept" path="res://Nodes/Audio/audio_player.tscn" id="14_w5fvr"]
 [ext_resource type="PackedScene" uid="uid://cck3iest5f6qb" path="res://Nodes/Modules/CodeModule/code_module.tscn" id="15_o20di"]
 [ext_resource type="PackedScene" uid="uid://ua4sjor55qqj" path="res://Nodes/Modules/SirenWheel/siren_wheel_module.tscn" id="16_jw08t"]
-[ext_resource type="PackedScene" uid="uid://cn485umitfn3d" path="res://Nodes/Eventmanager/event_light.tscn" id="16_t2tk7"]
+[ext_resource type="PackedScene" path="res://Nodes/Eventmanager/event_light.tscn" id="16_t2tk7"]
 [ext_resource type="PackedScene" uid="uid://cegt8uqv7no21" path="res://Nodes/Modules/HoldButton/button_hold_module.tscn" id="16_xsftq"]
+[ext_resource type="Texture2D" uid="uid://dm3rxg3smfw2g" path="res://Assets/Textures/PosterMiniBeansJam2.png" id="18_tl6ci"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5p3ox"]
 albedo_color = Color(0.160784, 0.0666667, 0.0470588, 1)
@@ -82,6 +86,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w5nkg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vse8y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkit8"]
+albedo_color = Color(1, 1, 0.956863, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s3vwg"]
 size = Vector3(0.611735, 0.724176, 0.231661)
@@ -212,6 +219,28 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("ArrayMesh_r8cua")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_vse8y")
+
+[node name="Sprite3D2" type="Decal" parent="Props"]
+transform = Transform3D(-0.05, 4.37114e-09, -1.91069e-16, 0, -2.18557e-09, -0.05, -4.37114e-09, -0.05, 2.18557e-09, 1.23828, 1.07982, 0.531844)
+texture_albedo = ExtResource("8_0gh7k")
+
+[node name="Sprite3D3" type="Decal" parent="Props"]
+transform = Transform3D(0.055, 0, 0, 0, -2.40413e-09, -0.055, 0, 0.055, -2.40413e-09, 2.38866, 1.06584, 0.531805)
+texture_albedo = ExtResource("9_3oaxi")
+
+[node name="Sprite3D4" type="Decal" parent="Props"]
+transform = Transform3D(0.043, 0, 0, 0, -1.87959e-09, -0.043, 0, 0.043, -1.87959e-09, 3.53622, 1.07275, 0.531844)
+texture_albedo = ExtResource("10_kr5y3")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.32902, 1.82419, 0.329369)
+material_override = SubResource("StandardMaterial3D_bkit8")
+size = Vector3(1.07629, 1.48298, 0.0333254)
+
+[node name="Decal" type="Decal" parent="Props"]
+transform = Transform3D(2.98023e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, 2.98023e-08, -8.88178e-16, -1.34822, 1.83113, 0.328473)
+size = Vector3(1.06855, 0.117764, 1.44576)
+texture_albedo = ExtResource("18_tl6ci")
 
 [node name="Global_UI" parent="." instance=ExtResource("8_c5uor")]
 visible = false

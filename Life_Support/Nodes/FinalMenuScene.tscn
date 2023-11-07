@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1a64qxrfn6fm"]
+[gd_scene load_steps=20 format=3 uid="uid://b1a64qxrfn6fm"]
 
 [ext_resource type="PackedScene" uid="uid://cpooobyvf5fxs" path="res://Nodes/UI/Global_UI.tscn" id="1_k5b8h"]
 [ext_resource type="PackedScene" uid="uid://kba4atrqix4v" path="res://Nodes/submarine_level.tscn" id="2_6yn0f"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ckxeb7o3rq2yr" path="res://Nodes/Water/ship_damage.tscn" id="5_7iy3e"]
 [ext_resource type="PackedScene" uid="uid://cg2rx786h5vuk" path="res://Nodes/Instruments/generator.tscn" id="6_7l6gc"]
 [ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="7_j0nm8"]
+[ext_resource type="Texture2D" uid="uid://dm3rxg3smfw2g" path="res://Assets/Textures/PosterMiniBeansJam2.png" id="10_314bb"]
 [ext_resource type="PackedScene" uid="uid://bnerrxg3teept" path="res://Nodes/Audio/audio_player.tscn" id="14_wm8n0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5p3ox"]
@@ -179,6 +180,9 @@ _data = {
 "RESET": SubResource("Animation_obyl4")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lh275"]
+albedo_color = Color(1, 1, 0.956863, 1)
+
 [node name="MainSceneaefaef" type="Node3D"]
 
 [node name="Submarine" parent="." instance=ExtResource("2_6yn0f")]
@@ -300,7 +304,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_vse8y")
 [node name="AudioPlayer" parent="." instance=ExtResource("14_wm8n0")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.0142305, -0.334531, 0.942277, -0.00505024, 0.942385, 0.334493, -0.999886, 1.26334e-06, -0.0151, 4.94643, 2.71958, 2.1541)
+transform = Transform3D(-0.0142305, -0.334531, 0.942277, -0.00505024, 0.942385, 0.334493, -0.999885, 1.26334e-06, -0.0151, 4.94643, 2.71958, 2.1541)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "MenuCameraAnim"
@@ -308,5 +312,14 @@ speed_scale = 0.1
 libraries = {
 "": SubResource("AnimationLibrary_55xa5")
 }
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.31134e-09, 0, 0.03, 0, 0.03, 0, -0.03, 0, -1.31134e-09, -1.35207, 1.82419, 0.329369)
+texture = ExtResource("10_314bb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.32902, 1.82419, 0.329369)
+material_override = SubResource("StandardMaterial3D_lh275")
+size = Vector3(1.07629, 1.48298, 0.0333254)
 
 [connection signal="ship_damage" from="Instruments/Radar" to="Instruments/ShipDamage" method="_on_radar_ship_damage"]

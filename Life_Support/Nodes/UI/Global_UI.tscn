@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpooobyvf5fxs"]
+[gd_scene load_steps=19 format=3 uid="uid://cpooobyvf5fxs"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_llrig"]
 [ext_resource type="Texture2D" uid="uid://dtd3m2fw1becc" path="res://Assets/Textures/UI/LogoMinibeansjam9_2.png" id="2_n3yfb"]
 [ext_resource type="PackedScene" uid="uid://cwwc33y6i53hi" path="res://Nodes/UI/Hmenu.tscn" id="2_oyakn"]
+[ext_resource type="Texture2D" uid="uid://dsh5eg8c3fudm" path="res://Assets/Textures/UI/Logodescription.png" id="3_skdhb"]
 [ext_resource type="Texture2D" uid="uid://cdfema2sq6t32" path="res://Assets/Textures/UI/start.png" id="4_7qr4d"]
 [ext_resource type="Texture2D" uid="uid://c3tvx6i75xlhh" path="res://Assets/Textures/UI/Resume.png" id="4_ivqc5"]
 [ext_resource type="PackedScene" uid="uid://driu5hknh1ine" path="res://Nodes/UI/Settings.tscn" id="5_e1p8v"]
@@ -11,10 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://b8kkn5gc5gyo5" path="res://Assets/Textures/UI/credits.png" id="6_x2r7u"]
 [ext_resource type="Texture2D" uid="uid://kitng7f552r4" path="res://Assets/Textures/UI/quit.png" id="7_yebjc"]
 [ext_resource type="Texture2D" uid="uid://cwejivlwpm7xc" path="res://Assets/Textures/UI/YouWin.png" id="10_6srek"]
+[ext_resource type="Texture2D" uid="uid://bghojtwmfh3il" path="res://Assets/Textures/UI/SubmarineBorder2.png" id="10_yuyvv"]
 [ext_resource type="Script" path="res://Scripts/UI/GameOver.gd" id="11_08hbo"]
 [ext_resource type="Texture2D" uid="uid://5m8odygbdxaq" path="res://Assets/Textures/UI/YouLose.png" id="11_sui6e"]
 [ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="12_0kca3"]
 [ext_resource type="Texture2D" uid="uid://b5f7w2paye6k8" path="res://Assets/Textures/UI/Win_Star_03.png" id="14_shp1c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xqyfx"]
+texture = ExtResource("3_skdhb")
 
 [node name="Global_UI" type="Control"]
 process_mode = 3
@@ -30,16 +35,25 @@ script = ExtResource("1_llrig")
 layout_mode = 1
 script = null
 
+[node name="MarginContainer" parent="HMenu" index="0"]
+offset_left = 109.0
+offset_top = 34.0
+offset_right = -467.0
+offset_bottom = 267.0
+scale = Vector2(0.8, 0.8)
+
 [node name="Label" parent="HMenu/MarginContainer/VBoxContainer" index="0"]
-text = ""
-
-[node name="LabeleDescription" parent="HMenu/MarginContainer/VBoxContainer" index="1"]
-text = "                                                A Panic Deep Sea Adventure
-
-
-
+text = "
 
 "
+
+[node name="LabeleDescription" parent="HMenu/MarginContainer/VBoxContainer" index="1"]
+visible = false
+custom_minimum_size = Vector2(350, 136)
+layout_direction = 1
+theme_override_styles/normal = SubResource("StyleBoxTexture_xqyfx")
+text = ""
+vertical_alignment = 2
 
 [node name="Button_Start" parent="HMenu/MarginContainer/VBoxContainer" index="2"]
 text = ""
@@ -58,19 +72,28 @@ icon = ExtResource("5_genh7")
 text = ""
 icon = ExtResource("6_x2r7u")
 
-[node name="Button_Quit" parent="HMenu/MarginContainer/VBoxContainer" index="6"]
+[node name="Button_Quit" parent="HMenu/MarginContainer/VBoxContainer" index="7"]
 text = ""
 icon = ExtResource("7_yebjc")
 
 [node name="TextureRect" type="TextureRect" parent="HMenu"]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 302.0
-offset_bottom = 301.0
-scale = Vector2(1.17954, 1.0267)
+offset_left = 160.2
+offset_top = 98.0
+offset_right = 410.2
+offset_bottom = 348.0
+mouse_filter = 2
 texture = ExtResource("2_n3yfb")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="HMenu"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("10_yuyvv")
 expand_mode = 1
 
 [node name="SettingMenu" parent="." instance=ExtResource("5_e1p8v")]

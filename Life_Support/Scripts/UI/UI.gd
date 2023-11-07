@@ -11,7 +11,6 @@ extends Control
 @onready var button_Settings: Button = $HMenu/MarginContainer/VBoxContainer/Button_Settings
 @onready var button_Credits: Button = $HMenu/MarginContainer/VBoxContainer/Button_Credits
 @onready var button_Quit: Button = $HMenu/MarginContainer/VBoxContainer/Button_Quit
-
 @onready var button_Resume: Button = $HMenu/MarginContainer/VBoxContainer/Button_Resume
 #Vars
 var GAMEVAR_MUSIC_VOLUME = 0.5

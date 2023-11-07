@@ -1,13 +1,14 @@
 extends Node2D
 
 @onready var _container = get_node("GridContainer")
+@onready var tutorial_note = $Tutorial_note
 var _children = []
 var _current = 0
 
 signal finish
 signal cancel
 signal failed
-
+var isTutorial: bool  = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_children = _container.get_children()
@@ -49,3 +50,17 @@ func on_click(id: int):
 		reshuffle()
 		failed.emit()
 
+func _on_button_quit_pressed():
+	emit_signal("cancel")
+	print("cancel")
+
+func _on_button_tutorial_pressed():
+	
+	isTutorial = !isTutorial
+	if isTutorial:
+		_container.hide()
+		tutorial_note.show()
+	else:
+		_container.show()
+		tutorial_note.hide()
+	

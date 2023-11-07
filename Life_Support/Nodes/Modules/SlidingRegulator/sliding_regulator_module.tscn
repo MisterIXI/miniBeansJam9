@@ -1,8 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmjxfu0vcre3w"]
+[gd_scene load_steps=14 format=3 uid="uid://cmjxfu0vcre3w"]
 
 [ext_resource type="Script" path="res://Nodes/Modules/SlidingRegulator/RegulatorBox.gd" id="1_5npxt"]
 [ext_resource type="PackedScene" uid="uid://bwaixhr6jyh4i" path="res://Nodes/Modules/SlidingRegulator/slider_box.tscn" id="1_iyyvv"]
 [ext_resource type="Texture2D" uid="uid://c344xpuwa5d58" path="res://Assets/Textures/UI/BG_SlidingRegulator.png" id="1_judd3"]
+[ext_resource type="Texture2D" uid="uid://cjdqcku8bxrnm" path="res://Assets/Textures/UI/QuestionButton.png" id="3_5bib2"]
+[ext_resource type="Texture2D" uid="uid://sky7vmdqti3o" path="res://Assets/Textures/UI/QuestionButton_02.png" id="4_1sgib"]
+[ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="5_byjao"]
+[ext_resource type="Texture2D" uid="uid://cpfafexsldib8" path="res://Assets/Textures/UI/CloseButton_02.png" id="6_x4huo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rtl6l"]
+texture = ExtResource("3_5bib2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vo228"]
+texture = ExtResource("3_5bib2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkn4g"]
+texture = ExtResource("4_1sgib")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8wu1"]
+texture = ExtResource("5_byjao")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xwii"]
+texture = ExtResource("5_byjao")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_quv8c"]
+texture = ExtResource("6_x4huo")
 
 [node name="SlidingRegulatorModule" type="Node2D"]
 script = ExtResource("1_5npxt")
@@ -13,24 +35,123 @@ script = ExtResource("1_5npxt")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -123.0
-offset_top = -38.0
-offset_right = -123.0
-offset_bottom = -38.0
+offset_left = -505.0
+offset_top = -177.0
+offset_right = -505.0
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.30336, 1.30336)
+scale = Vector2(1.7933, 1.46398)
 texture = ExtResource("1_judd3")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 483.0
-offset_top = 56.0
-offset_right = 1007.0
+offset_left = 455.0
+offset_top = 54.0
+offset_right = 979.0
 offset_bottom = 126.0
 theme_override_font_sizes/font_size = 50
 text = "Slide to the arrow"
+
+[node name="Tutorial_note" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="tutorialText" type="RichTextLabel" parent="CanvasLayer/Tutorial_note"]
+custom_minimum_size = Vector2(500, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 474.0
+offset_top = 601.0
+offset_right = 974.0
+offset_bottom = 901.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Drag the Sliders to the arrow to win this minigame[/center]"
+
+[node name="SliderBox" parent="CanvasLayer/Tutorial_note" instance=ExtResource("1_iyyvv")]
+offset_left = 241.0
+offset_top = 137.0
+offset_right = 377.0
+offset_bottom = 587.0
+
+[node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox/MarginContainer" index="0"]
+modulate = Color(0, 1, 0, 1)
+expand_mode = 1
+
+[node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox/SliderMarginCont" index="0"]
+editable = false
+scrollable = false
+
+[node name="SliderBox2" parent="CanvasLayer/Tutorial_note" instance=ExtResource("1_iyyvv")]
+offset_left = 381.0
+offset_top = 137.0
+offset_right = 517.0
+offset_bottom = 587.0
+
+[node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox2/MarginContainer" index="0"]
+modulate = Color(0, 1, 0, 1)
+
+[node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox2/SliderMarginCont" index="0"]
+editable = false
+scrollable = false
+
+[node name="SliderBox3" parent="CanvasLayer/Tutorial_note" instance=ExtResource("1_iyyvv")]
+offset_left = 521.0
+offset_top = 137.0
+offset_right = 657.0
+offset_bottom = 587.0
+
+[node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox3/MarginContainer" index="0"]
+modulate = Color(0, 1, 0, 1)
+
+[node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox3/SliderMarginCont" index="0"]
+editable = false
+scrollable = false
+
+[node name="SliderBox4" parent="CanvasLayer/Tutorial_note" instance=ExtResource("1_iyyvv")]
+offset_left = 661.0
+offset_top = 137.0
+offset_right = 797.0
+offset_bottom = 587.0
+
+[node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox4/MarginContainer" index="0"]
+modulate = Color(0, 1, 0, 1)
+
+[node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox4/SliderMarginCont" index="0"]
+editable = false
+scrollable = false
+
+[node name="SliderBox5" parent="CanvasLayer/Tutorial_note" instance=ExtResource("1_iyyvv")]
+offset_left = 801.0
+offset_top = 137.0
+offset_right = 937.0
+offset_bottom = 587.0
+
+[node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox5/MarginContainer" index="0"]
+modulate = Color(0, 1, 0, 1)
+
+[node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox5/SliderMarginCont" index="0"]
+editable = false
+scrollable = false
+
+[node name="SliderBox6" parent="CanvasLayer/Tutorial_note" instance=ExtResource("1_iyyvv")]
+offset_left = 941.0
+offset_top = 137.0
+offset_right = 1077.0
+offset_bottom = 587.0
+
+[node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox6/MarginContainer" index="0"]
+modulate = Color(0, 1, 0, 1)
+
+[node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox6/SliderMarginCont" index="0"]
+editable = false
+scrollable = false
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -67,3 +188,33 @@ layout_mode = 2
 
 [node name="SliderBox6" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("1_iyyvv")]
 layout_mode = 2
+
+[node name="ButtonTutorial" type="Button" parent="CanvasLayer"]
+offset_left = 1098.0
+offset_top = 50.0
+offset_right = 1178.0
+offset_bottom = 130.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_rtl6l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vo228")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fkn4g")
+
+[node name="ButtonQuit" type="Button" parent="CanvasLayer"]
+offset_left = 1185.0
+offset_top = 48.0
+offset_right = 1265.0
+offset_bottom = 128.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_o8wu1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6xwii")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_quv8c")
+
+[connection signal="pressed" from="CanvasLayer/ButtonTutorial" to="." method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+
+[editable path="CanvasLayer/Tutorial_note/SliderBox"]
+[editable path="CanvasLayer/Tutorial_note/SliderBox2"]
+[editable path="CanvasLayer/Tutorial_note/SliderBox3"]
+[editable path="CanvasLayer/Tutorial_note/SliderBox4"]
+[editable path="CanvasLayer/Tutorial_note/SliderBox5"]
+[editable path="CanvasLayer/Tutorial_note/SliderBox6"]
