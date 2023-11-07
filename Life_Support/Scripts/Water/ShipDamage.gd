@@ -3,8 +3,8 @@ extends Node3D
 var waterlevel = -1.6
 var maxWaterlevel = -0.3
 var drainspeed = -0.03
-var fillSpeed = 0.01
-var maxLeaks = 3
+var fillSpeed = 0.016
+var maxLeaks = 4
 
 var pipes = []
 
@@ -37,7 +37,7 @@ func _process(delta):
 
 
 func _on_radar_ship_damage():
-	for i in range(0, randi_range(1,maxLeaks)):
+	for i in range(0, randi_range(2,maxLeaks)):
 		var leak = waterLeak.instantiate()
 		add_child(leak)
 		
