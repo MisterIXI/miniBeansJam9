@@ -1,32 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://qcodiwvjaerc"]
+[gd_scene load_steps=5 format=3 uid="uid://qcodiwvjaerc"]
 
 [ext_resource type="Texture2D" uid="uid://bo3v5s5seuyep" path="res://icon.svg" id="1_mp3a4"]
 [ext_resource type="Script" path="res://Scripts/DuctTape/duct_tape_module.gd" id="1_xu4oj"]
 [ext_resource type="PackedScene" uid="uid://deopld48r28k7" path="res://Nodes/Modules/DuctTape/duct_tape.tscn" id="2_yjxsb"]
 [ext_resource type="PackedScene" uid="uid://bqoopbin4k5jo" path="res://Nodes/Modules/DuctTape/crack.tscn" id="4_w8a0q"]
-[ext_resource type="Texture2D" uid="uid://db0o5f3gtxqgj" path="res://Assets/Textures/UI/DuctapeTut.png" id="5_jl48k"]
-[ext_resource type="Texture2D" uid="uid://cjdqcku8bxrnm" path="res://Assets/Textures/UI/QuestionButton.png" id="5_vrkgv"]
-[ext_resource type="Texture2D" uid="uid://sky7vmdqti3o" path="res://Assets/Textures/UI/QuestionButton_02.png" id="6_0guay"]
-[ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="7_anr5b"]
-[ext_resource type="Texture2D" uid="uid://cpfafexsldib8" path="res://Assets/Textures/UI/CloseButton_02.png" id="8_q03vs"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ga7t0"]
-texture = ExtResource("5_vrkgv")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rkbfu"]
-texture = ExtResource("5_vrkgv")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlg2c"]
-texture = ExtResource("6_0guay")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3uen"]
-texture = ExtResource("7_anr5b")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_atn8g"]
-texture = ExtResource("7_anr5b")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12swh"]
-texture = ExtResource("8_q03vs")
 
 [node name="DuctTapeModule" type="Node2D"]
 script = ExtResource("1_xu4oj")
@@ -45,56 +22,3 @@ texture = ExtResource("1_mp3a4")
 offset_right = 1288.0
 offset_bottom = 734.0
 color = Color(0, 0, 0, 0.780392)
-
-[node name="Tutorial_note" type="Node2D" parent="."]
-visible = false
-
-[node name="tutorialText" type="RichTextLabel" parent="Tutorial_note"]
-custom_minimum_size = Vector2(500, 300)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 700.0
-offset_top = 249.0
-offset_right = 1200.0
-offset_bottom = 549.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[center]Tap and hold mousebutton to create a  ductape and drag it over the crack, you have unlimited tapes. Tape all cracks to win this minigame [/center]"
-
-[node name="TextureRect" type="TextureRect" parent="Tutorial_note"]
-offset_left = 121.0
-offset_top = 75.0
-offset_right = 1145.0
-offset_bottom = 1099.0
-scale = Vector2(0.53, 0.53)
-texture = ExtResource("5_jl48k")
-
-[node name="ButtonTutorial" type="Button" parent="."]
-visible = false
-offset_left = 1058.0
-offset_top = 35.0
-offset_right = 1138.0
-offset_bottom = 115.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_ga7t0")
-theme_override_styles/hover = SubResource("StyleBoxTexture_rkbfu")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_jlg2c")
-
-[node name="ButtonQuit" type="Button" parent="."]
-visible = false
-offset_left = 1145.0
-offset_top = 33.0
-offset_right = 1225.0
-offset_bottom = 113.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_u3uen")
-theme_override_styles/hover = SubResource("StyleBoxTexture_atn8g")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_12swh")
-
-[connection signal="pressed" from="ButtonTutorial" to="." method="_on_button_tutorial_pressed"]
-[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]

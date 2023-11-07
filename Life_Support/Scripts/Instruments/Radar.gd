@@ -11,7 +11,7 @@ var monsterCurrSpeed = monsterSpeed
 var timer = 0
 var monsterDir = false;
 
-var spawnPoints = [0.90, -0.90]
+var spawnPoints = [0.70, -0.70]
 
 var spinner
 var monster

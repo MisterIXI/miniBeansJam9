@@ -99,6 +99,11 @@ func __process_dragging_tape(event):
 func __check_for_fixed():
 	await get_tree().process_frame
 	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
 	var fixed = true
 	for crack in _cracks:
 		if !crack.is_covered:
@@ -106,6 +111,7 @@ func __check_for_fixed():
 			break
 	if fixed:
 		emit_signal("finish")
+		
 		print("all fixed")
 
 

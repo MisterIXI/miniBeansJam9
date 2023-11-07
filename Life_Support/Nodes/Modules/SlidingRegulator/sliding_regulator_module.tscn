@@ -80,11 +80,16 @@ offset_top = 137.0
 offset_right = 377.0
 offset_bottom = 587.0
 
+[node name="MarginContainer" parent="CanvasLayer/Tutorial_note/SliderBox" index="0"]
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 300
+
 [node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox/MarginContainer" index="0"]
 modulate = Color(0, 1, 0, 1)
 expand_mode = 1
 
 [node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox/SliderMarginCont" index="0"]
+value = 76.0
 editable = false
 scrollable = false
 
@@ -94,10 +99,15 @@ offset_top = 137.0
 offset_right = 517.0
 offset_bottom = 587.0
 
+[node name="MarginContainer" parent="CanvasLayer/Tutorial_note/SliderBox2" index="0"]
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 350
+
 [node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox2/MarginContainer" index="0"]
 modulate = Color(0, 1, 0, 1)
 
 [node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox2/SliderMarginCont" index="0"]
+value = 90.0
 editable = false
 scrollable = false
 
@@ -107,10 +117,15 @@ offset_top = 137.0
 offset_right = 657.0
 offset_bottom = 587.0
 
+[node name="MarginContainer" parent="CanvasLayer/Tutorial_note/SliderBox3" index="0"]
+theme_override_constants/margin_top = 350
+theme_override_constants/margin_bottom = 50
+
 [node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox3/MarginContainer" index="0"]
 modulate = Color(0, 1, 0, 1)
 
 [node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox3/SliderMarginCont" index="0"]
+value = 10.0
 editable = false
 scrollable = false
 
@@ -120,10 +135,15 @@ offset_top = 137.0
 offset_right = 797.0
 offset_bottom = 587.0
 
+[node name="MarginContainer" parent="CanvasLayer/Tutorial_note/SliderBox4" index="0"]
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 390
+
 [node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox4/MarginContainer" index="0"]
 modulate = Color(0, 1, 0, 1)
 
 [node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox4/SliderMarginCont" index="0"]
+value = 100.0
 editable = false
 scrollable = false
 
@@ -146,10 +166,15 @@ offset_top = 137.0
 offset_right = 1077.0
 offset_bottom = 587.0
 
+[node name="MarginContainer" parent="CanvasLayer/Tutorial_note/SliderBox6" index="0"]
+theme_override_constants/margin_top = 380
+theme_override_constants/margin_bottom = 20
+
 [node name="TextureRect" parent="CanvasLayer/Tutorial_note/SliderBox6/MarginContainer" index="0"]
 modulate = Color(0, 1, 0, 1)
 
 [node name="VSlider" parent="CanvasLayer/Tutorial_note/SliderBox6/SliderMarginCont" index="0"]
+value = 3.0
 editable = false
 scrollable = false
 

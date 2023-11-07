@@ -1,11 +1,11 @@
 [gd_scene load_steps=34 format=3 uid="uid://djlvppio26xr4"]
 
 [ext_resource type="PackedScene" uid="uid://kba4atrqix4v" path="res://Nodes/submarine_level.tscn" id="1_jk0pa"]
-[ext_resource type="PackedScene" uid="uid://28q284e6ypcg" path="res://Nodes/player.tscn" id="2_wlyvn"]
+[ext_resource type="PackedScene" uid="uid://bykcmfou7jtur" path="res://Nodes/player.tscn" id="2_wlyvn"]
 [ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="3_75xgu"]
-[ext_resource type="PackedScene" path="res://Nodes/Instruments/height_sensor.tscn" id="3_f80ie"]
+[ext_resource type="PackedScene" uid="uid://c1pfqka4j4scf" path="res://Nodes/Instruments/height_sensor.tscn" id="3_f80ie"]
 [ext_resource type="PackedScene" uid="uid://ckxeb7o3rq2yr" path="res://Nodes/Water/ship_damage.tscn" id="4_r1xnm"]
-[ext_resource type="PackedScene" path="res://Nodes/Instruments/generator.tscn" id="6_5b8rk"]
+[ext_resource type="PackedScene" uid="uid://cg2rx786h5vuk" path="res://Nodes/Instruments/generator.tscn" id="6_5b8rk"]
 [ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="6_55j1d"]
 [ext_resource type="Texture2D" uid="uid://so6qh4f8lg0c" path="res://Assets/Textures/MinigameSprites/sliding_regulator.png" id="8_0gh7k"]
 [ext_resource type="PackedScene" uid="uid://dd660if3bqlve" path="res://Nodes/Modules/CircuitBreakers/cicruit_breaker_module.tscn" id="8_7q24u"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bnerrxg3teept" path="res://Nodes/Audio/audio_player.tscn" id="14_w5fvr"]
 [ext_resource type="PackedScene" uid="uid://cck3iest5f6qb" path="res://Nodes/Modules/CodeModule/code_module.tscn" id="15_o20di"]
 [ext_resource type="PackedScene" uid="uid://ua4sjor55qqj" path="res://Nodes/Modules/SirenWheel/siren_wheel_module.tscn" id="16_jw08t"]
-[ext_resource type="PackedScene" uid="uid://cn485umitfn3d" path="res://Nodes/Eventmanager/event_light.tscn" id="16_t2tk7"]
+[ext_resource type="PackedScene" path="res://Nodes/Eventmanager/event_light.tscn" id="16_t2tk7"]
 [ext_resource type="PackedScene" uid="uid://cegt8uqv7no21" path="res://Nodes/Modules/HoldButton/button_hold_module.tscn" id="16_xsftq"]
 [ext_resource type="Texture2D" uid="uid://dm3rxg3smfw2g" path="res://Assets/Textures/PosterMiniBeansJam2.png" id="18_tl6ci"]
 
