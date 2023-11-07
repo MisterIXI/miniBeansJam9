@@ -1,7 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cck3iest5f6qb"]
+[gd_scene load_steps=13 format=3 uid="uid://cck3iest5f6qb"]
 
 [ext_resource type="Script" path="res://CodeGrid.gd" id="1_dtpki"]
 [ext_resource type="Texture2D" uid="uid://ba25di1sksm40" path="res://Assets/Textures/UI/pipe_02.png" id="1_mjgk7"]
+[ext_resource type="Texture2D" uid="uid://cjdqcku8bxrnm" path="res://Assets/Textures/UI/QuestionButton.png" id="3_fpt8b"]
+[ext_resource type="Texture2D" uid="uid://sky7vmdqti3o" path="res://Assets/Textures/UI/QuestionButton_02.png" id="4_hvplq"]
+[ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="5_drpld"]
+[ext_resource type="Texture2D" uid="uid://cpfafexsldib8" path="res://Assets/Textures/UI/CloseButton_02.png" id="6_1n3r0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3qyg1"]
+texture = ExtResource("3_fpt8b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3b8ww"]
+texture = ExtResource("3_fpt8b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5y0qr"]
+texture = ExtResource("4_hvplq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6i76d"]
+texture = ExtResource("5_drpld")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_irk07"]
+texture = ExtResource("5_drpld")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ahse5"]
+texture = ExtResource("6_1n3r0")
 
 [node name="CodeModule" type="Node2D"]
 script = ExtResource("1_dtpki")
@@ -13,6 +35,144 @@ offset_right = 1277.0
 offset_bottom = 725.0
 texture = ExtResource("1_mjgk7")
 expand_mode = 1
+
+[node name="Tutorial_note" type="Node2D" parent="."]
+visible = false
+
+[node name="tutorialText" type="RichTextLabel" parent="Tutorial_note"]
+custom_minimum_size = Vector2(500, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 428.0
+offset_top = 132.0
+offset_right = 928.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Click the following number : 1,2,3,4,5,6,7,8,9 to win this minigame[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button1" type="Button" parent="Tutorial_note"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 45.0
+offset_top = 300.0
+offset_right = 195.0
+offset_bottom = 450.0
+scale = Vector2(0.75, 0.75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="Tutorial_note"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 182.0
+offset_top = 300.0
+offset_right = 332.0
+offset_bottom = 450.0
+scale = Vector2(0.75, 0.75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="Tutorial_note"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 322.0
+offset_top = 300.0
+offset_right = 472.0
+offset_bottom = 450.0
+scale = Vector2(0.75, 0.75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "3"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button4" type="Button" parent="Tutorial_note"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 456.0
+offset_top = 300.0
+offset_right = 606.0
+offset_bottom = 450.0
+scale = Vector2(0.75, 0.75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "4"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button5" type="Button" parent="Tutorial_note"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 591.0
+offset_top = 300.0
+offset_right = 741.0
+offset_bottom = 450.0
+scale = Vector2(0.75, 0.75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "5"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button6" type="Button" parent="Tutorial_note"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 725.0
+offset_top = 300.0
+offset_right = 875.0
+offset_bottom = 450.0
+scale = Vector2(0.75, 0.75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "6"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button7" type="Button" parent="Tutorial_note"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 859.0
+offset_top = 300.0
+offset_right = 1009.0
+offset_bottom = 450.0
+scale = Vector2(0.75, 0.75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "7"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button8" type="Button" parent="Tutorial_note"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 991.0
+offset_top = 300.0
+offset_right = 1141.0
+offset_bottom = 450.0
+scale = Vector2(0.75, 0.75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "8"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button9" type="Button" parent="Tutorial_note"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 1129.0
+offset_top = 300.0
+offset_right = 1279.0
+offset_bottom = 450.0
+scale = Vector2(0.75, 0.75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 100
+disabled = true
+text = "9"
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="."]
 offset_left = 431.0
@@ -85,9 +245,33 @@ theme_override_font_sizes/font_size = 100
 text = "9"
 
 [node name="RichTextLabel" type="Label" parent="."]
-offset_left = 345.0
-offset_top = 26.0
-offset_right = 1061.0
-offset_bottom = 168.0
+offset_left = 316.0
+offset_top = 18.0
+offset_right = 1032.0
+offset_bottom = 160.0
 theme_override_font_sizes/font_size = 50
-text = "Password: 1,2,3,4,5,6,7,8,9"
+text = "1 - 9"
+horizontal_alignment = 1
+
+[node name="ButtonTutorial" type="Button" parent="."]
+offset_left = 1089.0
+offset_top = 30.0
+offset_right = 1169.0
+offset_bottom = 110.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_3qyg1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3b8ww")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5y0qr")
+
+[node name="ButtonQuit" type="Button" parent="."]
+offset_left = 1176.0
+offset_top = 28.0
+offset_right = 1256.0
+offset_bottom = 108.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_6i76d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_irk07")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ahse5")
+
+[connection signal="pressed" from="ButtonTutorial" to="." method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]

@@ -7,9 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# move_and_collide(Vector2.ZERO)
-	pass
+
 
 func cover_crack():
 	if !is_covered:

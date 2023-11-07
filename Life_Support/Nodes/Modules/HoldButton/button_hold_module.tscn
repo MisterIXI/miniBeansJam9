@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cegt8uqv7no21"]
+[gd_scene load_steps=17 format=3 uid="uid://cegt8uqv7no21"]
 
 [ext_resource type="Script" path="res://Scripts/Modules/button_hold_module.gd" id="1_pkhj3"]
 [ext_resource type="Texture2D" uid="uid://coif7dpyh0k6v" path="res://Assets/Textures/UI/Button_Minigame.png" id="2_374v2"]
 [ext_resource type="Texture2D" uid="uid://cs7s5k8sug0tj" path="res://Assets/Textures/UI/Button_pressed_Minigame.png" id="3_ces5o"]
 [ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="4_7k1c3"]
+[ext_resource type="Texture2D" uid="uid://cjdqcku8bxrnm" path="res://Assets/Textures/UI/QuestionButton.png" id="4_u74eh"]
+[ext_resource type="Texture2D" uid="uid://sky7vmdqti3o" path="res://Assets/Textures/UI/QuestionButton_02.png" id="5_164nf"]
 [ext_resource type="Texture2D" uid="uid://cpfafexsldib8" path="res://Assets/Textures/UI/CloseButton_02.png" id="5_cup8d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ro7o2"]
@@ -14,6 +16,15 @@ texture = ExtResource("2_374v2")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvvl8"]
 texture = ExtResource("3_ces5o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2el0"]
+texture = ExtResource("4_u74eh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bw6sw"]
+texture = ExtResource("4_u74eh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qyn5a"]
+texture = ExtResource("5_164nf")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y7woo"]
 texture = ExtResource("4_7k1c3")
@@ -27,6 +38,29 @@ texture = ExtResource("5_cup8d")
 [node name="ButtonHoldModule" type="Node2D"]
 script = ExtResource("1_pkhj3")
 charge_speed = 15
+
+[node name="Tutorial_note" type="Node2D" parent="."]
+visible = false
+
+[node name="tutorialText" type="RichTextLabel" parent="Tutorial_note"]
+custom_minimum_size = Vector2(500, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 787.0
+offset_top = 179.0
+offset_right = 1287.0
+offset_bottom = 479.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.91, 0.91)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Click on the button and hold to get Energy.
+
+If you reach 100%,  you win the mini game[/center]"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 426.0
@@ -53,7 +87,17 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ro7o2")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ldr3s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_gvvl8")
 
-[node name="Button3" type="Button" parent="."]
+[node name="ButtonTutorial" type="Button" parent="."]
+offset_left = 991.0
+offset_top = 35.0
+offset_right = 1071.0
+offset_bottom = 115.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g2el0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bw6sw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qyn5a")
+
+[node name="ButtonQuit" type="Button" parent="."]
 offset_left = 1078.0
 offset_top = 33.0
 offset_right = 1158.0
@@ -63,4 +107,5 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_y7woo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dayhn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_5attt")
 
-[connection signal="pressed" from="Button3" to="." method="_on_x_button_pressed"]
+[connection signal="pressed" from="ButtonTutorial" to="." method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]

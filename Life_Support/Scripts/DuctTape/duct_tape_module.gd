@@ -4,10 +4,11 @@ extends Node2D
 @export var crack_node: PackedScene = null
 @export var tape_width: int = 150
 @export var crack_count: Vector2i = Vector2i(3, 8)
+@onready var tutorial_note = $Tutorial_note
 var _dragging_tape: bool = false
 var _tape: Node = null
 var _tape_start_pos: Vector2 = Vector2.ZERO
-
+var isTutorial: bool = false
 var _cracks = []
 
 const TAPE_OFFSET = 40
@@ -108,3 +109,17 @@ func __check_for_fixed():
 		print("all fixed")
 
 
+
+
+func _on_button_tutorial_pressed():
+	isTutorial = !isTutorial
+	if isTutorial:
+		
+		tutorial_note.show()
+	else:
+		
+		tutorial_note.hide()
+
+
+func _on_button_quit_pressed():
+	emit_signal("cancel")

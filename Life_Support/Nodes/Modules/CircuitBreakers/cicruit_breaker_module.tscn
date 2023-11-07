@@ -1,8 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd660if3bqlve"]
+[gd_scene load_steps=15 format=3 uid="uid://dd660if3bqlve"]
 
 [ext_resource type="Script" path="res://Scripts/Modules/CircuitBreakerModule.gd" id="1_137eb"]
 [ext_resource type="Texture2D" uid="uid://bxefywbx0mipw" path="res://Assets/Textures/UI/pipe_03.png" id="3_gu85o"]
 [ext_resource type="PackedScene" uid="uid://71l2tdql2yb" path="res://Nodes/Modules/CircuitBreakers/circuit_breaker.tscn" id="3_s12mr"]
+[ext_resource type="Texture2D" uid="uid://cjdqcku8bxrnm" path="res://Assets/Textures/UI/QuestionButton.png" id="4_gvlgm"]
+[ext_resource type="Texture2D" uid="uid://sky7vmdqti3o" path="res://Assets/Textures/UI/QuestionButton_02.png" id="5_qukgg"]
+[ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="6_vthjh"]
+[ext_resource type="Texture2D" uid="uid://cpfafexsldib8" path="res://Assets/Textures/UI/CloseButton_02.png" id="7_8ggvt"]
+[ext_resource type="Texture2D" uid="uid://c0lpt8x1l2df1" path="res://Assets/Textures/UI/pedal_on.png" id="8_j3ojt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btye0"]
+texture = ExtResource("4_gvlgm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5sr0j"]
+texture = ExtResource("4_gvlgm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6xr3"]
+texture = ExtResource("5_qukgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5xuy"]
+texture = ExtResource("6_vthjh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqpi7"]
+texture = ExtResource("6_vthjh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44k5f"]
+texture = ExtResource("7_8ggvt")
 
 [node name="CicruitBreakerModule" type="Node2D"]
 position = Vector2(1, 0)
@@ -18,9 +41,71 @@ scale = Vector2(1.25293, 0.704102)
 texture = ExtResource("3_gu85o")
 
 [node name="Label" type="Label" parent="Background"]
-offset_left = -215.894
-offset_top = -458.03
-offset_right = 308.106
-offset_bottom = -305.03
+offset_left = -251.81
+offset_top = -466.552
+offset_right = 272.19
+offset_bottom = -313.552
 theme_override_font_sizes/font_size = 50
-text = "Turn all Cicruits on"
+text = "Turn all on"
+horizontal_alignment = 1
+
+[node name="ButtonTutorial" type="Button" parent="Background"]
+offset_left = 322.843
+offset_top = -458.871
+offset_right = 402.843
+offset_bottom = -378.871
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_btye0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5sr0j")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f6xr3")
+
+[node name="ButtonQuit" type="Button" parent="Background"]
+offset_left = 409.843
+offset_top = -460.871
+offset_right = 489.843
+offset_bottom = -380.871
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_x5xuy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lqpi7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_44k5f")
+
+[node name="Tutorial_note" type="Node2D" parent="."]
+visible = false
+
+[node name="tutorialText" type="RichTextLabel" parent="Tutorial_note"]
+custom_minimum_size = Vector2(500, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 408.0
+offset_top = 244.0
+offset_right = 908.0
+offset_bottom = 544.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Click on the cicruit panel to change the state.
+
+If you turn all cicruits on, you win the mini game[/center]"
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial_note"]
+offset_left = 66.0
+offset_top = 198.0
+offset_right = 1090.0
+offset_bottom = 1222.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_j3ojt")
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial_note"]
+offset_left = 866.0
+offset_top = 204.0
+offset_right = 1890.0
+offset_bottom = 1228.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_j3ojt")
+
+[connection signal="pressed" from="Background/ButtonTutorial" to="." method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="Background/ButtonQuit" to="." method="_on_button_quit_pressed"]

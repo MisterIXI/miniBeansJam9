@@ -9,15 +9,15 @@ extends CharacterBody3D
 @onready var info_text = $Nek/Head/Eyes/CameraMain/ObjectUI_Raycast/InfoText
 @onready var eyes = $Nek/Head/Eyes
 # Variables  #
-var current_speed = 8.0
+@export var current_speed = 4
 # States
 var pstate_free_looking = false
 # Movement
-var lerp_speed = 10.0
+var lerp_speed = 10
 var free_look_tilt_amount = 3
 # Input
 var direction = Vector3.ZERO
-const mouse_sens = 0.4
+const mouse_sens = 0.3
 
 var interaction_target = null
 var is_reacting_to_input = true

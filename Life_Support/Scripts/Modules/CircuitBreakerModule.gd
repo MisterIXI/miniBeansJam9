@@ -4,7 +4,7 @@ extends Node2D
 @export var step_offset: Vector2 = Vector2(110, 110)
 @export var rows: int = 2
 @export var columns: int = 5
-
+@onready var tutorial_note = $Tutorial_note
 signal finish
 signal cancel
 signal failed
@@ -12,7 +12,7 @@ signal failed
 @export var circuit_breaker_node: PackedScene
 
 var _breakerlist: Array = []
-
+var isTutorial :bool = false
 
 func _ready():
 	var pos = start_offset
@@ -66,3 +66,18 @@ func react_to_breaker(active: bool, index: Vector2i):
 		if all_active:
 			finish.emit()
 			print("all breakers active")
+
+
+func _on_button_tutorial_pressed():
+	isTutorial = !isTutorial
+	if isTutorial:
+		for x in _breakerlist:
+			x.hide()
+			tutorial_note.show()
+	else:
+		for x in _breakerlist:
+			x.show()
+			tutorial_note.hide()
+
+func _on_button_quit_pressed():
+	emit_signal("cancel")

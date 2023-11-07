@@ -1,12 +1,14 @@
 extends Node2D
 @onready var _children = get_node("CanvasLayer/MarginContainer/HBoxContainer").get_children()
+@onready var tutorial_note = $CanvasLayer/Tutorial_note
+@onready var containerTut = $CanvasLayer/MarginContainer
 var _value_targets = []
 var _correctness = []
 
 signal finish
 signal failed
 signal cancel
-
+var isTutorial: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for x in range(len(_children)):
@@ -54,7 +56,17 @@ func is_all_correct():
 			return false
 	return true
 
+func _on_button_tutorial_pressed():
+	isTutorial = !isTutorial
+	if isTutorial:
+		containerTut.hide()
+		tutorial_note.show()
+	else:
+		containerTut.show()
+		tutorial_note.hide()
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
+func _on_button_quit_pressed():
+	emit_signal("cancel")
+	print("cancel")

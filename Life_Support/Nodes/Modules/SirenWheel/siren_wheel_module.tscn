@@ -1,7 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://ua4sjor55qqj"]
+[gd_scene load_steps=14 format=3 uid="uid://ua4sjor55qqj"]
 
 [ext_resource type="Script" path="res://Scripts/Modules/SirenWheel.gd" id="1_30mur"]
+[ext_resource type="Texture2D" uid="uid://cjdqcku8bxrnm" path="res://Assets/Textures/UI/QuestionButton.png" id="2_3exx6"]
 [ext_resource type="Texture2D" uid="uid://cokbsyim10tfh" path="res://Assets/Textures/UI/sirem_Wheel02.png" id="2_ff72s"]
+[ext_resource type="Texture2D" uid="uid://sky7vmdqti3o" path="res://Assets/Textures/UI/QuestionButton_02.png" id="3_oldix"]
+[ext_resource type="Texture2D" uid="uid://dr4af74nemlf7" path="res://Assets/Textures/UI/CloseButton.png" id="4_eitig"]
+[ext_resource type="Texture2D" uid="uid://cpfafexsldib8" path="res://Assets/Textures/UI/CloseButton_02.png" id="5_qen0j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aawy5"]
+texture = ExtResource("2_3exx6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_meak3"]
+texture = ExtResource("2_3exx6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8uuv"]
+texture = ExtResource("3_oldix")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nuopl"]
+texture = ExtResource("4_eitig")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7buq"]
+texture = ExtResource("4_eitig")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wxuay"]
+texture = ExtResource("5_qen0j")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npjer"]
 radius = 170.144
@@ -10,13 +32,54 @@ radius = 170.144
 script = ExtResource("1_30mur")
 progress_bar = NodePath("ProgressBar")
 
+[node name="Tutorial_note" type="Node2D" parent="."]
+visible = false
+
+[node name="tutorialText" type="RichTextLabel" parent="Tutorial_note"]
+custom_minimum_size = Vector2(300, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 968.0
+offset_top = 133.0
+offset_right = 1268.0
+offset_bottom = 333.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Drag the wheel and rotate it to the right side, to success this challenge[/center]"
+
 [node name="Label" type="Label" parent="."]
-offset_left = 448.0
-offset_top = 18.0
-offset_right = 981.0
-offset_bottom = 90.0
+offset_left = 431.0
+offset_top = 12.0
+offset_right = 964.0
+offset_bottom = 84.0
 theme_override_font_sizes/font_size = 50
-text = "Press, hold and rotate"
+text = "Rotate"
+horizontal_alignment = 1
+
+[node name="ButtonTutorial" type="Button" parent="."]
+offset_left = 1083.0
+offset_top = 33.0
+offset_right = 1163.0
+offset_bottom = 113.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_aawy5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_meak3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g8uuv")
+
+[node name="ButtonQuit" type="Button" parent="."]
+offset_left = 1170.0
+offset_top = 31.0
+offset_right = 1250.0
+offset_bottom = 111.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_nuopl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u7buq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wxuay")
 
 [node name="SirenWheel" type="StaticBody2D" parent="."]
 position = Vector2(707, 397)
@@ -38,5 +101,7 @@ offset_bottom = 512.0
 value = 32.07
 fill_mode = 3
 
+[connection signal="pressed" from="ButtonTutorial" to="." method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="SirenWheel" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SirenWheel" to="." method="_on_mouse_exited"]

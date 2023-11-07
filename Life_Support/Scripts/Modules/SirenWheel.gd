@@ -4,6 +4,7 @@ var is_mouse_over = false
 var last_mouse_pos = Vector2()
 var progress = 0.0
 @onready var wheel = get_node("SirenWheel")
+@onready var tutorial_note = $Tutorial_note
 ## progress_loss is the amount of progress lost per second
 @export var progress_loss: float = 4.0
 ## progress_gain is the amount of progress gained per degree of rotation
@@ -13,6 +14,7 @@ var progress = 0.0
 signal finish
 signal cancel
 signal failed
+var isTutorial: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,4 +62,17 @@ func _on_mouse_exited():
 
 
 func _on_button_pressed():
-	cancel.emit()
+	emit_signal("cancel")
+	print ("canceled")
+
+
+func _on_button_tutorial_pressed():
+	
+	isTutorial = !isTutorial
+	if isTutorial:
+		
+		tutorial_note.show()
+	else:
+		
+		tutorial_note.hide()
+	

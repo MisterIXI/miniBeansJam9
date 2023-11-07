@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwwc33y6i53hi"]
+[gd_scene load_steps=6 format=3 uid="uid://cwwc33y6i53hi"]
 
 [ext_resource type="Theme" uid="uid://b32w5x4g7q7o0" path="res://Assets/Textures/UI/theme.tres" id="1_1ru1g"]
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_i1v15"]
 [ext_resource type="StyleBox" uid="uid://cbylmou68dbqw" path="res://Assets/Textures/UI/style_boxy.tres" id="2_3kscv"]
 [ext_resource type="StyleBox" uid="uid://bsjbr8wm3qfsk" path="res://Assets/Textures/UI/style_box_hover.tres" id="3_1svqq"]
+[ext_resource type="Texture2D" uid="uid://cewyigniqqb01" path="res://Assets/Textures/UI/Highscore.png" id="5_a4x76"]
 
 [node name="HMenu" type="Control"]
 layout_mode = 3
@@ -89,6 +90,17 @@ theme_override_styles/normal = ExtResource("2_3kscv")
 theme_override_styles/hover = ExtResource("3_1svqq")
 text = "Credits"
 
+[node name="Button_Highscore" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1ru1g")
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.617389, 0.229252, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_3kscv")
+theme_override_styles/hover = ExtResource("3_1svqq")
+icon = ExtResource("5_a4x76")
+
 [node name="Button_Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -104,4 +116,5 @@ text = "Quit"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Settings" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Highscore" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button_Quit" to="." method="_on_quit_pressed"]
