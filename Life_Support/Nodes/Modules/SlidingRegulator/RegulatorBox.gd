@@ -42,6 +42,7 @@ func process_slider(id: int, value: float):
 		texture_rect.modulate = Color(1, 0, 0)
 	if is_all_correct():
 		print("all correct")
+		get_node("/root/MainScene/AudioPlayer/SFXCryoSuccess").play()
 		finish.emit()
 
 

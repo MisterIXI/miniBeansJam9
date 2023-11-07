@@ -36,7 +36,9 @@ func switch(state: bool, emit = true):
 		active = state
 		if state:
 			sprite.texture = sprite_active
+			get_node("/root/MainScene/AudioPlayer/SFXElectroOn").play()
 		else:
 			sprite.texture = sprite_inactive
+			get_node("/root/MainScene/AudioPlayer/SFXElectroOff").play()
 		if emit:
 			toggled.emit(active, index)

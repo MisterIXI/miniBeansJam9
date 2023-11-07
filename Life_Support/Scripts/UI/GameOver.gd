@@ -24,6 +24,8 @@ func _ready():
 
 
 func OnGameover(value: bool):
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
 	self.visible = true
 	if value:
 		winPanel.show()

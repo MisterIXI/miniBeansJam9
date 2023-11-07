@@ -9,7 +9,7 @@ func _ready():
 
 
 func ToggleLight(on: bool):
-	lamps.visible = on
+	lamps.set_deferred("visible", on)
 
 	if on:
 		$"../../AudioPlayer/SFXElectroOn".play()

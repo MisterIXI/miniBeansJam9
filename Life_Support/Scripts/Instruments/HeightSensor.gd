@@ -3,7 +3,7 @@ extends Node3D
 var maxHeight = -4500
 var currentHeight = -3000
 
-var motorSpeed = 15
+var motorSpeed = 20
 var sinkingSpeed = -5
 var currentMotorSpeed = motorSpeed
 
@@ -27,6 +27,8 @@ signal game_over
 var next_break_time
 const BREAK_RANGE = Vector2i(30, 50)
 
+@onready var generator = get_node("/root/MainScene/Instruments/Generator")
+
 func _ready():
 	heightBar = get_node("Heightbar")
 	label = get_node("HeightLabel")
@@ -35,9 +37,10 @@ func _ready():
 	containerPosBot = container.transform.origin.y - container.get_scale().y * 0.3
 
 	motorAlarmLamps = get_node("MotorAlarmLamps")
-	ToggleMotor(true)
 	next_break_time = randi() % (BREAK_RANGE.y - BREAK_RANGE.x) + BREAK_RANGE.x
 	circuit_breaker._module_fixed.connect(on_fix_module)
+	await get_tree().process_frame
+	ToggleMotor(true)
 
 
 
@@ -58,16 +61,14 @@ func on_fix_module():
 
 func UpdateHeightSensor(delta):
 	currentHeight += currentMotorSpeed * delta
-
+	label.text = str(round(currentHeight)) + "m"
 	if currentHeight <= maxHeight:
-		emit_signal("game_won")
+		get_node("/root/MainScene/Global_UI/GameOver").OnGameover(false)
 	elif currentHeight >= 0:
-		emit_signal("game_over")
+		get_node("/root/MainScene/Global_UI/GameOver").OnGameover(true)
 	else:
 		var nextPos = containerPosBot + (containerPosTop - containerPosBot) * (1 - (currentHeight / maxHeight))
 		heightBar.transform.origin = Vector3(heightBar.transform.origin.x , nextPos, heightBar.transform.origin.z)
-		label.text = str(round(currentHeight)) + "m"
-
 
 
 func MotorAlarm(delta):
@@ -88,8 +89,10 @@ func MotorAlarm(delta):
 
 func ToggleMotor(on: bool):
 	if on:
+		generator.ToggleLight(true)
 		currentMotorSpeed = motorSpeed
 		$"../../AudioPlayer/SFXMotor".play()
 	else:
+		generator.ToggleLight(false)
 		currentMotorSpeed = sinkingSpeed
 		$"../../AudioPlayer/SFXMotor".stop()

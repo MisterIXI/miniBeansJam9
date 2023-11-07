@@ -18,15 +18,17 @@ func _ready():
 	progress_bar = get_node("ProgressBar")
 	button.button_down.connect(Button_down)
 	button.button_up.connect(Button_up)
+		
+	
 
 
 func Button_down():
 	button_is_down = true
-
+	get_node("/root/MainScene/AudioPlayer/SFXHold").play()
 
 func Button_up():
 	button_is_down = false
-
+	get_node("/root/MainScene/AudioPlayer/SFXHold").stop()
 
 func _process(delta):
 	if button_is_down:

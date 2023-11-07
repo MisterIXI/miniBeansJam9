@@ -23,13 +23,13 @@ var GAMEVAR_ISPAUSED = false
 var _music
 var _sfx
 
+
 func _ready():
 	button_Resume.connect("pressed", self._on_resume_pressed)
 	if get_parent().name == "MainScene":
 		button_Start.connect("pressed", self._on_resume_pressed)
 		button_Resume.show()
 		button_Start.hide()
-		
 	else:
 		button_Start.connect("pressed", self._on_play_pressed)
 		button_Resume.hide()
@@ -87,7 +87,6 @@ func _on_v_slider_music_value_changed(value: float):
 	GAMEVAR_MUSIC_VOLUME = value / 100
 	print(GAMEVAR_MUSIC_VOLUME)
 	AudioServer.set_bus_volume_db(_music, linear_to_db(GAMEVAR_MUSIC_VOLUME))
-
 
 
 func _on_check_box_2_screen_toggled(button_pressed: bool):

@@ -38,6 +38,7 @@ func hide_button(id: int):
 
 func on_click(id: int):
 	if id == _current + 1:
+		get_node("/root/MainScene/AudioPlayer/SFXClick").play()
 		# on correct press
 		hide_button(id)
 		_current += 1
@@ -45,6 +46,7 @@ func on_click(id: int):
 			finish.emit()
 			reshuffle()
 	else:
+		get_node("/root/MainScene/AudioPlayer/SFXSuccess").play()
 		# on wrong press
 		reshuffle()
 		failed.emit()
