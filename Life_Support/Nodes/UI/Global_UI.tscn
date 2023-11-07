@@ -72,6 +72,9 @@ icon = ExtResource("5_genh7")
 text = ""
 icon = ExtResource("6_x2r7u")
 
+[node name="Button_Highscore" parent="HMenu/MarginContainer/VBoxContainer" index="6"]
+visible = false
+
 [node name="Button_Quit" parent="HMenu/MarginContainer/VBoxContainer" index="7"]
 text = ""
 icon = ExtResource("7_yebjc")
@@ -89,12 +92,12 @@ expand_mode = 1
 
 [node name="Label" type="Label" parent="HMenu"]
 layout_mode = 0
-offset_left = 84.0
-offset_top = 259.0
-offset_right = 304.0
-offset_bottom = 294.0
+offset_left = 931.0
+offset_top = 610.0
+offset_right = 1151.0
+offset_bottom = 645.0
 theme_override_font_sizes/font_size = 23
-text = "v1.1 post-jam Hotfix"
+text = "v1.2 post-jam Hotfix"
 
 [node name="TextureRect2" type="TextureRect" parent="HMenu"]
 custom_minimum_size = Vector2(1280, 720)
@@ -106,19 +109,30 @@ texture = ExtResource("10_yuyvv")
 expand_mode = 1
 
 [node name="SettingMenu" parent="." instance=ExtResource("5_e1p8v")]
-visible = false
 layout_mode = 1
-offset_left = 278.0
-offset_right = 278.0
+offset_left = 64.0
+offset_top = -30.0
+offset_right = 64.0
+offset_bottom = -30.0
 script = null
+
+[node name="Label4" parent="SettingMenu/MarginContainer/ContentContainer/HBoxContainerLabel" index="2"]
+visible = false
+
+[node name="VSeparator2" parent="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2" index="3"]
+visible = false
+
+[node name="CheckBox_Invert" parent="SettingMenu/MarginContainer/ContentContainer/HBoxContainer2" index="4"]
+visible = false
 
 [node name="CreditMenu" parent="." instance=ExtResource("6_f17na")]
 visible = false
 layout_mode = 1
-offset_left = 265.0
-offset_top = 251.0
-offset_right = 265.0
-offset_bottom = 251.0
+offset_left = 370.0
+offset_top = 242.0
+offset_right = 370.0
+offset_bottom = 242.0
+scale = Vector2(0.8, 0.8)
 script = null
 
 [node name="GameOver" type="Control" parent="."]
