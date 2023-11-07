@@ -4,6 +4,8 @@ extends Node2D
 @export var step_offset: Vector2 = Vector2(110, 110)
 @export var rows: int = 2
 @export var columns: int = 5
+## the count of broken breakers at the start of the module
+@export var broken_breakers: Vector2i = Vector2i(5,8)
 @onready var tutorial_note = $Tutorial_note
 signal finish
 signal cancel
@@ -28,7 +30,7 @@ func _ready():
 			breaker.toggled.connect(react_to_breaker)
 		pos.x = start_offset.x
 		pos.y += step_offset.y
-	break_random_breakers(3)
+	break_random_breakers(randi() % (broken_breakers.y - broken_breakers.x) + broken_breakers.x)
 
 
 func break_random_breakers(count: int):

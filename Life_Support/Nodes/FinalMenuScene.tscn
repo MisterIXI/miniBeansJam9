@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cpooobyvf5fxs" path="res://Nodes/UI/Global_UI.tscn" id="1_k5b8h"]
 [ext_resource type="PackedScene" uid="uid://kba4atrqix4v" path="res://Nodes/submarine_level.tscn" id="2_6yn0f"]
-[ext_resource type="PackedScene" uid="uid://c1pfqka4j4scf" path="res://Nodes/Instruments/height_sensor.tscn" id="3_rvy5o"]
+[ext_resource type="PackedScene" path="res://Nodes/Instruments/height_sensor.tscn" id="3_rvy5o"]
 [ext_resource type="PackedScene" uid="uid://ba6kwn24afgeu" path="res://Nodes/Instruments/radar.tscn" id="4_j3gao"]
 [ext_resource type="Script" path="res://Scripts/Instruments/radar_MENU.gd" id="4_ynsdi"]
 [ext_resource type="PackedScene" uid="uid://ckxeb7o3rq2yr" path="res://Nodes/Water/ship_damage.tscn" id="5_7iy3e"]
-[ext_resource type="PackedScene" uid="uid://cg2rx786h5vuk" path="res://Nodes/Instruments/generator.tscn" id="6_7l6gc"]
+[ext_resource type="PackedScene" path="res://Nodes/Instruments/generator.tscn" id="6_7l6gc"]
 [ext_resource type="PackedScene" uid="uid://p3x1ink4s4hg" path="res://Nodes/props/warning_light.tscn" id="7_j0nm8"]
 [ext_resource type="Texture2D" uid="uid://dm3rxg3smfw2g" path="res://Assets/Textures/PosterMiniBeansJam2.png" id="10_314bb"]
 [ext_resource type="PackedScene" uid="uid://bnerrxg3teept" path="res://Nodes/Audio/audio_player.tscn" id="14_wm8n0"]
