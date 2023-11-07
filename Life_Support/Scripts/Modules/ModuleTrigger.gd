@@ -10,6 +10,8 @@ extends StaticBody3D
 @onready var warn_light = get_node("EventLight")
 @onready var collider = get_node("CollisionShape3D")
 
+@onready var game_over = get_node("/root/MainScene/Global_UI/GameOver")
+
 signal _module_fixed
 signal _module_broken
 
@@ -52,7 +54,6 @@ func _process(delta):
 			life_pod = 0
 			interaction_text = "Life support offline - Inhabitant dead"
 			lifepod_dead = true
-			
 
 
 func break_module():
@@ -130,9 +131,11 @@ func connect_signals():
 	active_module.finish.connect(_finish)
 	active_module.cancel.connect(_cancel)
 	active_module.failed.connect(_failed)
+	game_over.cancel.connect(_cancel)
 
 
 func disconnect_signals():
 	active_module.finish.disconnect(_finish)
 	active_module.cancel.disconnect(_cancel)
 	active_module.failed.disconnect(_failed)
+	game_over.cancel.disconnect(_cancel)
